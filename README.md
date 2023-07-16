@@ -181,8 +181,7 @@ $ docker run -d -v /absolute/path:/var/www/html/data -v /absolute/path/index.php
     - Added About page.
     - Global UI fixes.
 
-`#version-1.1.0` 
-## Version 1.1.0:
+## Version 1.1.0: {#version-1.1.0}
 ## Homepage
 - Loading the "menu" of the site from the database.
 - Support log count.
