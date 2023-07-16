@@ -25,22 +25,6 @@ StudentsPortal is highly documented on the [guide](https://github.com/sharon846/
 - You should have domain and some hosting plan (or on your own server), with mysql databases support.
 - Recommended: some grep tool. In windows: grepWin. In linux it should be default
 
-## How to use
-
-1. Download ZIP with latest version from master branch. Extract it.
-
-2. Using grep, 
-
-Default username/password: **admin/admin@123** and **user/12345**.
-
-:warning: Warning: Please set your own username and password in `$auth_users` before use. password is encrypted with <code>password_hash()</code>. to generate new password hash [here](https://tinyfilemanager.github.io/docs/pwd.html)
-
-To enable/disable authentication set `$use_auth` to true or false.
-
-:information_source: Add your own configuration file [config.php](https://tinyfilemanager.github.io/config-sample.txt) in the same folder to use as additional configuration file.
-
-:information_source: To work offline without CDN resources, use [offline](https://github.com/prasathmani/tinyfilemanager/tree/offline) branch
-
 ### :loudspeaker: Features
 
 - :cd: Open Source, light and extremely simple
@@ -59,57 +43,29 @@ To enable/disable authentication set `$use_auth` to true or false.
 - :globe_with_meridians: Multi-language(32+) support and for translations `translation.json` is file required
 - :bangbang: lots more...
 
-## Deploy by Docker
 
-Make sure you have **already installed docker**, [Install reference](https://docs.docker.com/engine/install/)
+## How to use
 
-> **Notice:** Your need an absolute path, and it will be served by tinyfilemanager.
-> 
-> If you want to serve this project at **raspberry pi or another special platform**, you can download project and **build image by yourself**.
+1. Download ZIP with latest version from master branch. Extract it.
 
-You can execute this following commands:
+2. Using grep, do the following replaces in all files:
+   - ROOT_PATH, with the path to the main site directory. For example (of hostinger), it should be /home/u#id/domains/domain/public_html
+   - DOMAIN, with your domain adress.
+   - SESSION_NAME, with a session name for your choice.
+     
+3. Edit the file "site_manager/pdoconfig.php" Insert there your Credentials to the database.
+   - If you want to change the admin user, it should be synced with more files, in few steps.
 
-```shell
-$ docker run -d -v /absolute/path:/var/www/html/data -p 80:80 --restart=always --name tinyfilemanager tinyfilemanager/tinyfilemanager:master
-$ docker ps
-CONTAINER ID   IMAGE                                COMMAND                  CREATED         STATUS         PORTS                                       NAMES
-648dfba9c0ff   tinyfilemanager/tinyfilemanager:master   "docker-php-entrypoi…"   4 minutes ago   Up 4 minutes   0.0.0.0:80->80/tcp, :::80->80/tcp           tinyfilemanager
-```
-Access `http://127.0.0.1/` and enter default username and password, then enjoy it.
+# site manager
+In the site manager directory which inspired by the amazing [tinyfilemanager](https://tinyfilemanager.github.io/) your have config.php. 
+Default username/password: **admin/admin123** and **editor/editor123**.
 
-DockerHub: [https://hub.docker.com/r/tinyfilemanager/tinyfilemanager](https://hub.docker.com/r/tinyfilemanager/tinyfilemanager)
+:warning: Warning: Please set your own username and password in `$auth_users` before use. password is encrypted with <code>password_hash()</code>. to generate new password hash [here](https://tinyfilemanager.github.io/docs/pwd.html)
 
-#### How to change config within docker
+To enable/disable authentication set `$use_auth` to true or false.
 
-Origin:
-
-```php
-// Root path for file manager
-// use absolute path of directory i.e: '/var/www/folder' or $_SERVER['DOCUMENT_ROOT'].'/folder'
-$root_path = $_SERVER['DOCUMENT_ROOT'];
-
-// Root url for links in file manager.Relative to $http_host. Variants: '', 'path/to/subfolder'
-// Will not working if $root_path will be outside of server document root
-$root_url = '';
-```
-
-Modified:
-
-```php
-// Root path for file manager
-// use absolute path of directory i.e: '/var/www/folder' or $_SERVER['DOCUMENT_ROOT'].'/folder'
-$root_path = $_SERVER['DOCUMENT_ROOT'].'/data';
-
-// Root url for links in file manager.Relative to $http_host. Variants: '', 'path/to/subfolder'
-// Will not working if $root_path will be outside of server document root
-$root_url = 'data/';
-```
-
-Then, change another config what you want, and add a new volume `-v /absolute/path/index.php:/var/www/html/index.php` in `docker run` command, like this:
-
-```shell
-$ docker run -d -v /absolute/path:/var/www/html/data -v /absolute/path/index.php:/var/www/html/index.php -p 80:80 --restart=always --name tinyfilemanager tinyfilemanager/tinyfilemanager:master
-```
+:information_source: You may edit any configuration you want there. 
+:information_source: The editor will be able to access the file manager, only to the site directory (where the materials drive is located). Admin has access to the entire website, including the admin's panel.
 
 ### Change Log
 
