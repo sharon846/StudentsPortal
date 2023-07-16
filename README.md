@@ -61,7 +61,7 @@ StudentsPortal is highly documented on the [guide](https://github.com/sharon846/
 5. In your database admin (i.e. phpmyadmin) Import an empty database with the required tables (template is under database folder, make sure to not upload it to your site).
 
 
-## # site manager
+## site manager
 In the site manager directory which inspired by the amazing [tinyfilemanager](https://tinyfilemanager.github.io/) your have config.php. 
 Default username/password: **admin/admin123** and **editor/editor123**. The admin's password is synched with the one from step 3.
 
