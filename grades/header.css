@@ -1,0 +1,202 @@
+* {
+  box-sizing: border-box;
+}
+
+.heading {
+  font-size: 25px;
+  margin-left: 25px;
+  left:81%;
+  position:relative;
+}
+
+body{
+    width: 100%;
+}
+
+.fa {
+  font-size: 25px;
+}
+
+.checked {
+  color: orange;
+}
+
+/* Three column layout */
+.side {
+  float: left;
+  width: 15%;
+  margin-top:10px;
+}
+
+.middle {
+  margin-top:10px;
+  float: left;
+  width: 70%;
+}
+
+/* Place text to the right */
+.right {
+  text-align: right;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The bar container */
+.bar-container {
+  width: 100%;
+  background-color: #f1f1f1;
+  text-align: center;
+  color: white;
+}
+
+form#frm{
+    border-radius: 9999px;
+    width: 64%;
+    left: 20%;
+    position: absolute;
+    height: 59%;
+    top: 23%;
+}
+
+div#mode{
+    width: 1rem;
+    height: 2rem;
+    cursor: pointer;
+    position: absolute;
+    right: 5%;
+    top: 30%;
+    border-radius: 9999px;
+    background-color: rgba(15,23,42,0.3);
+}
+
+@media (max-width: 400px) {
+  .side, .middle {
+    width: 100%;
+  }
+  .right {
+    display: none;
+  }
+}
+
+.sub { margin-left: 20px; border-left: solid 5px #ECE9E9; display: none; }
+		
+	a.directory{ color: white;left:0px;font-family: Arial;font-size: 13px;top: 33%;float: left;}
+		
+	.cover-panel {
+        position:fixed;
+        width:100%;
+        left:0;right:0;top:0;bottom:0;
+        background-color: rgba(0,0,0,0.7);
+        z-index:9999;
+        display:none;
+    }
+        
+    @-webkit-keyframes spin {
+    	from {-webkit-transform:rotate(0deg);}
+    	to {-webkit-transform:rotate(360deg);}
+    }
+        
+    @keyframes spin {
+    	from {transform:rotate(0deg);}
+    	to {transform:rotate(360deg);}
+    }
+        
+    .cover-spin::after {
+        content:'';
+        display:block;
+        position:absolute;
+        left:48%;top:40%;
+        width:40px;height:40px;
+        border-style:solid;
+        border-color:black;
+        border-top-color:transparent;
+        border-width: 4px;
+        border-radius:50%;
+        -webkit-animation: spin .8s linear infinite;
+        animation: spin .8s linear infinite;
+    }
+        
+    #snackbar {
+      visibility: hidden;
+      min-width: 250px;
+      margin-left: -125px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 2px;
+      padding: 16px;
+      position: fixed;
+      z-index: 1;
+      left: 50%;
+          bottom: 30px;
+          font-size: 17px;
+        }
+        
+        #snackbar.show {
+          visibility: visible;
+          -webkit-animation: fadein 0.5s, fadeout 0.5s 4.5s;
+          animation: fadein 0.5s, fadeout 0.5s 4.5s;
+        }
+        
+        @-webkit-keyframes fadein {
+          from {bottom: 0; opacity: 0;} 
+          to {bottom: 30px; opacity: 1;}
+        }
+        
+        @keyframes fadein {
+          from {bottom: 0; opacity: 0;}
+          to {bottom: 30px; opacity: 1;}
+        }
+        
+        @-webkit-keyframes fadeout {
+          from {bottom: 30px; opacity: 1;} 
+          to {bottom: 0; opacity: 0;}
+        }
+        
+        @keyframes fadeout {
+          from {bottom: 30px; opacity: 1;}
+          to {bottom: 0; opacity: 0;}
+        }
+		
+		body.dark { background: #1d1c1c; color: #fff; }
+		body.dark h1 { color: #fff; }
+		body.dark label { color: #fff; }
+		body.dark .wrap { background: #2b2a2a; }
+		body.dark .block { border-top: solid 1px #666; }
+		body.dark .block a:hover, body.dark .block a.open { background: #000; }
+		body.dark .note { color: #fff; }
+		body.dark .block .data { color: #fff; }
+		body.dark .sub { border-left: solid 5px #0e0e0e; }
+		
+		a.hover:hover { color: rgb(203,213,225); }
+		a.hover { color:white; }
+		.transform { --tw-translate-x: -0.05rem; --tw-translate-y: -0.5rem; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));}
+		
+		header { background-color: rgb(2,132,199); }
+		form { background-color: rgba(3,105,161); border-radius: 30px; }
+		#lamp { color: rgb(251,191,36); }
+		hr { border-color: rgb(14,165,233); }
+		
+		body.dark header { background-color: rgb(109,40,217); }
+		body.dark .transform{ --tw-translate-y: 1.2rem; }
+		body.dark form { background-color: rgb(91,33,182); }
+		body.dark hr { border-color: rgb(124,58,237); }
+		body.dark #lamp { color: rgb(71,85,105); }
+        
+        ::placeholder { color: black;}
+        body.dark ::placeholder { color: white;}
+        
+        span.ad{
+            position: absolute;
+            top: 25%;
+            color: white;
+            text-align: center;
+            width: 100%;
+        }
+        
+        

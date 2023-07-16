@@ -1,0 +1,73 @@
+span, p, h1, h2, h3 { direction:rtl; }
+
+
+.dropdown-container {
+      width: 350px;
+      position: absolute;
+      margin-bottom: 25px;
+      display: inline-block;
+      direction: rtl;
+      right: 0px;
+      padding-top: 1em;
+      padding-right: 4em;
+    }   
+    
+    select {
+      width: 100%;
+      height: 50px;
+      font-size: 100%;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 30px;
+      background-color: #0664aa;
+      border: none;
+      border-bottom: 2px solid #043d67;
+      color: white;
+      appearance: none;
+      padding: 10px;
+      padding-right: 38px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      transition: color 0.3s ease, background-color 0.3s ease, border-bottom-color 0.3s ease;
+    }
+
+    /* For IE <= 11 */
+    select::-ms-expand {
+      display: none; 
+    }
+
+    .select-icon {
+      position: absolute;
+      top: 23px;
+      right: 74px;
+      width: 18px;
+      height: 36px;
+      pointer-events: none;
+      padding-left: 5px;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+    .select-icon svg.icon {
+      transition: fill 0.3s ease;
+      fill: white;
+    }
+
+    select:hover,
+    select:focus {
+      color: #0664aa;
+      background-color: white;
+      border-bottom-color: #DCDCDC;
+    }
+    select:hover ~ .select-icon,
+    select:focus ~ .select-icon {
+      background-color: white;
+      border-color: #DCDCDC;
+    }
+    select:hover ~ .select-icon svg.icon,
+    select:focus ~ .select-icon svg.icon {
+      fill: #0664aa;
+    }
+    
+
+*{
+    font-family: Arial;
+}

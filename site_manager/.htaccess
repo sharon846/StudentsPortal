@@ -1,0 +1,13 @@
+Allow From All
+<FilesMatch "clear_logs.php">
+Deny from all
+</FilesMatch>
+<FilesMatch "config.php">
+Deny from all
+</FilesMatch>
+<FilesMatch "pdoconfig.php">
+Deny from all
+</FilesMatch>
+<FilesMatch ".log$">
+Deny from all
+</FilesMatch>

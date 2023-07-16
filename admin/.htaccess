@@ -1,0 +1,4 @@
+AuthName "Dialog prompt"
+AuthType Basic
+AuthUserFile ROOT_PATH/admin/.htpasswd
+Require valid-user
