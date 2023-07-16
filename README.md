@@ -111,16 +111,7 @@ Then, change another config what you want, and add a new volume `-v /absolute/pa
 $ docker run -d -v /absolute/path:/var/www/html/data -v /absolute/path/index.php:/var/www/html/index.php -p 80:80 --restart=always --name tinyfilemanager tinyfilemanager/tinyfilemanager:master
 ```
 
-#### Stop running
-
-If you want to stop a running docker service, or you want to restart a service, you should stop it first, or you got `docker: Error response from daemon: Conflict. The container name "/tinyfilemanager" is already in use by container ...` problem. You can execute this command:
-
-```shell
-$ docker rm -f tinyfilemanager
-```
-```markdown
-
-#### Stop running
+#### Change Log
 
 ## Version 9.7.1:
 - Added validation before uploading.
@@ -302,9 +293,6 @@ $ docker rm -f tinyfilemanager
 - Can remove a course or add a new one at the bottom.
 - Supports global changing of course names.
 - Support generating WhatsApp links.
-```
-
-I have added appropriate headings and subheadings to improve the readability of the document. Feel free to adjust the formatting according to your preferences.
 
 ### <a name=license></a>License, Credit
 
