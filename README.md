@@ -1,6 +1,6 @@
 # StudentsPortal
-[![Live demo](https://img.shields.io/badge/Live-Demo-brightgreen.svg?style=flat-square)](https://tinyfilemanager.github.io/demo/)
-[![Live demo](https://img.shields.io/badge/Help-Docs-lightgrey.svg?style=flat-square)](https://github.com/prasathmani/tinyfilemanager/wiki)
+[![Live demo](https://img.shields.io/badge/Live-Demo-brightgreen.svg?style=flat-square)](https://www.srworkspace.com/StudentsPortal)
+[![Documentation](https://img.shields.io/badge/Help-Docs-lightgrey.svg?style=flat-square)](https://github.com/sharon846/StudentsPortal/guide.pdf)
 [![GitHub Release](https://img.shields.io/github/release/prasathmani/tinyfilemanager.svg?style=flat-square)](https://github.com/prasathmani/tinyfilemanager/releases)
 [![GitHub License](https://img.shields.io/github/license/prasathmani/tinyfilemanager.svg?style=flat-square)](https://github.com/prasathmani/tinyfilemanager/blob/master/LICENSE)
 [![Paypal](https://img.shields.io/badge/Donate-Paypal-lightgrey.svg?style=flat-square)](https://www.paypal.me/sharon)
@@ -14,7 +14,7 @@
 
 ## Documentation
 
-StudentsPortal is highly documented on the [guide](https://github.com/sharon846/StudentsPortal/demo/guide.pdf) and on Version 1.1.0 Down [here](#version-1.1.0)
+StudentsPortal is highly documented on the [guide](https://github.com/sharon846/StudentsPortal/guide.pdf) and on Version 1.1.0 Down [here](#version-1.1.0)
 
 [![StudentsPortal](demo/screenshot.png)](demo/screenshot.png)
 
