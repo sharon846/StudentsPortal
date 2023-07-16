@@ -1,4 +1,4 @@
-# StudentsPortal
+![image](https://github.com/sharon846/StudentsPortal/assets/62396923/b6396b7a-4b3e-4052-9839-cd7f32ddb6e2)# StudentsPortal
 [![Live demo](https://img.shields.io/badge/Live-Demo-brightgreen.svg?style=flat-square)](https://www.srworkspace.com/StudentsPortal)
 [![Documentation](https://img.shields.io/badge/Help-Docs-lightgrey.svg?style=flat-square)](https://github.com/sharon846/StudentsPortal/guide.pdf)
 [![GitHub Release](https://img.shields.io/github/release/prasathmani/tinyfilemanager.svg?style=flat-square)](https://github.com/prasathmani/tinyfilemanager/releases)
@@ -29,20 +29,15 @@ StudentsPortal is highly documented on the [guide](https://github.com/sharon846/
 
 - :cd: Open Source, light and extremely simple
 - :iphone: Mobile friendly view for touch devices
-- :information_source: Basic features likes Create, Delete, Modify, View, Download, Copy and Move files
-- :arrow_double_up: Ajax Upload, Ability to drag & drop, upload from URL, multiple files upload with file extensions filter
-- :file_folder: Ability to create folders and files
-- :gift: Ability to compress, extract files (`zip`, `tar`)
-- :sunglasses: Support user permissions - based on session and each user root folder mapping
-- :floppy_disk: Copy direct file URL
-- :pencil2: Cloud9 IDE - Syntax highlighting for over `150+` languages, Over `35+` themes with your favorite programming style
-- :page_facing_up: Google/Microsoft doc viewer helps you preview `PDF/DOC/XLS/PPT/etc`. 25 MB can be previewed with the Google Drive viewer
-- :zap: Backup files and IP blacklist and whitelist
-- :mag_right: Search - Search and filter files using `datatable js`
-- :file_folder: Exclude folders and files from listing
-- :globe_with_meridians: Multi-language(32+) support and for translations `translation.json` is file required
-- :bangbang: lots more...
-
+- :file_folder: Drive of materials with nice UI.
+- ⏫: Option to upload mateirals, easily and anonymously.
+- 💯: Grades panel, by lecturer / course (and year).
+- 📄: Ranker page, where students can write (and rank) reviewes on courses / lecturers
+- ✏️: Contacting forum
+  
+- 😎: Admin panel, to manage the entire site data.
+- 🌐: Site manager, where can easily edit source files, manage files.
+- :bangbang: lots more..
 
 ## How to use
 
