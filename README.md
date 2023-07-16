@@ -120,7 +120,7 @@ $ docker rm -f tinyfilemanager
 ```
 ```markdown
 
-## Change Log
+#### Stop running
 
 ## Version 9.7.1:
 - Added validation before uploading.
