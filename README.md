@@ -14,7 +14,7 @@
 
 ## Documentation
 
-StudentsPortal is highly documented on the [guide](https://github.com/sharon846/StudentsPortal/guide.pdf) and on Version 1.1.0 Down [here](#version-1.1.0)
+StudentsPortal is highly documented on the [guide](https://github.com/sharon846/StudentsPortal/guide.pdf) and on Version 1.1.0 Down [here](#version-110)
 
 [![StudentsPortal](screenshot.png)](screenshot.png)
 
