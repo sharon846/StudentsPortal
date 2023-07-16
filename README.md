@@ -1,4 +1,4 @@
-![image](https://github.com/sharon846/StudentsPortal/assets/62396923/b6396b7a-4b3e-4052-9839-cd7f32ddb6e2)# StudentsPortal
+StudentsPortal
 [![Live demo](https://img.shields.io/badge/Live-Demo-brightgreen.svg?style=flat-square)](https://www.srworkspace.com/StudentsPortal)
 [![Documentation](https://img.shields.io/badge/Help-Docs-lightgrey.svg?style=flat-square)](https://github.com/sharon846/StudentsPortal/guide.pdf)
 [![GitHub Release](https://img.shields.io/github/release/prasathmani/tinyfilemanager.svg?style=flat-square)](https://github.com/prasathmani/tinyfilemanager/releases)
