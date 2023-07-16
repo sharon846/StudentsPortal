@@ -63,7 +63,7 @@ StudentsPortal is highly documented on the [guide](https://github.com/sharon846/
    - Adjust the collation, charset (within the entire db file)
    - Import the database to your platform (i.e. phpmyadmin).
    
-6.  Make sure to remove databases folder, guide.pdf, screenshot.png.
+6.  Make sure to remove databases folder, guide.pdf, screenshot.png, README.md
 
 ## Site manager
 In the site manager directory which inspired by the amazing [tinyfilemanager](https://tinyfilemanager.github.io/) your have config.php. 
