@@ -24,7 +24,7 @@ body { font-size:14px;color:#222;background:#F7F7F7; }
         .fa.fa-restore:before { content: "\2397"; }
         .fa.fa-users-admin:before { content: "\f29a"; }
         .fa.fa-lightbulb-o{border-radius: 50%;}
-        .fa.fa-browse-domain:before { content:"\235F"; margin-left:-0.5em; margin-right:0.5em; }
+        .fa.fa-browse-SITE_DOMAIN:before { content:"\235F"; margin-left:-0.5em; margin-right:0.5em; }
         .path { margin-bottom:10px  }
         form.dropzone { min-height:200px;border:2px dashed #007bff;line-height:6rem; }
         .right { text-align:right  }

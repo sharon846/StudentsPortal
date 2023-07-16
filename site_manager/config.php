@@ -46,10 +46,10 @@ $default_timezone = 'Asia/Jerusalem'; // UTC
 
 // Root path for file manager
 // use absolute path of directory i.e: '/var/www/folder' or $_SERVER['DOCUMENT_ROOT'].'/folder'
-$SITE_PATH = $_SERVER['DOCUMENT_ROOT']."/site";
+$root_path = $_SERVER['DOCUMENT_ROOT']."/StudentsPortal/site";
 
 // Root url for links in file manager.Relative to $http_host. Variants: '', 'path/to/subfolder'
-// Will not working if $SITE_PATH will be outside of server document root
+// Will not working if $root_path will be outside of server document root
 $root_url = '';
 
 // Server hostname. Can set manually if wrong
@@ -58,8 +58,8 @@ $http_host = $_SERVER['HTTP_HOST'];
 // user specific directories
 // array('Username' => 'Directory path', 'Username2' => 'Directory path', ...)
 $directories_users = array(
-"editor" =>  $_SERVER['DOCUMENT_ROOT']."/site", 
-"admin" =>  $_SERVER['DOCUMENT_ROOT']);
+"editor" =>  $_SERVER['DOCUMENT_ROOT']."/StudentsPortal/site", 
+"admin" =>  $_SERVER['DOCUMENT_ROOT']."/StudentsPortal");
 
 // input encoding for iconv
 $iconv_input_encoding = 'UTF-8';

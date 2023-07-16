@@ -24,7 +24,7 @@ $ignore_file_list = array('.htaccess','.htaccess-con','index.php', 'trash', 'wor
 $sort_by = "name_asc"; // options: name_asc, name_desc, date_asc, date_desc
 	
 // ICON URL
-$icon_url = file_get_contents("http://DOMAIN/site_manager/icons");
+$icon_url = file_get_contents("http://SITE_DOMAIN/site_manager/icons");
 	
 // FORCE DOWNLOAD ATTRIBUTE
 $force_download = false;
@@ -32,15 +32,15 @@ $force_download = false;
 $server_root = 'SITE_PATH/';
 $curr_dir = getcwd();
 $representive_dir = str_replace($server_root, "", $curr_dir);
-$representive_url = $_SERVER['REQUEST_SCHEME'].'://DOMAIN/'.$representive_dir;
-$base_url = $_SERVER['REQUEST_SCHEME'].'://DOMAIN';
+$representive_url = $_SERVER['REQUEST_SCHEME'].'://SITE_DOMAIN/'.$representive_dir;
+$base_url = $_SERVER['REQUEST_SCHEME'].'://SITE_DOMAIN';
 
 @set_time_limit(3600);
 session_name("SESSION_NAME");
 session_start();
 
 if (!isset($_SESSION["SESSION_NAME"])){
-    header("Location: http://DOMAIN/login/index.php?referer=$representive_url/");
+    header("Location: http://SITE_DOMAIN/login/index.php?referer=$representive_url/");
     exit();
 }
 
@@ -212,8 +212,8 @@ log_data($representive_dir, $_SESSION['SESSION_NAME']["mail"]);
 <header id="header" style="height: 100px; position: absolute; width: 100%; top: 0%;">
     <div style="width: 100%; height: 100%">
         <div style="width: 100%; height: 62%; top: 0%; position: absolute;">
-            <a class="hover" href="http://DOMAIN/site/uploads" title="Directory Lister" style="position: absolute; top: 15%; left: 4%; width: 50px; height:30px;">
-                <img width="100%" src="http://DOMAIN/img/upload.png"/>
+            <a class="hover" href="http://SITE_DOMAIN/site/uploads" title="Directory Lister" style="position: absolute; top: 15%; left: 4%; width: 50px; height:30px;">
+                <img width="100%" src="http://SITE_DOMAIN/img/upload.png"/>
             </a>
         
             <form onsubmit="return false" style="border-radius: 9999px; width: 64%;left: 20%;position: absolute;height: 59%; top: 23%;">
@@ -396,7 +396,7 @@ function build_blocks($folder, $url)
 	}
 }
 
-// http://DOMAIN/site/cs
+// http://SITE_DOMAIN/site/cs
 
 build_blocks($curr_dir, $representive_url);
 
