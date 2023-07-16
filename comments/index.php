@@ -12,7 +12,7 @@ function log_data($dir, $mail)
 }
 
 
-$server_root = "ROOT_PATH/";
+$server_root = "SITE_PATH/";
 $curr_dir = getcwd();
 $representive_dir = str_replace($server_root, "", $curr_dir);
 $representive_url = $_SERVER['REQUEST_SCHEME'].'://DOMAIN/'.$representive_dir;

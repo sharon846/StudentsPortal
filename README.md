@@ -50,7 +50,7 @@ StudentsPortal is highly documented on the [guide](https://github.com/sharon846/
 1. Download ZIP with latest version from master branch. Extract it.
 
 2. Using grep, do the following replaces in all files:
-   - ROOT_PATH, with the path to the main site directory. You can check that with ```php var_dump(getcwd());``` In the main directory.
+   - SITE_PATH, with the path to the main site directory. You can check that with ```php var_dump(getcwd());``` In the main directory.
    - DOMAIN, with your domain adress.
    - SESSION_NAME, with a session name for your choice.
    - rtl with ltr, if you want your site to be in right to left languages.
@@ -95,7 +95,7 @@ To add login protection you should use (don't forget to replace the constants he
 ```php
 function log_data($dir, $mail)
 {
-    require_once 'ROOT_PATH/site_manager/pdoconfig.php';
+    require_once 'SITE_PATH/site_manager/pdoconfig.php';
     $conn = @new mysqli($host, $username, $password, $dbname);
     
     $sql = "UPDATE `Tusers` SET `last_dir`='$dir' WHERE `email`='$mail'"; 
@@ -103,7 +103,7 @@ function log_data($dir, $mail)
     $conn->close();
 }
 
-$server_root = 'ROOT_PATH/';
+$server_root = 'SITE_PATH/';
 $curr_dir = getcwd();
 $representive_dir = str_replace($server_root, "", $curr_dir);
 $representive_url = $_SERVER['REQUEST_SCHEME'].'://DOMAIN/'.$representive_dir;
