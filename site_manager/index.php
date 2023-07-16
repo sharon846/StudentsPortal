@@ -3659,7 +3659,7 @@ function fm_show_nav_path($path)
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="col-xs-6 col-sm-5">
                 <a target="_blank" href="<?php echo fm_enc(FM_ROOT_URL);?>"><i class='fa fa-browse-domain' aria-hidden='true' title='site view'></i></a>
-    			<?php if ($_SESSION[FM_SESSION_ID]['logged'] == "sharon") : ?>
+    			<?php if ($_SESSION[FM_SESSION_ID]['logged'] == "admin") : ?>
     			    <a href='?p=<?php echo fm_enc(DOMAIN_TRASH_DIR); ?>'><i class='fa fa-trash' style="margin-right:0.5em" aria-hidden='true' title='trash'></i></a>
     			<?php endif; ?>
                 <?php
