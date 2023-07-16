@@ -70,6 +70,7 @@ Default username/password: **admin/admin123** and **editor/editor123**. The admi
 To enable/disable authentication set `$use_auth` to true or false.
 
 :information_source: You may edit any configuration you want there. 
+
 :information_source: The editor will be able to access the file manager, only to the site directory (where the materials drive is located). Admin has access to the entire website, including the admin's panel.
 
 ### Change Log
