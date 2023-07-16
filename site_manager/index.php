@@ -376,7 +376,7 @@ if ($use_auth && isset($_SESSION[FM_SESSION_ID]['logged'])) {
 }
 
 //ignore index.php for specific user
-if ($_SESSION[FM_SESSION_ID]['logged'] == "sharon")
+if ($_SESSION[FM_SESSION_ID]['logged'] == "admin")
     unset($exclude_items[0]);
     
 // clean and check $SITE_PATH
