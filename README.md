@@ -29,6 +29,7 @@ StudentsPortal is highly documented on the [guide](https://github.com/sharon846/
 
 - :cd: Open Source, light and extremely simple
 - :iphone: Mobile friendly view for touch devices
+- 🔒: Login protection against non-students (details later)
 - :file_folder: Drive of materials with nice UI.
 - ⏫: Option to upload mateirals, easily and anonymously.
 - 💯: Grades panel, by lecturer / course (and year).
@@ -37,7 +38,7 @@ StudentsPortal is highly documented on the [guide](https://github.com/sharon846/
   
 - 😎: Admin panel, to manage the entire site data.
 - 🌐: Site manager, where can easily edit source files, manage files.
-- ⚡: students auto approval using [PDF anaylizer]() 
+- ⚡: students auto approval using [PDF anaylizer](https://github.com/smalot/pdfparser) (details later)
 - :bangbang: lots more..
 
 ## How to use
@@ -69,6 +70,40 @@ To enable/disable authentication set `$use_auth` to true or false.
 :information_source: You may edit any configuration you want there. 
 
 :information_source: The editor will be able to access the file manager, only to the site directory (where the materials drive is located). Admin has access to the entire website, including the admin's panel.
+
+## Drive
+The main part of each student's site is the drive / materials section. Next to each new folder (by [site manager](#site-manager)), a directory browser file is auto created. You may modify it by modiying site_manager/index file (NOT index.php).
+
+## Login
+There are sections in the site which are limied to only students. For now, the sections are:
+* Drive
+* Grades panel
+* Reviews panel
+* Whatsapp panel
+
+To add login protection you should use 
+```php
+function log_data($dir, $mail)
+{
+    require_once 'ROOT_PATH/site_manager/pdoconfig.php';
+    $conn = @new mysqli($host, $username, $password, $dbname);
+    
+    $sql = "UPDATE `Tusers` SET `last_dir`='$dir' WHERE `email`='$mail'"; 
+    $conn->query($sql);
+    $conn->close();
+}
+
+@set_time_limit(3600);
+session_name("SESSION_NAME");
+session_start();
+
+if (!isset($_SESSION["SESSION_NAME"])){
+    header("Location: http://DOMAIN/login/index.php?referer=$representive_url/");
+    exit();
+}
+
+log_data($representive_dir, $_SESSION['SESSION_NAME']["mail"]);
+```
 
 ### Change Log
 
