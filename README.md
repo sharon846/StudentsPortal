@@ -37,6 +37,7 @@ StudentsPortal is highly documented on the [guide](https://github.com/sharon846/
   
 - 😎: Admin panel, to manage the entire site data.
 - 🌐: Site manager, where can easily edit source files, manage files.
+- ⚡: students auto approval using [PDF anaylizer]() 
 - :bangbang: lots more..
 
 ## How to use
