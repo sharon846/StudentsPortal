@@ -3,25 +3,24 @@
 [![Live demo](https://img.shields.io/badge/Help-Docs-lightgrey.svg?style=flat-square)](https://github.com/prasathmani/tinyfilemanager/wiki)
 [![GitHub Release](https://img.shields.io/github/release/prasathmani/tinyfilemanager.svg?style=flat-square)](https://github.com/prasathmani/tinyfilemanager/releases)
 [![GitHub License](https://img.shields.io/github/license/prasathmani/tinyfilemanager.svg?style=flat-square)](https://github.com/prasathmani/tinyfilemanager/blob/master/LICENSE)
-[![Paypal](https://img.shields.io/badge/Donate-Paypal-lightgrey.svg?style=flat-square)](https://www.paypal.me/prasathmani)
-![GitHub Sponsors](https://img.shields.io/github/sponsors/prasathmani)
+[![Paypal](https://img.shields.io/badge/Donate-Paypal-lightgrey.svg?style=flat-square)](https://www.paypal.me/sharon)
+![GitHub Sponsors]()
 
 > A site for the students in department at the university (of haifa). Includes - grades, materials, reviews, courses planner, file manager, admin panel and lots more
 
 ## Demo
 
-[Demo](https://tinyfilemanager.github.io/demo/)
-
+[Demo](https://studentsportal.github.io/demo/)
 
 ## Documentation
 
-Tinyfilemanager is highly documented on the [wiki pages](https://github.com/prasathmani/tinyfilemanager/wiki).
+Tinyfilemanager is highly documented on the [wiki pages](https://github.com/sharon846/StudentsPortal/demo/guide.pdf) and on Version 1.0.0 Down here.
 
-[![Tiny File Manager](screenshot.gif)](screenshot.gif)
+[![Tiny File Manager](demo/screenshot.png)](demo/screenshot.png)
 
 ## Requirements
 
-- PHP 5.5.0 or higher.
+- PHP 7.0.0 or higher.
 - Fileinfo, iconv, zip, tar and mbstring extensions are strongly recommended.
 
 ## How to use
