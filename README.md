@@ -14,21 +14,22 @@
 
 ## Documentation
 
-StudentsPortal is highly documented on the [guide](https://github.com/sharon846/StudentsPortal/demo/guide.pdf) and on Version 1.0.0 Down here.
+StudentsPortal is highly documented on the [guide](https://github.com/sharon846/StudentsPortal/demo/guide.pdf) and on Version 1.1.0 Down here.
 
 [![StudentsPortal](demo/screenshot.png)](demo/screenshot.png)
 
 ## Requirements
 
 - PHP 7.0.0 or higher.
-- Fileinfo, iconv, zip, tar and mbstring extensions are strongly recommended.
+- Fileinfo, iconv, zip, tar, mysql, pdo and mbstring extensions are strongly recommended.
+- You should have domain and some hosting plan (or on your own server), with mysql databases support.
+- Recommended: some grep tool. In windows: grepWin. In linux it should be default
 
 ## How to use
 
-Download ZIP with latest version from master branch.
+1. Download ZIP with latest version from master branch. Extract it.
 
-Just copy the tinyfilemanager.php to your webspace - thats all :)
-You can also change the file name from "tinyfilemanager.php" to something else, you know what i meant for.
+2. Using grep, 
 
 Default username/password: **admin/admin@123** and **user/12345**.
 
@@ -112,18 +113,18 @@ $ docker run -d -v /absolute/path:/var/www/html/data -v /absolute/path/index.php
 
 ### Change Log
 
-## Version 9.7.1:
+## Version 1.7.1:
 - Added validation before uploading.
 - Added deleting course option on admins grades panel.
 
-## Version 9.7.0:
+## Version 1.7.0:
 - Added autodetection of PDF files for student's validation.
 
-## Version 9.6.5:
+## Version 1.6.5:
 - Added admin mail and password for different sites.
 - Added limitation for image size and shape in courses (<= 300 and squared) to comply with WhatsApp policy.
 
-## Version 9.6.4:
+## Version 1.6.4:
 - Added "image-add" option to add course directly from kdams manager.
 - Added validation before creating WhatsApp data.
 - Added free rooms system admin in admin's panel (which is also responsible for the scheduling system).
@@ -132,55 +133,55 @@ $ docker run -d -v /absolute/path:/var/www/html/data -v /absolute/path/index.php
     - Create the rooms files.
     - Edit rooms list.
 
-## Version 9.6.3:
+## Version 1.6.3:
 - Added Google Calendar Export option in scheduler (aka choicefreak).
 - Applied new design to the write us page.
 
-## Version 9.6.1:
+## Version 1.6.1:
 - Added forgot password form.
 - Added pre-registered checking if already exists.
 
-## Version 9.6.0:
+## Version 1.6.0:
 - Added tiny folder viewer to securely view new teachers/students registered.
 - Added rooms manager panel.
 
-## Version 9.5.0:
+## Version 1.5.0:
 - Added choicefreak in Haifa's version.
     - Supports both semesters A and B.
     - Supports JSON exporting and image saving.
     - Integrates with exams.
 
-## Version 9.4.1:
+## Version 1.4.1:
 - Comments are now always posted but still give admin alert.
 - Questions are not always posted but still give admin alert.
 
-## Version 9.4.0:
+## Version 1.4.0:
 - Added exams scheduler visualization page.
 - Fixed admin WhatsApp integration to the database.
 - Added password login via MD5.
 
-## Version 9.3.0:
+## Version 1.3.0:
 - Added teacher registering page.
 
-## Version 9.2.1:
+## Version 1.2.1:
 - Changes:
     - Updated admin mailing list.
     - Added option to register users in year 0 (not in 1st year yet).
     - Admin can change globally lecture names in kdams page.
     - Fixed minor errors on kdams editing.
 
-## Version 9.2.0:
+## Version 1.2.0:
 - Changes:
     - Added CV make page.
         - Supports Hebrew or English CV.
         - Students will get an online link to add their CV.
 
-## Version 9.1.1:
+## Version 1.1.1:
 - Changes:
     - Added About page.
     - Global UI fixes.
 
-## Version 9.1.0:
+## Version 1.1.0:
 ## Homepage
 - Loading the "menu" of the site from the database.
 - Support log count.
