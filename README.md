@@ -52,9 +52,10 @@ StudentsPortal is highly documented on the [guide](https://github.com/sharon846/
    - ROOT_PATH, with the path to the main site directory. For example (of hostinger), it should be /home/u#id/domains/domain/public_html
    - DOMAIN, with your domain adress.
    - SESSION_NAME, with a session name for your choice.
-     
+   - rtl with ltr, if you want your site to be in right to left languages.
+   
 3. Edit the file "site_manager/pdoconfig.php" Insert there your Credentials to the database.
-   - If you want to change the admin user, it should be synced with more files, in few steps.
+   - If you want to change the admin user, it should be synced with the [site manager](#site-manager).
 
 4. Upload the site your website (to the directory defined at step 2.1).
    
