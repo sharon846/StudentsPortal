@@ -41,7 +41,7 @@ StudentsPortal is highly documented on the [guide](https://github.com/sharon846/
 - ⚡: students auto approval using [PDF anaylizer](https://github.com/smalot/pdfparser) (details later)
 - :bangbang: lots more..
 
-## How to use
+## Installation and Setup
 
 1. Download ZIP with latest version from master branch. Extract it.
 
@@ -81,7 +81,7 @@ There are sections in the site which are limied to only students. For now, the s
 * Reviews panel
 * Whatsapp panel
 
-To add login protection you should use 
+To add login protection you should use (don't forget to replace the constants here, like in step 2 of setup)
 ```php
 function log_data($dir, $mail)
 {
@@ -92,6 +92,12 @@ function log_data($dir, $mail)
     $conn->query($sql);
     $conn->close();
 }
+
+$server_root = 'ROOT_PATH/';
+$curr_dir = getcwd();
+$representive_dir = str_replace($server_root, "", $curr_dir);
+$representive_url = $_SERVER['REQUEST_SCHEME'].'://DOMAIN/'.$representive_dir;
+$base_url = $_SERVER['REQUEST_SCHEME'].'://DOMAIN';
 
 @set_time_limit(3600);
 session_name("SESSION_NAME");
