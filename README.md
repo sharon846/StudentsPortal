@@ -111,7 +111,7 @@ Then, change another config what you want, and add a new volume `-v /absolute/pa
 $ docker run -d -v /absolute/path:/var/www/html/data -v /absolute/path/index.php:/var/www/html/index.php -p 80:80 --restart=always --name tinyfilemanager tinyfilemanager/tinyfilemanager:master
 ```
 
-#### Change Log
+### Change Log
 
 ## Version 9.7.1:
 - Added validation before uploading.
@@ -182,42 +182,42 @@ $ docker run -d -v /absolute/path:/var/www/html/data -v /absolute/path/index.php
     - Global UI fixes.
 
 ## Version 9.1.0:
-### Homepage
+## Homepage
 - Loading the "menu" of the site from the database.
 - Support log count.
 - Displaying messages from admin.
 - Support dark mode.
 
-### Login
+## Login
 - Confirm using the database that email is a real student.
 - Non-existing students can request registration.
 
-### Materials
+## Materials
 - Protected by login.
 - Beautiful display of files and folders, size, and date.
 - Support dark mode.
 - Search bar within all files and folders, recursively.
 - Showing current directory; each level is clickable.
 
-### Materials-upload
+## Materials-upload
 - Drag and drop files, support for large files.
 - Support assigning to a specific course.
 - Support dark mode.
 - Only admin has access to uploaded data.
 
-### Grades
+## Grades
 - Protected by login.
 - Display grades from the database, by lecture/course.
 - Grades are sorted by year (high to low), semester (first to last), moed (first to last).
 - Display statistics on data amount.
 - Support dark mode.
 
-### Grades-upload
+## Grades-upload
 - Supports uploading grades from the last 4 semesters.
 - Support assigning to a specific course.
 - Only admin has access to uploaded data.
 
-### Comments
+## Comments
 - Protected by login.
 - Supports adding new feedback requests (e.g., new lecture with its specific course) that do not exist yet.
 - Support dark mode.
@@ -227,24 +227,24 @@ $ docker run -d -v /absolute/path:/var/www/html/data -v /absolute/path/index.php
 - Users can add comments with anonymous display name (admin knows their identity).
 - Each post or comment can be ranked.
 
-### Teachers
+## Teachers
 - Support log count.
 - Support dark mode.
 - Support filtering by teacher/course.
 - Each teacher can be ranked.
 
-### Write-us
+## Write-us
 - Beautiful demo Google form, users can write messages that will be saved on the site.
 - Only admin has access to messages.
 
-### WhatsApp
+## WhatsApp
 - Protected by login.
 - Support dark mode.
 - Can filter by year/semester.
 - Loading links, name, lectures from the database.
 - Loading thumbnails from local archive.
 
-### Kdams
+## Kdams
 - Support dark mode.
 - Can add "year1" and "year2" courses, which include all courses recommended in the first year.
 - Completed courses are chosen from the autocomplete detector list and can be deselected later.
@@ -255,13 +255,13 @@ $ docker run -d -v /absolute/path:/var/www/html/data -v /absolute/path/index.php
 - Support checking what courses a specific course leads to.
 - Support Kdams tree, which visually demonstrates the relationship between courses.
 
-### Rooms
+## Rooms
 - Given day and hour, outputs all free rooms.
 - Support backdoor, enter 'sharon' in hours.
 
-## ADMIN
+### ADMIN
 
-### Updates
+## Updates
 - Each update has its relevant link to handle it.
 - By clicking "v", disposes of the update alert.
 - Updates from actions:
@@ -271,30 +271,30 @@ $ docker run -d -v /absolute/path:/var/www/html/data -v /absolute/path/index.php
     - Added question or comment.
     - Someone wrote admin.
 
-### Grades
+## Grades
 - By choosing year, semester, lecture, and course, can edit grades (or insert new ones) with notes and by the course type.
 - Direct integration with the database, all automated.
 
-### Users
+## Users
 - Supports increment of students' study year (according to the database).
 - Support view and edit students' data in the database.
 - Supports adding new students in special cases (like registration requests).
 - Support getting a mailing list of students.
 
-### Lectures, Courses
+## Lectures, Courses
 - Can directly edit the list of all lectures or courses in the system.
 
-### Messages
+## Messages
 - Directly edit the messages that appear on the main page of the site.
 
-### Kdams
+## Kdams
 - By clicking on a year, can edit the current year.
 - Generated editable kdams list directly from the database.
 - Can remove a course or add a new one at the bottom.
 - Supports global changing of course names.
 - Support generating WhatsApp links.
 
-### <a name=license></a>License, Credit
+## <a name=license></a>License, Credit
 
 - Available under the [GNU license](https://github.com/prasathmani/tinyfilemanager/blob/master/LICENSE)
 - Original concept and development by github.com/alexantr/filemanager
