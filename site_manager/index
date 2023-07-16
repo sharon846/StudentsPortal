@@ -36,10 +36,10 @@ $representive_url = $_SERVER['REQUEST_SCHEME'].'://SITE_DOMAIN/'.$representive_d
 $base_url = $_SERVER['REQUEST_SCHEME'].'://SITE_DOMAIN';
 
 @set_time_limit(3600);
-session_name("SESSION_NAME");
+session_name("SITE_SESSION_NAME");
 session_start();
 
-if (!isset($_SESSION["SESSION_NAME"])){
+if (!isset($_SESSION["SITE_SESSION_NAME"])){
     header("Location: http://SITE_DOMAIN/login/index.php?referer=$representive_url/");
     exit();
 }
