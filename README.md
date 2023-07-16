@@ -52,7 +52,7 @@ StudentsPortal is highly documented on the [guide](https://github.com/sharon846/
 2. Using grep, do the following replaces in all files:
    - SITE_PATH, with the path to the main site directory. You can check that with ```php var_dump(getcwd());``` In the main directory.
    - SITE_DOMAIN, with your domain adress.
-   - SESSION_NAME, with a session name for your choice.
+   - SITE_SESSION_NAME, with a session name for your choice.
    - rtl with ltr, if you want your site to be in right to left languages.
    - set_time_limit(3600), with the wanted session time in seconds (after that the student will be logged out).
    
