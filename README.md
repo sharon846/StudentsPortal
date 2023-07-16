@@ -46,7 +46,7 @@ StudentsPortal is highly documented on the [guide](https://github.com/sharon846/
 1. Download ZIP with latest version from master branch. Extract it.
 
 2. Using grep, do the following replaces in all files:
-   - ROOT_PATH, with the path to the main site directory. For example (of hostinger), it should be /home/u#id/domains/domain/public_html
+   - ROOT_PATH, with the path to the main site directory. You can check that with ```php var_dump(getcwd());``` In the main directory.
    - DOMAIN, with your domain adress.
    - SESSION_NAME, with a session name for your choice.
    - rtl with ltr, if you want your site to be in right to left languages.
