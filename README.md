@@ -10,7 +10,9 @@
 
 ## Demo
 
-[Demo](https://srworkspace.com/StudentsPortal/)
+[Student Portal](https://srworkspace.com/StudentsPortal/)
+[Admin's Site Manager]((https://srworkspace.com/StudentsPortal/site_manager)
+[Admin's Managment Pane](https://srworkspace.com/StudentsPortal/admin)
 
 ## Documentation
 
