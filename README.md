@@ -56,9 +56,9 @@ StudentsPortal is highly documented on the [guide](https://github.com/sharon846/
 3. Edit the file "site_manager/pdoconfig.php" Insert there your Credentials to the database.
    - If you want to change the admin user, it should be synced with more files, in few steps.
 
-# site manager
+## # site manager
 In the site manager directory which inspired by the amazing [tinyfilemanager](https://tinyfilemanager.github.io/) your have config.php. 
-Default username/password: **admin/admin123** and **editor/editor123**.
+Default username/password: **admin/admin123** and **editor/editor123**. The admin's password is synched with the one from step 3.
 
 :warning: Warning: Please set your own username and password in `$auth_users` before use. password is encrypted with <code>password_hash()</code>. to generate new password hash [here](https://tinyfilemanager.github.io/docs/pwd.html)
 
@@ -66,6 +66,10 @@ To enable/disable authentication set `$use_auth` to true or false.
 
 :information_source: You may edit any configuration you want there. 
 :information_source: The editor will be able to access the file manager, only to the site directory (where the materials drive is located). Admin has access to the entire website, including the admin's panel.
+
+4. Upload the site your website (to the directory defined at step 2.1).
+   
+6. In your database admin (i.e. phpmyadmin) Import an empty database with the required tables (template is under database folder, make sure to not upload it to your site).
 
 ### Change Log
 
