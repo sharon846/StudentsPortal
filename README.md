@@ -143,7 +143,7 @@ To enable/disable authentication set `$use_auth` to true or false.
     - Added About page.
     - Global UI fixes.
 
-## Version 1.1.0: {#version-1.1.0}
+## Version 1.1.0:
 ## Homepage
 - Loading the "menu" of the site from the database.
 - Support log count.
