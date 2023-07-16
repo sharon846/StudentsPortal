@@ -50,6 +50,7 @@ StudentsPortal is highly documented on the [guide](https://github.com/sharon846/
    - DOMAIN, with your domain adress.
    - SESSION_NAME, with a session name for your choice.
    - rtl with ltr, if you want your site to be in right to left languages.
+   - set_time_limit(3600), with the wanted session time in seconds (after that the student will be logged out).
    
 3. Edit the file "site_manager/pdoconfig.php" Insert there your Credentials to the database.
    - If you want to change the admin user, it should be synced with the [site manager](#site-manager).
@@ -59,7 +60,7 @@ StudentsPortal is highly documented on the [guide](https://github.com/sharon846/
 5. In your database admin (i.e. phpmyadmin) Import an empty database with the required tables (template is under database folder, make sure to not upload it to your site).
 
 
-## site manager
+## Site manager
 In the site manager directory which inspired by the amazing [tinyfilemanager](https://tinyfilemanager.github.io/) your have config.php. 
 Default username/password: **admin/admin123** and **editor/editor123**. The admin's password is synched with the one from step 3.
 
