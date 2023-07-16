@@ -14,7 +14,7 @@
 
 ## Documentation
 
-StudentsPortal is highly documented on the [guide](https://github.com/sharon846/StudentsPortal/demo/guide.pdf) and on Version 1.1.0 Down here.
+StudentsPortal is highly documented on the [guide](https://github.com/sharon846/StudentsPortal/demo/guide.pdf) and on Version 1.1.0 Down here(#version-1.1.0)
 
 [![StudentsPortal](demo/screenshot.png)](demo/screenshot.png)
 
@@ -181,6 +181,7 @@ $ docker run -d -v /absolute/path:/var/www/html/data -v /absolute/path/index.php
     - Added About page.
     - Global UI fixes.
 
+`#version-1.1.0` 
 ## Version 1.1.0:
 ## Homepage
 - Loading the "menu" of the site from the database.
