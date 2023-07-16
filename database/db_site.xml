@@ -4,9 +4,9 @@
 - version 5.2.1
 - https://www.phpmyadmin.net
 -
-- Host: 127.0.0.1
-- Generation Time: Jul 16, 2023 at 08:19 AM
-- Server version: 10.6.12-MariaDB-cll-lve
+- Host: 127.0.0.1:3306
+- Generation Time: יולי 16, 2023 בזמן 08:54 PM
+- גרסת שרת: 10.6.12-MariaDB-cll-lve
 - PHP Version: 7.2.34
 -->
 
@@ -15,7 +15,7 @@
     - Structure schemas
     -->
     <pma:structure_schemas>
-        <pma:database name="db_site" collation="utf8mb4_unicode_ci" charset="utf8mb4">
+        <pma:database name="u209260158_demo" collation="utf8mb4_unicode_ci" charset="utf8mb4">
             <pma:table name="Tcomments">
                 CREATE TABLE `Tcomments` (
                   `idquestion` int(11) NOT NULL,
@@ -49,7 +49,7 @@
                   `proj` text DEFAULT NULL,
                   PRIMARY KEY (`id`),
                   UNIQUE KEY `name` (`name`,`lecture`,`year`,`semester`)
-                ) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
             </pma:table>
             <pma:table name="Tkdams">
                 CREATE TABLE `Tkdams` (
@@ -122,8 +122,121 @@
                   `href_cap` text NOT NULL,
                   `lecture` text DEFAULT NULL,
                   UNIQUE KEY `id` (`id`)
-                ) ENGINE=InnoDB AUTO_INCREMENT=2023302 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
             </pma:table>
         </pma:database>
     </pma:structure_schemas>
+
+    <!--
+    - Database: 'u209260158_demo'
+    -->
+    <database name="u209260158_demo">
+        <!-- טבלה Tcomments -->
+        <!-- טבלה Tgrades -->
+        <!-- טבלה TgradesSemesters -->
+        <!-- טבלה Tkdams -->
+        <!-- טבלה Tlinks -->
+        <table name="Tlinks">
+            <column name="id">1</column>
+            <column name="title_cap">תגובות לקורסים</column>
+            <column name="href_cap">https://srworkspace.com/comments/</column>
+            <column name="img_cap">https://srworkspace.com/img/ranker.png</column>
+            <column name="more_data"></column>
+            <column name="hidden">0</column>
+        </table>
+        <table name="Tlinks">
+            <column name="id">2</column>
+            <column name="title_cap">קישורים לקבוצות</column>
+            <column name="href_cap">https://srworkspace.com/whatsapp/</column>
+            <column name="img_cap">https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/640px-WhatsApp.svg.png</column>
+            <column name="more_data"></column>
+            <column name="hidden">0</column>
+        </table>
+        <table name="Tlinks">
+            <column name="id">3</column>
+            <column name="title_cap">ציונים</column>
+            <column name="href_cap">https://srworkspace.com/grades</column>
+            <column name="img_cap">https://srworkspace.com/img/grade.png</column>
+            <column name="more_data"></column>
+            <column name="hidden">0</column>
+        </table>
+        <table name="Tlinks">
+            <column name="id">4</column>
+            <column name="title_cap">חומרים</column>
+            <column name="href_cap">https://srworkspace.com/site/is</column>
+            <column name="img_cap">https://srworkspace.com/img/drive.png</column>
+            <column name="more_data"></column>
+            <column name="hidden">0</column>
+        </table>
+        <table name="Tlinks">
+            <column name="id">7</column>
+            <column name="title_cap">מורים פרטיים בחוג</column>
+            <column name="href_cap">https://srworkspace.com/teachers/</column>
+            <column name="img_cap">https://srworkspace.com/img/tutor.png</column>
+            <column name="more_data"></column>
+            <column name="hidden">0</column>
+        </table>
+        <table name="Tlinks">
+            <column name="id">8</column>
+            <column name="title_cap">העלאת חומרים</column>
+            <column name="href_cap">https://srworkspace.com/site/uploads</column>
+            <column name="img_cap">https://srworkspace.com/img/upload.png</column>
+            <column name="more_data"></column>
+            <column name="hidden">0</column>
+        </table>
+        <table name="Tlinks">
+            <column name="id">10</column>
+            <column name="title_cap">הורדת חומרים</column>
+            <column name="href_cap">https://srworkspace.com/site/uploads/guide.html</column>
+            <column name="img_cap">https://srworkspace.com/img/download.png</column>
+            <column name="more_data"></column>
+            <column name="hidden">0</column>
+        </table>
+        <table name="Tlinks">
+            <column name="id">11</column>
+            <column name="title_cap">עץ קדמים</column>
+            <column name="href_cap">https://srworkspace.com/kdams/tree.php</column>
+            <column name="img_cap">https://srworkspace.com/img/tree.png</column>
+            <column name="more_data"></column>
+            <column name="hidden">0</column>
+        </table>
+        <table name="Tlinks">
+            <column name="id">12</column>
+            <column name="title_cap">קדמים וקורסים</column>
+            <column name="href_cap">https://srworkspace.com/kdams/</column>
+            <column name="img_cap">https://srworkspace.com/img/kdams.png</column>
+            <column name="more_data"></column>
+            <column name="hidden">0</column>
+        </table>
+        <table name="Tlinks">
+            <column name="id">13</column>
+            <column name="title_cap">כתבו לנו</column>
+            <column name="href_cap">https://srworkspace.com/write/</column>
+            <column name="img_cap">https://srworkspace.com/img/complain.png</column>
+            <column name="more_data"></column>
+            <column name="hidden">0</column>
+        </table>
+        <table name="Tlinks">
+            <column name="id">14</column>
+            <column name="title_cap">לוח מבחנים</column>
+            <column name="href_cap">https://srworkspace.com/exams</column>
+            <column name="img_cap">https://srworkspace.com/img/exams.jpg</column>
+            <column name="more_data"></column>
+            <column name="hidden">0</column>
+        </table>
+        <!-- טבלה Tquestions -->
+        <!-- טבלה Tteachers -->
+        <table name="Tteachers">
+            <column name="id">5</column>
+            <column name="lecture">שם המורה</column>
+            <column name="tag">default</column>
+            <column name="rank">0</column>
+            <column name="study">תואר, שנה</column>
+            <column name="phone">972520000000</column>
+            <column name="content">על עצמי: תספר על עצמך, כתוב מה שבא לך ולדעתך יעזור, מה הנסיון שלך</column>
+            <column name="hidden">0</column>
+        </table>
+        <!-- טבלה Tusers -->
+        <!-- טבלה Twhatsapp -->
+    </database>
 </pma_xml_export>
