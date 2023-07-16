@@ -58,7 +58,7 @@ StudentsPortal is highly documented on the [guide](https://github.com/sharon846/
 4. Upload the site your website (to the directory defined at step 2.1).
    
 5. In your database admin (i.e. phpmyadmin) Import an empty database with the required tables (template is under database folder, make sure to not upload it to your site).
-
+     * Remove also guide.pdf, screenshot.png
 
 ## Site manager
 In the site manager directory which inspired by the amazing [tinyfilemanager](https://tinyfilemanager.github.io/) your have config.php. 
