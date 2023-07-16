@@ -10,13 +10,13 @@
 
 ## Demo
 
-[Demo](https://studentsportal.github.io/demo/)
+[Demo](https://srworkspace.com/StudentsPortal/)
 
 ## Documentation
 
-Tinyfilemanager is highly documented on the [wiki pages](https://github.com/sharon846/StudentsPortal/demo/guide.pdf) and on Version 1.0.0 Down here.
+StudentsPortal is highly documented on the [guide](https://github.com/sharon846/StudentsPortal/demo/guide.pdf) and on Version 1.0.0 Down here.
 
-[![Tiny File Manager](demo/screenshot.png)](demo/screenshot.png)
+[![StudentsPortal](demo/screenshot.png)](demo/screenshot.png)
 
 ## Requirements
 
