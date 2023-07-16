@@ -15,7 +15,7 @@
     - Structure schemas
     -->
     <pma:structure_schemas>
-        <pma:database name="u209260158_demo" collation="utf8mb4_unicode_ci" charset="utf8mb4">
+        <pma:database name="replace_with_dbname" collation="utf8mb4_unicode_ci" charset="utf8mb4">
             <pma:table name="Tcomments">
                 CREATE TABLE `Tcomments` (
                   `idquestion` int(11) NOT NULL,
