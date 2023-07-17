@@ -139,15 +139,15 @@
         <table name="Tlinks">
             <column name="id">1</column>
             <column name="title_cap">תגובות לקורסים</column>
-            <column name="href_cap">https://srworkspace.com/comments/</column>
-            <column name="img_cap">https://srworkspace.com/img/ranker.png</column>
+            <column name="href_cap">https://SITE_DOMAIN/comments/</column>
+            <column name="img_cap">https://SITE_DOMAIN/img/ranker.png</column>
             <column name="more_data"></column>
             <column name="hidden">0</column>
         </table>
         <table name="Tlinks">
             <column name="id">2</column>
             <column name="title_cap">קישורים לקבוצות</column>
-            <column name="href_cap">https://srworkspace.com/whatsapp/</column>
+            <column name="href_cap">https://SITE_DOMAIN/whatsapp/</column>
             <column name="img_cap">https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/640px-WhatsApp.svg.png</column>
             <column name="more_data"></column>
             <column name="hidden">0</column>
@@ -155,72 +155,72 @@
         <table name="Tlinks">
             <column name="id">3</column>
             <column name="title_cap">ציונים</column>
-            <column name="href_cap">https://srworkspace.com/grades</column>
-            <column name="img_cap">https://srworkspace.com/img/grade.png</column>
+            <column name="href_cap">https://SITE_DOMAIN/grades</column>
+            <column name="img_cap">https://SITE_DOMAIN/img/grade.png</column>
             <column name="more_data"></column>
             <column name="hidden">0</column>
         </table>
         <table name="Tlinks">
             <column name="id">4</column>
             <column name="title_cap">חומרים</column>
-            <column name="href_cap">https://srworkspace.com/site/is</column>
-            <column name="img_cap">https://srworkspace.com/img/drive.png</column>
+            <column name="href_cap">https://SITE_DOMAIN/site/is</column>
+            <column name="img_cap">https://SITE_DOMAIN/img/drive.png</column>
             <column name="more_data"></column>
             <column name="hidden">0</column>
         </table>
         <table name="Tlinks">
             <column name="id">7</column>
             <column name="title_cap">מורים פרטיים בחוג</column>
-            <column name="href_cap">https://srworkspace.com/teachers/</column>
-            <column name="img_cap">https://srworkspace.com/img/tutor.png</column>
+            <column name="href_cap">https://SITE_DOMAIN/teachers/</column>
+            <column name="img_cap">https://SITE_DOMAIN/img/tutor.png</column>
             <column name="more_data"></column>
             <column name="hidden">0</column>
         </table>
         <table name="Tlinks">
             <column name="id">8</column>
             <column name="title_cap">העלאת חומרים</column>
-            <column name="href_cap">https://srworkspace.com/site/uploads</column>
-            <column name="img_cap">https://srworkspace.com/img/upload.png</column>
+            <column name="href_cap">https://SITE_DOMAIN/site/uploads</column>
+            <column name="img_cap">https://SITE_DOMAIN/img/upload.png</column>
             <column name="more_data"></column>
             <column name="hidden">0</column>
         </table>
         <table name="Tlinks">
             <column name="id">10</column>
             <column name="title_cap">הורדת חומרים</column>
-            <column name="href_cap">https://srworkspace.com/site/uploads/guide.html</column>
-            <column name="img_cap">https://srworkspace.com/img/download.png</column>
+            <column name="href_cap">https://SITE_DOMAIN/site/uploads/guide.html</column>
+            <column name="img_cap">https://SITE_DOMAIN/img/download.png</column>
             <column name="more_data"></column>
             <column name="hidden">0</column>
         </table>
         <table name="Tlinks">
             <column name="id">11</column>
             <column name="title_cap">עץ קדמים</column>
-            <column name="href_cap">https://srworkspace.com/kdams/tree.php</column>
-            <column name="img_cap">https://srworkspace.com/img/tree.png</column>
+            <column name="href_cap">https://SITE_DOMAIN/kdams/tree.php</column>
+            <column name="img_cap">https://SITE_DOMAIN/img/tree.png</column>
             <column name="more_data"></column>
             <column name="hidden">0</column>
         </table>
         <table name="Tlinks">
             <column name="id">12</column>
             <column name="title_cap">קדמים וקורסים</column>
-            <column name="href_cap">https://srworkspace.com/kdams/</column>
-            <column name="img_cap">https://srworkspace.com/img/kdams.png</column>
+            <column name="href_cap">https://SITE_DOMAIN/kdams/</column>
+            <column name="img_cap">https://SITE_DOMAIN/img/kdams.png</column>
             <column name="more_data"></column>
             <column name="hidden">0</column>
         </table>
         <table name="Tlinks">
             <column name="id">13</column>
             <column name="title_cap">כתבו לנו</column>
-            <column name="href_cap">https://srworkspace.com/write/</column>
-            <column name="img_cap">https://srworkspace.com/img/complain.png</column>
+            <column name="href_cap">https://SITE_DOMAIN/write/</column>
+            <column name="img_cap">https://SITE_DOMAIN/img/complain.png</column>
             <column name="more_data"></column>
             <column name="hidden">0</column>
         </table>
         <table name="Tlinks">
             <column name="id">14</column>
             <column name="title_cap">לוח מבחנים</column>
-            <column name="href_cap">https://srworkspace.com/exams</column>
-            <column name="img_cap">https://srworkspace.com/img/exams.jpg</column>
+            <column name="href_cap">https://SITE_DOMAIN/exams</column>
+            <column name="img_cap">https://SITE_DOMAIN/img/exams.jpg</column>
             <column name="more_data"></column>
             <column name="hidden">0</column>
         </table>
