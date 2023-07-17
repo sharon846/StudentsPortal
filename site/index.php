@@ -1,5 +1,5 @@
 <?php
 
-header("Location: https://SITE_DOMAIN/site/files");
+header("Location: https://srworkspace.com".$_SERVER['REQUEST_URI']."files");
 
 ?>
