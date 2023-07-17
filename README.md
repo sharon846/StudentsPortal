@@ -33,7 +33,7 @@ StudentsPortal is highly documented on the [guide](https://github.com/sharon846/
 
 - :cd: Open Source, light and extremely simple
 - :iphone: Mobile friendly view for touch devices
-- 🔒: Login protection against non-students (details later)
+- 🔐: Login protection against non-students (details later)
 - :file_folder: Drive of materials with nice UI.
 - ⏫: Option to upload mateirals, easily and anonymously.
 - 💯: Grades panel, by lecturer / course (and year).
@@ -43,6 +43,7 @@ StudentsPortal is highly documented on the [guide](https://github.com/sharon846/
 - 😎: Admin panel, to manage the entire site data.
 - 🌐: Site manager, where can easily edit source files, manage files.
 - ⚡: students auto approval using [PDF anaylizer](https://github.com/smalot/pdfparser) (details later)
+- 🔒: Inspecting and scrapping code protection
 - :bangbang: lots more..
 
 ## Installation and Setup
