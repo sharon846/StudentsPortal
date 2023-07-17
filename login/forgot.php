@@ -51,7 +51,7 @@ if (isset($_POST['user'])) {
         $name = explode(' ', $name)[0];
         $encryption = base64_encode($encryption);
         $link = "https://DOMAIN/login/password.php?data=$encryption";
-        $headers = "From: SESSION_NAME admin <admin@DOMAIN>\r\n";
+        $headers = "From: SITE_NAME <admin@DOMAIN>\r\n";
         $headers .= "MIME-Version: 1.0" . "\r\n"; 
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 
         $text = "היי $name,<br/>הקישור שלך לאיפוס הססמה באתר הסטודנטים של מערכות מידע הוא: <a href='$link'>זה שכאן</a><br/><br/>הקישור הוא אישי, <b>אל תעבירו אותו לאיש</b>.";

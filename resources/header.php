@@ -21,7 +21,7 @@ function show_header(){
 					<div class="top-bar">
 						<div class="bar-block">
 							<a href="/" class="h-full inline-flex nuxt-link-active">
-								<img src="../../img/logoranker.png" alt="לוגו ועד הסטודנטים" class="h-16 w-16 rounded-full bg-white"> 
+								<img src="../img/logoranker.png" alt="לוגו ועד הסטודנטים" class="h-16 w-16 rounded-full bg-white"> 
 								<div class="mr-6 flex flex-col justify-center items-center tracking-wider">
 									<span>ועד הסטודנטים</span> 
 									<span>מערכות מידע</span>
