@@ -8,7 +8,7 @@
  * @date    2017-01-03
  *
  * @license LGPLv3
- * @url     <http://github.com/smalot/pdfparser>
+ * @url     <https://github.com/smalot/pdfparser>
  *
  *  PdfParser is a pdf library written in PHP, extraction oriented.
  *  Copyright (C) 2017 - Sébastien MALOT <sebastien@malot.fr>
@@ -25,7 +25,7 @@
  *
  *  You should have received a copy of the GNU Lesser General Public License
  *  along with this program.
- *  If not, see <http://www.pdfparser.org/sites/default/LICENSE.txt>.
+ *  If not, see <https://www.pdfparser.org/sites/default/LICENSE.txt>.
  */
 
 namespace Smalot\PdfParser;
@@ -102,7 +102,7 @@ class Page extends PDFObject
             return $fonts[$id];
         }
 
-        // According to the PDF specs (http://www.adobe.com/content/dam/acom/en/devnet/pdf/pdfs/PDF32000_2008.pdf, page 238)
+        // According to the PDF specs (https://www.adobe.com/content/dam/acom/en/devnet/pdf/pdfs/PDF32000_2008.pdf, page 238)
         // "The font resource name presented to the Tf operator is arbitrary, as are the names for all kinds of resources"
         // Instead, we search for the unfiltered name first and then do this cleaning as a fallback, so all tests still pass.
 
@@ -831,8 +831,8 @@ class Page extends PDFObject
                      *     either fontname or size; they must be selected using Tf before drawing any text.
                      *     fontname is a resource name. size is a number expressed in text space units.
                      *
-                     * Source: http://ia902503.us.archive.org/10/items/pdfy-0vt8s-egqFwDl7L2/PDF%20Reference%201.0.pdf
-                     * Introduced with http://github.com/smalot/pdfparser/pull/516
+                     * Source: https://ia902503.us.archive.org/10/items/pdfy-0vt8s-egqFwDl7L2/PDF%20Reference%201.0.pdf
+                     * Introduced with https://github.com/smalot/pdfparser/pull/516
                      */
                     list($fontId, $fontSize) = explode(' ', $command['c'], 2);
                     break;

@@ -10,23 +10,23 @@ session_name("SESSION_NAME");
 session_start();
 
 if (!isset($_SESSION["SESSION_NAME"])){
-    header("Location: http://DOMAIN/login/index.php?referer=$representive_url/");
+    header("Location: https://DOMAIN/login/index.php?referer=$representive_url/");
     exit();
 }
 
 ?>
 
-<!-- Code By Webdevtrick ( http://webdevtrick.com ) -->
+<!-- Code By Webdevtrick ( https://webdevtrick.com ) -->
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
   <title>Main CS Haifa</title>
-  <link rel='stylesheet' href='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
-  <link href="http://cdn.jsdelivr.net/css-toggle-switch/latest/toggle-switch.css" rel="stylesheet" />
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+  <link href="https://cdn.jsdelivr.net/css-toggle-switch/latest/toggle-switch.css" rel="stylesheet" />
   <link rel="stylesheet" href="../style.css">
-  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="http://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
-  <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
   <style>
   select{
@@ -169,7 +169,7 @@ $cell_data = '<div class="col-sm-6 caption flex"><a target="_blank" href="href_c
             $data = $cell_data;
             $data = str_replace('href_cap', $rows[$i]['href_cap'], $data);
             $data = str_replace('title_cap', $rows[$i]['title_cap'], $data);
-            $data = str_replace('img_cap', "http://DOMAIN/img/courses/".$rows[$i]['title_cap'].".jpg", $data);
+            $data = str_replace('img_cap', "https://DOMAIN/img/courses/".$rows[$i]['title_cap'].".jpg", $data);
             if ($rows[$i]["lecture"] != "")
                 $data = str_replace('<p></p>', "<p>מרצה: ".$rows[$i]['lecture']."</p>", $data);
             $str .= $data;
@@ -190,8 +190,8 @@ $cell_data = '<div class="col-sm-6 caption flex"><a target="_blank" href="href_c
 </section>
 </body>
 
-<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-<script src='http://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
 <script  src="../script.js"></script>
 
 <script>

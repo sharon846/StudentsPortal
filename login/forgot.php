@@ -50,7 +50,7 @@ if (isset($_POST['user'])) {
         
         $name = explode(' ', $name)[0];
         $encryption = base64_encode($encryption);
-        $link = "http://DOMAIN/login/password.php?data=$encryption";
+        $link = "https://DOMAIN/login/password.php?data=$encryption";
         $headers = "From: SESSION_NAME admin <admin@DOMAIN>\r\n";
         $headers .= "MIME-Version: 1.0" . "\r\n"; 
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 
@@ -80,11 +80,11 @@ if (isset($_POST['user'])) {
     $success = move_uploaded_file($_FILES["cv"]["tmp_name"], $target_file);
     
     if ($success){
-        file_put_contents(getcwd()."/../admin/updates", $_POST['user']." forgot password##http://DOMAIN/login/pending/viewer.php".PHP_EOL, FILE_APPEND);
+        file_put_contents(getcwd()."/../admin/updates", $_POST['user']." forgot password##https://DOMAIN/login/pending/viewer.php".PHP_EOL, FILE_APPEND);
         
-        ?> <script> window.alert(<?php echo "'done, we will contact soon'"; ?>); window.location.href = "http://DOMAIN";</script> <?php exit();
+        ?> <script> window.alert(<?php echo "'done, we will contact soon'"; ?>); window.location.href = "https://DOMAIN";</script> <?php exit();
     } else {
-        ?> <script> window.alert(<?php echo "'failed, try again later'"; ?>); window.location.href = "http://DOMAIN";</script> <?php exit();
+        ?> <script> window.alert(<?php echo "'failed, try again later'"; ?>); window.location.href = "https://DOMAIN";</script> <?php exit();
     }*/
 }
 

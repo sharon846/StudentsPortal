@@ -13,7 +13,7 @@
   <body  >
   
         <div class="block">
-        <a href="http://www.phplift.net/how-to-extract-text-from-pdf-using-php/">Bact to Tutorial</a>
+        <a href="https://www.phplift.net/how-to-extract-text-from-pdf-using-php/">Bact to Tutorial</a>
     </div>
     <style type="text/css">
         .block a:hover{
@@ -32,7 +32,7 @@
     </style>
   
     <div>
-      <h2>How to Extract Text from PDF using PHP Example&nbsp;&nbsp;&nbsp;=> <a href="http://www.phplift.net/">Home</a> | <a href="http://demos.phplift.net/">More Demos</a></h2>
+      <h2>How to Extract Text from PDF using PHP Example&nbsp;&nbsp;&nbsp;=> <a href="https://www.phplift.net/">Home</a> | <a href="https://demos.phplift.net/">More Demos</a></h2>
 
 
     
@@ -40,11 +40,11 @@
       <hr />
        
   <p>
-               <script src="http://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script src="http://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+               <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
-<link rel="stylesheet" href="http://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <style>
 fieldset 
     {

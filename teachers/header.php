@@ -7,9 +7,9 @@ function show_header(){
 	<head>
 	    <title>CS Plus</title>
 	    <meta charset="utf-8">
-	    <link rel="stylesheet" href="http://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700;900&amp;display=swap">
-		 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700;900&amp;display=swap">
+		 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	    <link rel="stylesheet" href="header.css">
 	    <link rel="stylesheet" href="style.css">
 	</head>

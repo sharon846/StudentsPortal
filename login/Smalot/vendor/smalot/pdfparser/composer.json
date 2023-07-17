@@ -11,9 +11,9 @@
         }
     ],
     "support": {
-        "issues": "http://github.com/smalot/pdfparser/issues"
+        "issues": "https://github.com/smalot/pdfparser/issues"
     },
-    "homepage": "http://www.pdfparser.org",
+    "homepage": "https://www.pdfparser.org",
     "require": {
         "php": ">=7.1",
         "symfony/polyfill-mbstring": "^1.18",

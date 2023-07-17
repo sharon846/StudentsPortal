@@ -8,7 +8,7 @@
  * @date    2020-11-22
  *
  * @license LGPLv3
- * @url     <http://github.com/smalot/pdfparser>
+ * @url     <https://github.com/smalot/pdfparser>
  *
  *  PdfParser is a pdf library written in PHP, extraction oriented.
  *  Copyright (C) 2017 - Sébastien MALOT <sebastien@malot.fr>
@@ -25,7 +25,7 @@
  *
  *  You should have received a copy of the GNU Lesser General Public License
  *  along with this program.
- *  If not, see <http://www.pdfparser.org/sites/default/LICENSE.txt>.
+ *  If not, see <https://www.pdfparser.org/sites/default/LICENSE.txt>.
  */
 
 namespace Smalot\PdfParser;
@@ -34,7 +34,7 @@ namespace Smalot\PdfParser;
  * This class contains configurations used in various classes. You can override them
  * manually, in case default values aren't working.
  *
- * @see http://github.com/smalot/pdfparser/issues/305
+ * @see https://github.com/smalot/pdfparser/issues/305
  */
 class Config
 {

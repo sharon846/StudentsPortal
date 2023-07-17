@@ -10,7 +10,7 @@ session_name("SESSION_NAME");
 session_start();
 
 if (!isset($_SESSION["SESSION_NAME"])){
-    header("Location: http://DOMAIN/login/index.php?referer=$representive_url/");
+    header("Location: https://DOMAIN/login/index.php?referer=$representive_url/");
     exit();
 }
 
@@ -23,17 +23,17 @@ if (!isset($_SESSION["SESSION_NAME"])){
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <link rel="stylesheet" href="select.css">
 <link rel="stylesheet" href="../header.css">
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 <script type="text/javascript" src="script.js"></script>
-<script src="http://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
-<script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
-<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <style>
 

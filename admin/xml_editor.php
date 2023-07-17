@@ -26,8 +26,8 @@ if (isset($_POST['savedata'])) {
          left: 0;
          }
       </style>
-      <script src="http://cdnjs.cloudflare.com/ajax/libs/ace/1.4.1/ace.js"></script>
-      <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.1/ace.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js"></script>
    </head>
    <body>
       <button style="margin-right: 1em;" onclick="save()">Save</button><h2 style="display: contents;">Filename: <?php echo pathinfo($_GET['filename'])['filename']; ?></h2>

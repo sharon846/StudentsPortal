@@ -8,7 +8,7 @@
  * @date    2017-01-03
  *
  * @license LGPLv3
- * @url     <http://github.com/smalot/pdfparser>
+ * @url     <https://github.com/smalot/pdfparser>
  *
  *  PdfParser is a pdf library written in PHP, extraction oriented.
  *  Copyright (C) 2017 - Sébastien MALOT <sebastien@malot.fr>
@@ -25,20 +25,20 @@
  *
  *  You should have received a copy of the GNU Lesser General Public License
  *  along with this program.
- *  If not, see <http://www.pdfparser.org/sites/default/LICENSE.txt>.
+ *  If not, see <https://www.pdfparser.org/sites/default/LICENSE.txt>.
  */
 
 namespace Smalot\PdfParser;
 
 /**
  * Technical references :
- * - http://www.mactech.com/articles/mactech/Vol.15/15.09/PDFIntro/index.html
- * - http://framework.zend.com/issues/secure/attachment/12512/Pdf.php
- * - http://www.php.net/manual/en/ref.pdf.php#74211
- * - http://cpansearch.perl.org/src/JV/PostScript-Font-1.10.02/lib/PostScript/ISOLatin1Encoding.pm
- * - http://cpansearch.perl.org/src/JV/PostScript-Font-1.10.02/lib/PostScript/ISOLatin9Encoding.pm
- * - http://cpansearch.perl.org/src/JV/PostScript-Font-1.10.02/lib/PostScript/StandardEncoding.pm
- * - http://cpansearch.perl.org/src/JV/PostScript-Font-1.10.02/lib/PostScript/WinAnsiEncoding.pm
+ * - https://www.mactech.com/articles/mactech/Vol.15/15.09/PDFIntro/index.html
+ * - https://framework.zend.com/issues/secure/attachment/12512/Pdf.php
+ * - https://www.php.net/manual/en/ref.pdf.php#74211
+ * - https://cpansearch.perl.org/src/JV/PostScript-Font-1.10.02/lib/PostScript/ISOLatin1Encoding.pm
+ * - https://cpansearch.perl.org/src/JV/PostScript-Font-1.10.02/lib/PostScript/ISOLatin9Encoding.pm
+ * - https://cpansearch.perl.org/src/JV/PostScript-Font-1.10.02/lib/PostScript/StandardEncoding.pm
+ * - https://cpansearch.perl.org/src/JV/PostScript-Font-1.10.02/lib/PostScript/WinAnsiEncoding.pm
  *
  * Class Document
  */

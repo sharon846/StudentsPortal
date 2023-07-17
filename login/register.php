@@ -21,7 +21,7 @@ if (isset($_POST['user'], $_POST['name'], $_FILES["cv"])) {
             $name = explode(' ', $name)[0];
             $success = true;
             $message = "היי $name, שמנו לב שאינך מהחוג למערכות מידע. <br/>מעבר לעובדה שהאתר מיועד רק למי שלומד מערכות מידע, אין בו שום תוכן רלוונטי לחוגים אחרים (גם קורסים עם שמות דומים, שונים לגמרי). בהצלחה!";
-            $message .= "<br/>לחזרה לעמוד הראשי לחצו <a style='color: blue' href='http://DOMAIN'>כאן</a>";
+            $message .= "<br/>לחזרה לעמוד הראשי לחצו <a style='color: blue' href='https://DOMAIN'>כאן</a>";
             break;
         }
         
@@ -54,7 +54,7 @@ if (isset($_POST['user'], $_POST['name'], $_FILES["cv"])) {
             $show_msg = true;
             
             if ($deg == "2")
-                $message = "הרשמתך לאתר הסטודנטים בחוג למערכות מידע אושרה!<br/>כשאתם נכנסים לאתר, התחברו ואז בחרו לעצמכם ססמה קבועה. כמו כן, שמנו לב שאתם בתואר שני.<br/><a style='color: blue' href='http://chat.whatsapp.com/Ghs75iHQqq2AT07FW28HZ7'>קישור לקבוצת הווצאפ</a>, <a style='color: blue' href='http://m.facebook.com/groups/510159989118515/'>קישור לקבוצת הפייסבוק</a><br/>בהצלחה!";
+                $message = "הרשמתך לאתר הסטודנטים בחוג למערכות מידע אושרה!<br/>כשאתם נכנסים לאתר, התחברו ואז בחרו לעצמכם ססמה קבועה. כמו כן, שמנו לב שאתם בתואר שני.<br/><a style='color: blue' href='https://chat.whatsapp.com/Ghs75iHQqq2AT07FW28HZ7'>קישור לקבוצת הווצאפ</a>, <a style='color: blue' href='https://m.facebook.com/groups/510159989118515/'>קישור לקבוצת הפייסבוק</a><br/>בהצלחה!";
             else //if ($deg == "2")
                 $message = "הרשמתך לאתר הסטודנטים בחוג למערכות מידע אושרה!<br/>כשאתם נכנסים לאתר, התחברו ואז בחרו לעצמכם ססמה קבועה. בהצלחה!";
             

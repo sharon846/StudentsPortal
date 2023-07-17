@@ -141,7 +141,7 @@ Array
 
 ## Read Base64 encoded PDFs
 
-If working with [Base64](http://en.wikipedia.org/wiki/Base64) encoded PDFs, you might want to parse the PDF without saving the file to disk.
+If working with [Base64](https://en.wikipedia.org/wiki/Base64) encoded PDFs, you might want to parse the PDF without saving the file to disk.
 This sample will parse the Base64 encoded PDF and extract text from each page.
 
 ```php

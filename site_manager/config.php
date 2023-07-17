@@ -18,7 +18,7 @@ $use_auth = true;
 
 // Login user name and password
 // Users: array('Username' => 'Password', 'Username2' => 'Password2', ...)
-// Generate secure password hash - http://tinyfilemanager.github.io/docs/pwd.html
+// Generate secure password hash - https://tinyfilemanager.github.io/docs/pwd.html
 $auth_users = array(
     'editor' => '$2y$10$knciNuPiydyu8QX2iozevuVH1ZvC.8Y5I.mFhbVZi9K3m7wjSQRBu',  //editor123
     'admin' => '$2y$10$RVfgCMI7addnoHn.4BIhbONJ2gi9N9GBuKlXwQNlW.6uhW3qXjg3m'	//admin123
@@ -30,18 +30,18 @@ $readonly_users = array(
     'user'
 );
 
-// Enable highlight.js (http://highlightjs.org/) on view's page
+// Enable highlight.js (https://highlightjs.org/) on view's page
 $use_highlightjs = true;
 
 // highlight.js style
 // for dark theme use 'ir-black'
 $highlightjs_style = 'vs';
 
-// Enable ace.js (http://ace.c9.io/) on view's page
+// Enable ace.js (https://ace.c9.io/) on view's page
 $edit_files = true;
 
 // Default timezone for date() and time()
-// Doc - http://php.net/manual/en/timezones.php
+// Doc - https://php.net/manual/en/timezones.php
 $default_timezone = 'Asia/Jerusalem'; // UTC
 
 // Root path for file manager
@@ -65,7 +65,7 @@ $directories_users = array(
 $iconv_input_encoding = 'UTF-8';
 
 // date() format for file modification date
-// Doc - http://www.php.net/manual/en/datetime.format.php
+// Doc - https://www.php.net/manual/en/datetime.format.php
 $datetime_format = 'd.m.y H:i:s';
 
 // Allowed file extensions for create and rename files
@@ -77,7 +77,7 @@ $allowed_file_extensions = '';
 $allowed_upload_extensions = '';
 
 // Favicon path. This can be either a full url to an .PNG image, or a path based on the document root.
-// full path, e.g http://example.com/favicon.png
+// full path, e.g https://example.com/favicon.png
 // local path, e.g images/icons/favicon.png
 $favicon_path = '';
 

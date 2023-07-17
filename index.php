@@ -1,13 +1,13 @@
-<!-- Code By Webdevtrick ( http://webdevtrick.com ) -->
+<!-- Code By Webdevtrick ( https://webdevtrick.com ) -->
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
   <title>Main IS Haifa</title>
-  <link rel='stylesheet' href='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
-  <link href="http://cdn.jsdelivr.net/css-toggle-switch/latest/toggle-switch.css" rel="stylesheet" />
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+  <link href="https://cdn.jsdelivr.net/css-toggle-switch/latest/toggle-switch.css" rel="stylesheet" />
   <link rel="stylesheet" href="style.css">
-  <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
-  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
@@ -54,7 +54,7 @@ file_put_contents("data/logCount", $count+1, LOCK_EX);
                      <li id="lst" class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">More</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="http://www.youtube.com/playlist?list=PLUfHxBkkFMSd0LrsOhOmB7H9SUBlM_5wR">Job interviewes</a>
+                            <a class="dropdown-item" href="https://www.youtube.com/playlist?list=PLUfHxBkkFMSd0LrsOhOmB7H9SUBlM_5wR">Job interviewes</a>
                             <a class="dropdown-item" href="">Coming soon...</a>
                         </div>
                      </li>
@@ -146,8 +146,8 @@ $cell_data = '<div class="col-sm-6 caption flex"><a target="_blank" href="href_c
 </section>
 </body>
 
-<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-<script src='http://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
 <script  src="script.js"></script>
 
 <script>

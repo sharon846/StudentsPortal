@@ -4,11 +4,11 @@ if (isset($_POST['aa']))
 {
     $res = 0;
 
-    $data = file_get_contents("http://studapps.haifa.ac.il/catalog/CatalogServlet?operation=getActiveYear");
+    $data = file_get_contents("https://studapps.haifa.ac.il/catalog/CatalogServlet?operation=getActiveYear");
     $data = json_decode($data, true);
     $data = $data['data']['year'];
         
-    $res += file_put_contents("../rooms-cs/backend/data.json", file_get_contents("http://studapps.haifa.ac.il/catalog/CatalogServlet?operation=getCourses&p_lang=B&p_year=".$data));
+    $res += file_put_contents("../rooms-cs/backend/data.json", file_get_contents("https://studapps.haifa.ac.il/catalog/CatalogServlet?operation=getCourses&p_lang=B&p_year=".$data));
 
     if ($res > 0)
         ?> <script> window.alert(<?php echo "'success'"; ?>); </script> <?php
@@ -26,10 +26,10 @@ if (isset($_POST['aa']))
 <meta http-equiv="Pragma" content="no-cache"/>
 <meta http-equiv="Expires" content="0" />
 
-<script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-<script src="http://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
 
 <style>
 

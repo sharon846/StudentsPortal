@@ -7,7 +7,7 @@
  * @date    2019-09-17
  *
  * @license LGPLv3
- * @url     <http://github.com/smalot/pdfparser>
+ * @url     <https://github.com/smalot/pdfparser>
  *
  *  PdfParser is a pdf library written in PHP, extraction oriented.
  *  Copyright (C) 2017 - Sébastien MALOT <sebastien@malot.fr>
@@ -24,7 +24,7 @@
  *
  *  You should have received a copy of the GNU Lesser General Public License
  *  along with this program.
- *  If not, see <http://www.pdfparser.org/sites/default/LICENSE.txt>.
+ *  If not, see <https://www.pdfparser.org/sites/default/LICENSE.txt>.
  */
 
 namespace Smalot\PdfParser\Encoding;
@@ -35,9 +35,9 @@ namespace Smalot\PdfParser\Encoding;
 class PostScriptGlyphs
 {
     /**
-     * The mapping tables have been converted from http://github.com/OpenPrinting/cups-filters/blob/master/fontembed/aglfn13.c,
+     * The mapping tables have been converted from https://github.com/OpenPrinting/cups-filters/blob/master/fontembed/aglfn13.c,
      * part of the OpenPrinting/cups-filters package, which itself is licensed under the MIT license and lists this specific code part as:
-     * Copyright 2008,2012 Tobias Hoffmann under the Expat license (http://www.gnu.org/licenses/license-list.html#Expat)
+     * Copyright 2008,2012 Tobias Hoffmann under the Expat license (https://www.gnu.org/licenses/license-list.html#Expat)
      */
     public static function getGlyphs(): array
     {

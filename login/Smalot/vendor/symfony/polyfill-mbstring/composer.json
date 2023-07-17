@@ -3,7 +3,7 @@
     "type": "library",
     "description": "Symfony polyfill for the Mbstring extension",
     "keywords": ["polyfill", "shim", "compatibility", "portable", "mbstring"],
-    "homepage": "http://symfony.com",
+    "homepage": "https://symfony.com",
     "license": "MIT",
     "authors": [
         {
@@ -12,7 +12,7 @@
         },
         {
             "name": "Symfony Community",
-            "homepage": "http://symfony.com/contributors"
+            "homepage": "https://symfony.com/contributors"
         }
     ],
     "require": {
@@ -35,7 +35,7 @@
         },
         "thanks": {
             "name": "symfony/polyfill",
-            "url": "http://github.com/symfony/polyfill"
+            "url": "https://github.com/symfony/polyfill"
         }
     }
 }

@@ -114,7 +114,7 @@ session_name("SESSION_NAME");
 session_start();
 
 if (!isset($_SESSION["SESSION_NAME"])){
-    header("Location: http://DOMAIN/login/index.php?referer=$representive_url/");
+    header("Location: https://DOMAIN/login/index.php?referer=$representive_url/");
     exit();
 }
 

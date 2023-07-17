@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "e6d805d787ba34faf8116943cc3c004d",
@@ -11,12 +11,12 @@
             "version": "v2.2.1",
             "source": {
                 "type": "git",
-                "url": "http://github.com/smalot/pdfparser.git",
+                "url": "https://github.com/smalot/pdfparser.git",
                 "reference": "7c007090776f29119e72be28f7780e638ea0cbf4"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://api.github.com/repos/smalot/pdfparser/zipball/7c007090776f29119e72be28f7780e638ea0cbf4",
+                "url": "https://api.github.com/repos/smalot/pdfparser/zipball/7c007090776f29119e72be28f7780e638ea0cbf4",
                 "reference": "7c007090776f29119e72be28f7780e638ea0cbf4",
                 "shasum": ""
             },
@@ -32,7 +32,7 @@
                     "Smalot\\PdfParser\\": "src/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "LGPL-3.0"
             ],
@@ -43,7 +43,7 @@
                 }
             ],
             "description": "Pdf parser library. Can read and extract information from pdf file.",
-            "homepage": "http://www.pdfparser.org",
+            "homepage": "https://www.pdfparser.org",
             "keywords": [
                 "extract",
                 "parse",
@@ -52,8 +52,8 @@
                 "text"
             ],
             "support": {
-                "issues": "http://github.com/smalot/pdfparser/issues",
-                "source": "http://github.com/smalot/pdfparser/tree/v2.2.1"
+                "issues": "https://github.com/smalot/pdfparser/issues",
+                "source": "https://github.com/smalot/pdfparser/tree/v2.2.1"
             },
             "time": "2022-05-02T06:42:03+00:00"
         },
@@ -62,12 +62,12 @@
             "version": "v1.25.0",
             "source": {
                 "type": "git",
-                "url": "http://github.com/symfony/polyfill-mbstring.git",
+                "url": "https://github.com/symfony/polyfill-mbstring.git",
                 "reference": "0abb51d2f102e00a4eefcf46ba7fec406d245825"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://api.github.com/repos/symfony/polyfill-mbstring/zipball/0abb51d2f102e00a4eefcf46ba7fec406d245825",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/0abb51d2f102e00a4eefcf46ba7fec406d245825",
                 "reference": "0abb51d2f102e00a4eefcf46ba7fec406d245825",
                 "shasum": ""
             },
@@ -87,7 +87,7 @@
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
-                    "url": "http://github.com/symfony/polyfill"
+                    "url": "https://github.com/symfony/polyfill"
                 }
             },
             "autoload": {
@@ -98,7 +98,7 @@
                     "Symfony\\Polyfill\\Mbstring\\": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -109,11 +109,11 @@
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
+                    "homepage": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony polyfill for the Mbstring extension",
-            "homepage": "http://symfony.com",
+            "homepage": "https://symfony.com",
             "keywords": [
                 "compatibility",
                 "mbstring",
@@ -122,19 +122,19 @@
                 "shim"
             ],
             "support": {
-                "source": "http://github.com/symfony/polyfill-mbstring/tree/v1.25.0"
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.25.0"
             },
             "funding": [
                 {
-                    "url": "http://symfony.com/sponsor",
+                    "url": "https://symfony.com/sponsor",
                     "type": "custom"
                 },
                 {
-                    "url": "http://github.com/fabpot",
+                    "url": "https://github.com/fabpot",
                     "type": "github"
                 },
                 {
-                    "url": "http://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
                     "type": "tidelift"
                 }
             ],

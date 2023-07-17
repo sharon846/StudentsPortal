@@ -4,9 +4,9 @@
  * This file is based on code of tecnickcom/TCPDF PDF library.
  *
  * Original author Nicola Asuni (info@tecnick.com) and
- * contributors (http://github.com/tecnickcom/TCPDF/graphs/contributors).
+ * contributors (https://github.com/tecnickcom/TCPDF/graphs/contributors).
  *
- * @see http://github.com/tecnickcom/TCPDF
+ * @see https://github.com/tecnickcom/TCPDF
  *
  * Original code was licensed on the terms of the LGPL v3.
  *
@@ -18,7 +18,7 @@
  * @date    2020-01-06
  *
  * @license LGPLv3
- * @url     <http://github.com/smalot/pdfparser>
+ * @url     <https://github.com/smalot/pdfparser>
  *
  *  PdfParser is a pdf library written in PHP, extraction oriented.
  *  Copyright (C) 2017 - Sébastien MALOT <sebastien@malot.fr>
@@ -35,7 +35,7 @@
  *
  *  You should have received a copy of the GNU Lesser General Public License
  *  along with this program.
- *  If not, see <http://www.pdfparser.org/sites/default/LICENSE.txt>.
+ *  If not, see <https://www.pdfparser.org/sites/default/LICENSE.txt>.
  */
 
 namespace Smalot\PdfParser\RawData;

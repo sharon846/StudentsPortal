@@ -73,7 +73,7 @@ function getOutput($name, $pts, $id, $lect, $note, $link, $sem)
     $semArr = array("a" => "001", "b" => "002", "c" => "003");
     $str = $name;
     if ($link != "")
-        $str = "<a class='result' href='http://studapps.haifa.ac.il/catalog/#/course/$link/".$semArr[$sem]."'>$name</a>";
+        $str = "<a class='result' href='https://studapps.haifa.ac.il/catalog/#/course/$link/".$semArr[$sem]."'>$name</a>";
 
     $str = "$str - pts נקודות, קורס duty, מרצה: lect";
     $str = str_replace("pts", $pts, $str);

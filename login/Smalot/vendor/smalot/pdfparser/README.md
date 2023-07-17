@@ -1,10 +1,10 @@
 # PDF parser
 
-[![Version](http://poser.pugx.org/smalot/pdfparser/v)](//packagist.org/packages/smalot/pdfparser)
-![CI](http://github.com/smalot/pdfparser/workflows/CI/badge.svg)
-![CS](http://github.com/smalot/pdfparser/workflows/CS/badge.svg)
-[![Scrutinizer Code Quality](http://scrutinizer-ci.com/g/smalot/pdfparser/badges/quality-score.png?b=master)](http://scrutinizer-ci.com/g/smalot/pdfparser/?branch=master)
-[![Downloads](http://poser.pugx.org/smalot/pdfparser/downloads)](//packagist.org/packages/smalot/pdfparser)
+[![Version](https://poser.pugx.org/smalot/pdfparser/v)](//packagist.org/packages/smalot/pdfparser)
+![CI](https://github.com/smalot/pdfparser/workflows/CI/badge.svg)
+![CS](https://github.com/smalot/pdfparser/workflows/CS/badge.svg)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/smalot/pdfparser/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/smalot/pdfparser/?branch=master)
+[![Downloads](https://poser.pugx.org/smalot/pdfparser/downloads)](//packagist.org/packages/smalot/pdfparser)
 
 The `smalot/pdfparser` is a standalone PHP package that provides various tools to extract data from PDF files.
 
@@ -25,12 +25,12 @@ Currently, secured documents and extracting form data are not supported.
 
 ## License
 
-This library is under the [LGPLv3 license](http://github.com/smalot/pdfparser/blob/master/LICENSE.txt).
+This library is under the [LGPLv3 license](https://github.com/smalot/pdfparser/blob/master/LICENSE.txt).
 
 ## Install
 
-This library requires PHP 7.1+ since [v1](http://github.com/smalot/pdfparser/releases/tag/v1.0.0).
-You can install it via [Composer](http://getcomposer.org/):
+This library requires PHP 7.1+ since [v1](https://github.com/smalot/pdfparser/releases/tag/v1.0.0).
+You can install it via [Composer](https://getcomposer.org/):
 
 ```bash
 composer require smalot/pdfparser

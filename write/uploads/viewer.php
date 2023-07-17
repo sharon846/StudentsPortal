@@ -158,7 +158,7 @@ function is_recursively_deleteable($d) {
 	return true;
 }
 
-// from: http://php.net/manual/en/function.realpath.php#84012
+// from: https://php.net/manual/en/function.realpath.php#84012
 function get_absolute_path($path) {
         $path = str_replace(['/', '\\'], DIRECTORY_SEPARATOR, $path);
         $parts = explode(DIRECTORY_SEPARATOR, $path);

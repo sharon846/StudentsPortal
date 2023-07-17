@@ -8,7 +8,7 @@
  * @date    2017-01-03
  *
  * @license LGPLv3
- * @url     <http://github.com/smalot/pdfparser>
+ * @url     <https://github.com/smalot/pdfparser>
  *
  *  PdfParser is a pdf library written in PHP, extraction oriented.
  *  Copyright (C) 2017 - Sébastien MALOT <sebastien@malot.fr>
@@ -25,7 +25,7 @@
  *
  *  You should have received a copy of the GNU Lesser General Public License
  *  along with this program.
- *  If not, see <http://www.pdfparser.org/sites/default/LICENSE.txt>.
+ *  If not, see <https://www.pdfparser.org/sites/default/LICENSE.txt>.
  */
 
 namespace Smalot\PdfParser;
@@ -204,7 +204,7 @@ class PDFObject
                 $section = preg_replace('/(\/[A-Za-z0-9]+\s*<<.*?)(>>\s*BDC)(.*?)(EMC\s+)/s', '${3}', $section.' ');
 
                 // Add Q and q flags if detected around BT/ET.
-                // @see: http://github.com/smalot/pdfparser/issues/387
+                // @see: https://github.com/smalot/pdfparser/issues/387
                 $section = trim((!empty($matches[1][$pos][0]) ? "Q\n" : '').$section).(!empty($matches[3][$pos][0]) ? "\nq" : '');
 
                 $sections[] = $section;
@@ -315,7 +315,7 @@ class PDFObject
                             // If an invalid font ID is given, do not update the font.
                             // This should theoretically never happen, as the PDF spec states for the Tf operator:
                             // "The specified font value shall match a resource name in the Font entry of the default resource dictionary"
-                            // (http://www.adobe.com/content/dam/acom/en/devnet/pdf/pdfs/PDF32000_2008.pdf, page 435)
+                            // (https://www.adobe.com/content/dam/acom/en/devnet/pdf/pdfs/PDF32000_2008.pdf, page 435)
                             // But we want to make sure that malformed PDFs do not simply crash.
                             if (null !== $new_font) {
                                 $current_font = $new_font;
@@ -440,7 +440,7 @@ class PDFObject
             }
 
             // Fix Hebrew and other reverse text oriented languages.
-            // @see: http://github.com/smalot/pdfparser/issues/398
+            // @see: https://github.com/smalot/pdfparser/issues/398
             if ($reverse_text) {
                 $chars = mb_str_split($text, 1, mb_internal_encoding());
                 $text = implode('', array_reverse($chars));

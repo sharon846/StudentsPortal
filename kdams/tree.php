@@ -36,9 +36,9 @@ $layers = json_encode($layers);
 
 <html>
     <head>
-        <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-        <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
         <style>
             span.course{
@@ -258,7 +258,7 @@ $layers = json_encode($layers);
                         $("span[class='course']").each(function(){
                             if (value.kdams != null && value.kdams.split(',').includes($(this).text()))
                             {
-                                var newLine = document.createElementNS('http://www.w3.org/2000/svg','line');
+                                var newLine = document.createElementNS('https://www.w3.org/2000/svg','line');
                                 newLine.setAttribute('class','arrow '+div.attr('class')+' s'+value.link);
                                 newLine.setAttribute('x1',get_mid($(this))[0]);
                                 newLine.setAttribute('y1',get_mid($(this))[1]);
