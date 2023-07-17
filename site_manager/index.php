@@ -727,7 +727,7 @@ if (isset($_GET['del']) && !FM_READONLY) {
             $path .= '/' . FM_PATH;
         }
         $is_dir = is_dir($path . '/' . $del);
-        if (FM_PATH == DOMAIN_TRASH_DIR || $_SESSION[FM_SESSION_ID]['logged'] == "admin")
+        if (FM_PATH == DOMAIN_TRASH_DIR || $_SESSION[FM_SESSION_ID]['logged'] != "admin")
 		{
 			if (fm_rdelete($path . '/' . $del)) {
 
