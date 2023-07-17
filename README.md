@@ -14,7 +14,7 @@
 
 [Admin's Site Manager](https://srworkspace.com/StudentsPortal/site_manager)
 
-[Admin's Managment Pane](https://srworkspace.com/StudentsPortal/admin)
+[Admin's Managment Panel](https://srworkspace.com/StudentsPortal/admin)
 
 ## Documentation
 
