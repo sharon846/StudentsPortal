@@ -1,5 +1,5 @@
 <?php
 
-header("Location: https://DOMAIN/site/is");
+header("Location: https://SITE_DOMAIN/site/files");
 
 ?>
