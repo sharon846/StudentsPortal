@@ -232,7 +232,7 @@ if (isset($_SESSION[FM_SESSION_ID]['logged']) && !empty($directories_users[$_SES
    // $root_url =  $root_url.$wd.DIRECTORY_SEPARATOR.$directories_users[$_SESSION[FM_SESSION_ID]['logged']];
     $root_url =  $directories_users[$_SESSION[FM_SESSION_ID]['logged']];
     
-    $root_url = str_replace("SITE_PATH", "", $root_url);
+    $root_url = str_replace($_SERVER['DOCUMENT_ROOT'], "", $root_url);
 }
 // clean $root_url
 $root_url = fm_clean_path($root_url);
