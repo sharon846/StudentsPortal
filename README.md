@@ -1,8 +1,7 @@
 # StudentsPortal
 [![Live demo](https://img.shields.io/badge/Live-Demo-brightgreen.svg?style=flat-square)](https://www.srworkspace.com/StudentsPortal)
 [![Documentation](https://img.shields.io/badge/Help-Docs-lightgrey.svg?style=flat-square)](https://github.com/sharon846/StudentsPortal/guide.pdf)
-[![GitHub Release](https://img.shields.io/github/release/prasathmani/tinyfilemanager.svg?style=flat-square)](https://github.com/prasathmani/tinyfilemanager/releases)
-[![GitHub License](https://img.shields.io/github/license/prasathmani/tinyfilemanager.svg?style=flat-square)](https://github.com/prasathmani/tinyfilemanager/blob/master/LICENSE)
+[![GitHub License](https://img.shields.io/github/license/prasathmani/tinyfilemanager.svg?style=flat-square)](https://github.com/sharon846/StudentsPortal/blob/master/LICENSE)
 [![Paypal](https://img.shields.io/badge/Donate-Paypal-lightgrey.svg?style=flat-square)](https://www.paypal.me/srotgaizer)
 ![GitHub Sponsors]()
 
