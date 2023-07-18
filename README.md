@@ -33,6 +33,7 @@ StudentsPortal is highly documented on the [guide](https://github.com/sharon846/
 
 - :cd: Open Source, light and extremely simple
 - :iphone: Mobile friendly view for touch devices
+- 🕶️: Dark mode supported.
 - 🔐: Login protection against non-students (details later)
 - :file_folder: Drive of materials with nice UI.
 - ⏫: Option to upload mateirals, easily and anonymously.
