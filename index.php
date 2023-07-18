@@ -54,7 +54,6 @@ file_put_contents("data/logCount", $count+1, LOCK_EX);
                      <li id="lst" class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">More</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="https://www.youtube.com/playlist?list=PLUfHxBkkFMSd0LrsOhOmB7H9SUBlM_5wR">Job interviewes</a>
                             <a class="dropdown-item" href="">Coming soon...</a>
                         </div>
                      </li>
