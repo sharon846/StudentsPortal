@@ -55,7 +55,8 @@ StudentsPortal is highly documented on the [guide](https://github.com/sharon846/
    - SITE_DOMAIN, with your domain adress.
    - SITE_SESSION_NAME, with a session name for your choice.
    - SITE_ENC_KEY with some encryption key, to protect personal links in mail sending.
-   - SITE_NAME with your site name (i.e. StudDept). 
+   - SITE_NAME with your site name (i.e. StudDept).
+   - DEPT_NAME with your department name (i.e. Computer Science) or your organization for whom you are developing this site
      
    - rtl with ltr, if you want your site to be in right to left languages.
    - set_time_limit(3600), with the wanted session time in seconds (after that the student will be logged out).
