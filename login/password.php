@@ -12,7 +12,7 @@ $dt = base64_decode($_GET['data']);
 $decryption_iv = '1234567891011121';
   
 // Store the decryption key
-$decryption_key = "CSPlus209";
+$decryption_key = "SITE_ENC_KEY";
   
 $ciphering = "AES-128-CTR";
   

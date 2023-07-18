@@ -40,7 +40,7 @@ if (isset($_POST['user'])) {
         $encryption_iv = '1234567891011121';
           
         // Store the encryption key
-        $encryption_key = "CSPlus209";
+        $encryption_key = "SITE_ENC_KEY";
          
         $simple_string = "$mail##$name##$degree";
         
@@ -70,22 +70,6 @@ if (isset($_POST['user'])) {
         
     } 
     exit();
-    /*
-    
-    if (file_exists("pending/".$_POST['user'].".pdf")){
-        ?> <script> window.alert(<?php echo "'already pending, please wait'"; ?>); history.back();</script> <?php exit();
-    }
-    
-    $target_file = "pending/".$_POST['user'].".pdf";
-    $success = move_uploaded_file($_FILES["cv"]["tmp_name"], $target_file);
-    
-    if ($success){
-        file_put_contents(getcwd()."/../admin/updates", $_POST['user']." forgot password##https://DOMAIN/login/pending/viewer.php".PHP_EOL, FILE_APPEND);
-        
-        ?> <script> window.alert(<?php echo "'done, we will contact soon'"; ?>); window.location.href = "https://DOMAIN";</script> <?php exit();
-    } else {
-        ?> <script> window.alert(<?php echo "'failed, try again later'"; ?>); window.location.href = "https://DOMAIN";</script> <?php exit();
-    }*/
 }
 
 else {  

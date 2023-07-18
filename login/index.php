@@ -44,7 +44,7 @@ if (isset($_POST['user'], $_POST['password'])) {
             $encryption_iv = '1234567891011121';
               
             // Store the encryption key
-            $encryption_key = "CSPlus209";
+            $encryption_key = "SITE_ENC_KEY";
              
             $simple_string = "$mail##$name##$degree";
             
