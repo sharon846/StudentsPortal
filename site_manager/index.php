@@ -13,7 +13,7 @@ $CONFIG = '{"lang":"en","error_reporting":true,"show_hidden":true,"hide_Cols":tr
 define('VERSION', '2.4.7');
 
 //Application Title
-define('APP_TITLE', 'IS File Manager');
+define('APP_TITLE', 'SITE_NAME File Manager');
 
 // --- EDIT BELOW CONFIGURATION CAREFULLY ---
 

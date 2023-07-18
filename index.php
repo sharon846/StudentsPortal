@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Main IS Haifa</title>
+  <title>SITE_NAME</title>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
   <link href="https://cdn.jsdelivr.net/css-toggle-switch/latest/toggle-switch.css" rel="stylesheet" />
   <link rel="stylesheet" href="style.css">
@@ -42,7 +42,7 @@ file_put_contents("data/logCount", $count+1, LOCK_EX);
          <div class="col-12">
             <nav class="navbar navbar-expand-md navbar-light">
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <h3 style="font-family: 'Montserrat', sans-serif; font-size: 18px; position: absolute">IS Haifa, <?php echo $count; ?> Entries.</h3>
+                  <h3 style="font-family: 'Montserrat', sans-serif; font-size: 18px; position: absolute">SITE_NAME, <?php echo $count; ?> Entries.</h3>
                   <?php if ($count % 500 == 0) echo "<script>window.alert('wow, you are the $count user'); </script>"; ?>
                   <ul class="navbar-nav ml-auto py-4 py-md-0">
                      <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
