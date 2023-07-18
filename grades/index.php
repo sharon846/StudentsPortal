@@ -3,14 +3,14 @@
 $server_root = "SITE_PATH/";
 $curr_dir = getcwd();
 $representive_dir = str_replace($server_root, "", $curr_dir);
-$representive_url = $_SERVER['REQUEST_SCHEME'].'://DOMAIN/'.$representive_dir;
+$representive_url = $_SERVER['REQUEST_SCHEME'].'://SITE_DOMAIN/'.$representive_dir;
 
 @set_time_limit(3600);
-session_name("SESSION_NAME");
+session_name("SITE_SESSION_NAME");
 session_start();
 
-if (!isset($_SESSION["SESSION_NAME"])){
-    header("Location: https://DOMAIN/login/index.php?referer=$representive_url/");
+if (!isset($_SESSION["SITE_SESSION_NAME"])){
+    header("Location: https://SITE_DOMAIN/login/index.php?referer=$representive_url/");
     exit();
 }
 
@@ -107,7 +107,7 @@ div.charts{
         </div>
         <div style="position: absolute;right: 4.8%;height: 60%;color: white;top: 45%;">
             <h4 class="dl hover" title="Info" style="font-size: 1.1rem; line-height: 1.25rem;">
-                מערכות מידע
+                DEPT_NAME
             </h4>
         </div>
     </div>

@@ -54,7 +54,7 @@ if (isset($_POST['user'], $_POST['password'])) {
             
             $encryption = base64_encode($encryption);
             
-            header("Location: https://DOMAIN/login/password.php?data=$encryption");
+            header("Location: https://SITE_DOMAIN/login/password.php?data=$encryption");
             exit();
         } 
         else if ($password1 != md5($_POST['password'])){
@@ -128,13 +128,13 @@ function funct()
 
 function trouble_click()
 {
-    window.location.href="https://DOMAIN/login/register.php";
+    window.location.href="https://SITE_DOMAIN/login/register.php";
     return false;
 }
 
 function forgot_click()
 {
-    window.location.href="https://DOMAIN/login/forgot.php?mail=" + $("input#email").val();
+    window.location.href="https://SITE_DOMAIN/login/forgot.php?mail=" + $("input#email").val();
     return false;
 }
 

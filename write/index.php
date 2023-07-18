@@ -10,7 +10,7 @@ if (isset($_POST["text"])) {
         ?> <script> window.alert(<?php echo "'already pending, please wait'"; ?>); window.location.href = "index.php";</script> <?php exit();
     }
 
-    file_put_contents(getcwd()."/../admin/updates", "someone wrote us##https://DOMAIN/write/uploads/viewer.php".PHP_EOL, FILE_APPEND);
+    file_put_contents(getcwd()."/../admin/updates", "someone wrote us##https://SITE_DOMAIN/write/uploads/viewer.php".PHP_EOL, FILE_APPEND);
         
     $lines = array();
     array_push($lines, $mail.PHP_EOL);
@@ -18,7 +18,7 @@ if (isset($_POST["text"])) {
     
     file_put_contents("uploads/$mail.txt", $lines);
     
-    ?> <script> window.alert(<?php echo "'success! we will contact soon'"; ?>); window.location.href = "https://DOMAIN";</script> <?php exit();
+    ?> <script> window.alert(<?php echo "'success! we will contact soon'"; ?>); window.location.href = "https://SITE_DOMAIN";</script> <?php exit();
 }
 
 else {  

@@ -19,7 +19,7 @@ if (isset($_POST['user'])) {
     $result = $conn->query($sql)->rowCount();
     $result = $result == 1 ? "successfully unsubscribed" : "you are not listed!";
     
-    ?> <script> window.alert(<?php echo "'$result'"; ?>); window.location.href = "https://DOMAIN";</script> <?php exit(); 
+    ?> <script> window.alert(<?php echo "'$result'"; ?>); window.location.href = "https://SITE_DOMAIN";</script> <?php exit(); 
 }
 
 else {  
@@ -51,7 +51,7 @@ function funct()
 
 function trouble_click()
 {
-    window.location.href="https://DOMAIN/login/register.php";
+    window.location.href="https://SITE_DOMAIN/login/register.php";
     return false;
 }
 

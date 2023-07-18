@@ -18,7 +18,7 @@ $uploadOk = 1;
 // Check if image file is a actual image or fake image
 
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-       file_put_contents(getcwd()."/../../admin/updates", "grade uploaded in ".$_POST['course']."##https://DOMAIN/grades/uploads/data/viewer.php".PHP_EOL, FILE_APPEND);
+       file_put_contents(getcwd()."/../../admin/updates", "grade uploaded in ".$_POST['course']."##https://SITE_DOMAIN/grades/uploads/data/viewer.php".PHP_EOL, FILE_APPEND);
         echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
       } else {
         echo "Sorry, there was an error uploading your file.";

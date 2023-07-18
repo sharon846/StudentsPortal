@@ -5,7 +5,7 @@ function show_header(){
     <!DOCTYPE html>
     <html dir="rtl">
 	<head>
-	    <title>IS Plus</title>
+	    <title>SITE_NAME</title>
 	    <meta charset="utf-8">
 	    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700;900&amp;display=swap">
 		 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -24,7 +24,7 @@ function show_header(){
 								<img src="../img/logoranker.png" alt="לוגו ועד הסטודנטים" class="h-16 w-16 rounded-full bg-white"> 
 								<div class="mr-6 flex flex-col justify-center items-center tracking-wider">
 									<span>ועד הסטודנטים</span> 
-									<span>מערכות מידע</span>
+									<span>DEPT_NAME</span>
 								</div>
 							</a>
 						</div>

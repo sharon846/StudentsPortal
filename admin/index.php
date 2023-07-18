@@ -138,7 +138,7 @@ table#grade-edit{
             window.location = "xml_editor.php?filename=../data/news";
         }
         if (id == 8){
-            window.location = "https://auth-db991.hstgr.io/index.php?route=/database/structure&db=u299615442_db_site";
+            window.location = "link to data base";
         }
         if (id == 10){
             window.location = "exams.php";

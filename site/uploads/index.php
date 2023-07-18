@@ -4,12 +4,12 @@
 
 if (!empty($_FILES)) {
 
-    session_name("SESSION_NAME");
+    session_name("SITE_SESSION_NAME");
     session_start();
     $mail = "";
     
-    if (isset($_SESSION["SESSION_NAME"])){
-        $mail = $_SESSION["SESSION_NAME"]['mail'];
+    if (isset($_SESSION["SITE_SESSION_NAME"])){
+        $mail = $_SESSION["SITE_SESSION_NAME"]['mail'];
     }
 
     $override_file_name = false;
@@ -28,7 +28,7 @@ if (!empty($_FILES)) {
     $name = $_REQUEST['fname'];
     $name = str_replace(' ', '_', $name);
     
-    $fullPath = getcwd() . '/data/is/'. $name . '/'. $_REQUEST['fullpath'];
+    $fullPath = getcwd() . '/data/dept/'. $name . '/'. $_REQUEST['fullpath'];
 
     $folder = substr($fullPath, 0, strrpos($fullPath, "/")).'/';
 	
@@ -45,7 +45,7 @@ if (!empty($_FILES)) {
 
     if (empty($f['file']['error']) && !empty($tmp_name) && $tmp_name != 'none') {
         if (move_uploaded_file($tmp_name, $fullPath)) {
-            file_put_contents(getcwd()."/../../admin/updates", "$mail uploaded metirial from course $name##https://DOMAIN/site_manager/index.php?p=site/uploads/data/is".PHP_EOL, FILE_APPEND);
+            file_put_contents(getcwd()."/../../admin/updates", "$mail uploaded metirial from course $name##https://SITE_DOMAIN/site_manager/index.php?p=site/uploads/data/is".PHP_EOL, FILE_APPEND);
             die('Successfully uploaded');
         } else {
             die(sprintf('Error while uploading files. Uploaded files: %s', $uploads));
@@ -224,7 +224,7 @@ body.dark div.card-body{
         </div>
         <div style="position: absolute;right: 4.8%;height: 60%;color: white;top: 65%;">
             <h4 class="dl hover" title="Info" style="font-size: 1.1rem; line-height: 1.25rem;">
-                מערכות מידע
+                DEPT_NAME
             </h4>
         </div>
     </div>
