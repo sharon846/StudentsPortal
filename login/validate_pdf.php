@@ -2,25 +2,9 @@
 
 include 'Smalot/vendor/autoload.php'; 
 
-function extract_year($text, $pos)
-{
-    $i = 0;
-    $chr = substr($text, $pos - 1, 1);
-
-    while ($i < 3 && !is_numeric($chr))
-    {
-        $pos-=1;
-        $chr = substr($text, $pos - 1, 1);
-    }
-    if (!is_numeric($chr))
-        return "0";
-    else
-        return $chr;
-}
-
 function detect($PDFfile)
 {
-    //return array: code, degree, year, id
+    //return array: code, degree, year
 
     $parser = new \Smalot\PdfParser\Parser(); 
     $PDF = $parser->parseFile($PDFfile);
@@ -43,30 +27,11 @@ function detect($PDFfile)
     
 
     //allow only files from type 'מערכת שיעורים', 'אישור לימודים', 'אישור ציונים',changePriority
-    $pos = strpos($PDFContent, "íéøåòù úëøòî");
+    $pos = strpos($PDFContent, "Replace this with keyword that matches only your students");
     if ($pos === false)
     {
-        //last try to detect אישור לימודים
-        $pos = strpos($PDFContent, "íéãåîéì øåùéà");
         if ($pos === false)
-        {
-            //last try to detect אישור ציונים
-            $pos = strpos($PDFContent, "íéðåéö øåùéà");
-            if ($pos === false)
-            {
-                //last try to detect only accepted
-                $pos = strpos($PDFContent, "changePriority");
-                if ($pos === false)
-                    return -1;
-            }
-        }
-    }
-    
-    
-    //try extract id
-    $pattern= '/[0-9]{9}/';
-    if (preg_match($pattern, $PDFContent, $matches)){
-        $id = $matches[0];
+            return -1;
     }
     
     //try extract degree (bsc, msc)
@@ -101,20 +66,11 @@ function detect($PDFfile)
     }
 
     //try extract year
-    $pos = strpos($PDFContent, ":äðù");
+    $pos = strpos($PDFContent, "year:");
     if ($pos !== false)
-        $year = extract_year($PDFContent, $pos);
+        $year = substr($PDFContent, $pos + 5, 1);
     else{
-        $pos = strpos($PDFContent, ":áìù");
-        if ($pos !== false){
-            $year = extract_year($PDFContent, $pos);
-        }
-        else
-        {
-            $pos = strpos($PDFContent, "áìù");
-            if ($pos !== false)
-                $year = substr($PDFContent, $pos - 6, 1);
-        }
+        $year = -1;
     }
     
     //someone who only got accepted
@@ -123,15 +79,6 @@ function detect($PDFfile)
         $year = 0;
     
     
-    return array($degree, $year, $id);
+    return array($degree, $year);
 }
-
-//the next line describes cs students, first degree
-//BSC-áùçîä éòãî
-//extract year
-//1:äðù
-//extrat first degree
-//âåçïåùàø :øàåúì
-//òãéî מידע úåëøòîì למערכות âåçäïåùàø תואר :øàåúì ראשון 1:äðù שנה
-//òãéî úåëøòîì âåçäïåùàø :øàåúì 1:äðù
 ?>

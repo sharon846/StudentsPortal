@@ -46,18 +46,16 @@ if (isset($_POST['user'], $_POST['name'], $_FILES["cv"])) {
         {
             $deg = $pdf_data[0];
             $year = $pdf_data[1];
-            $id = $pdf_data[2];
             
             $sql = "INSERT IGNORE INTO `Tusers`(`email`, `name`, `degree`, `year`) VALUES ('$mail', '$name', '$deg', '$year');";
             $res = $conn->query($sql);
             
             $show_msg = true;
+            $message = "Your registration was approved!<br/>Login to our site and than choose permanent password. Good Luck!";
             
             if ($deg == "2")
-                $message = "הרשמתך לאתר הסטודנטים בחוג למערכות מידע אושרה!<br/>כשאתם נכנסים לאתר, התחברו ואז בחרו לעצמכם ססמה קבועה. כמו כן, שמנו לב שאתם בתואר שני.<br/><a style='color: blue' href='https://chat.whatsapp.com/Ghs75iHQqq2AT07FW28HZ7'>קישור לקבוצת הווצאפ</a>, <a style='color: blue' href='https://m.facebook.com/groups/510159989118515/'>קישור לקבוצת הפייסבוק</a><br/>בהצלחה!";
-            else //if ($deg == "2")
-                $message = "הרשמתך לאתר הסטודנטים בחוג למערכות מידע אושרה!<br/>כשאתם נכנסים לאתר, התחברו ואז בחרו לעצמכם ססמה קבועה. בהצלחה!";
-            
+                $message .= "<br/>Special addition for MSC";
+               
             file_put_contents(getcwd()."/../admin/updates", "$mail registered".PHP_EOL, FILE_APPEND);
             $message .= "<br/>לחזרה לדף ההתחברות לחצו <a style='color: blue' href='index.php'>כאן</a>";
             $success = true;
@@ -66,7 +64,7 @@ if (isset($_POST['user'], $_POST['name'], $_FILES["cv"])) {
         else 
         {
             $show_msg = true;
-            $message = "אתם כבר רשומים לאתר!";
+            $message = "You already registered!";
             $success = true;
             $message .= "<br/>לחזרה לדף ההתחברות לחצו <a style='color: blue' href='index.php'>כאן</a>";
         }
