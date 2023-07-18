@@ -63,7 +63,8 @@ StudentsPortal is highly documented on the [guide](https://github.com/sharon846/
    - If you want to change the admin user, it should be synced with the [site manager](#site-manager).
 
 4. Upload the site your website (to the directory defined at step 2.1).
-   
+   - ⚠️: You MUST upload the site to the your main domain folder. Directories like "public_html/MyWebSite" won't work.
+     
 5. In your database admin (i.e. phpmyadmin): 
    - Download a ready empty database from databases folder.
    - Edit the file: change the database name according to the name your created.
