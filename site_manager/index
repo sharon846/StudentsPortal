@@ -2,7 +2,7 @@
 
 function log_data($dir, $mail)
 {
-    require_once 'SITE_PATH/site_manager/pdoconfig.php';
+    require_once "{$_SERVER['DOCUMENT_ROOT']}/site_manager/pdoconfig.php";
     $conn = @new mysqli($host, $username, $password, $dbname);
     
     $sql = "UPDATE `Tusers` SET `last_dir`='$dir' WHERE `email`='$mail'"; 
@@ -29,7 +29,7 @@ $icon_url = file_get_contents("https://SITE_DOMAIN/site_manager/icons");
 // FORCE DOWNLOAD ATTRIBUTE
 $force_download = false;
 
-$server_root = 'SITE_PATH/';
+$server_root = "{$_SERVER['DOCUMENT_ROOT']}/";
 $curr_dir = getcwd();
 $representive_dir = str_replace($server_root, "", $curr_dir);
 $representive_url = $_SERVER['REQUEST_SCHEME'].'://SITE_DOMAIN/'.$representive_dir;

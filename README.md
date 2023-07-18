@@ -51,7 +51,6 @@ StudentsPortal is highly documented on the [guide](https://github.com/sharon846/
 1. Download ZIP with latest version from master branch. Extract it.
 
 2. Using grep, do the following replaces in all files:
-   - SITE_PATH, with the path to the main site directory. You can check that with ```php var_dump(getcwd());``` In the main directory.
    - SITE_DOMAIN, with your domain adress.
    - SITE_SESSION_NAME, with a session name for your choice.
    - SITE_ENC_KEY with some encryption key, to protect personal links in mail sending.

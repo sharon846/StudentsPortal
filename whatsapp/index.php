@@ -1,6 +1,6 @@
 <?php
 
-$server_root = "SITE_PATH/";
+$server_root = "{$_SERVER['DOCUMENT_ROOT']}/"
 $curr_dir = getcwd();
 $representive_dir = str_replace($server_root, "", $curr_dir);
 $representive_url = $_SERVER['REQUEST_SCHEME'].'://SITE_DOMAIN/'.$representive_dir;
@@ -20,7 +20,7 @@ if (!isset($_SESSION["SITE_SESSION_NAME"])){
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Main CS Haifa</title>
+  <title>SITE_NAME</title>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
   <link href="https://cdn.jsdelivr.net/css-toggle-switch/latest/toggle-switch.css" rel="stylesheet" />
   <link rel="stylesheet" href="../style.css">
