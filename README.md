@@ -51,7 +51,8 @@ StudentsPortal is highly documented on the [guide](https://github.com/sharon846/
 1. Download ZIP with latest version from master branch. Extract it.
 
 2. Using grep, do the following replaces in all files:
-   - SITE_DOMAIN, with your domain adress.
+   - SITE_DOMAIN, with your domain address (i.e. yourdomain.com)
+   - DOMAIN_REL_FOLDER, with your domain address (i.e. yourdomain.com/websiteDir)
    - SITE_SESSION_NAME, with a session name for your choice.
    - SITE_ENC_KEY with some encryption key, to protect personal links in mail sending.
    - SITE_NAME with your site name (i.e. StudDept).
