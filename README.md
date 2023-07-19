@@ -51,9 +51,9 @@ StudentsPortal is highly documented on the [guide](https://github.com/sharon846/
 1. Download ZIP with latest version from master branch. Extract it.
 
 2. Using grep, do the following replaces in all files:
-<<<<<<< HEAD
    - SITE_DOMAIN, with your domain address (i.e. yourdomain.com)
-   - DOMAIN_REL_FOLDER, with your domain address (i.e. yourdomain.com/websiteDir)
+   - SITE_URL, with your domain address, where site is stored (i.e. yourdomain.com/websiteDir)
+       - If your site will be stored on the domain itself, with no subfolders, SITE_URL=SITE_DOMAIN
    - SITE_SESSION_NAME, with a session name for your choice.
    - SITE_ENC_KEY with some encryption key, to protect personal links in mail sending.
    - SITE_NAME with your site name (i.e. StudDept).
@@ -66,16 +66,13 @@ StudentsPortal is highly documented on the [guide](https://github.com/sharon846/
 3. Edit the file "site_manager/pdoconfig.php" Insert there your Credentials to the database.
    - If you want to change the admin user, it should be synced with the [site manager](#site-manager).
 
-4. Upload the site your website (to the directory defined at step 2.1).
-   - ⚠️: You MUST upload the site to the your main domain folder. Directories like "public_html/MyWebSite" won't work.
-     
-5. In your database admin (i.e. phpmyadmin): 
+4. In your database admin (i.e. phpmyadmin): 
    - Download a ready empty database from databases folder.
    - Edit the file: change the database name according to the name your created.
    - Adjust the collation, charset (within the entire db file)
    - Import the database to your platform (i.e. phpmyadmin).
    
-6.  Make sure to remove databases folder, guide.pdf, screenshot.png, README.md
+5.  Make sure to remove databases folder, guide.pdf, screenshot.png, README.md
 
 ## Site manager
 In the site manager directory which inspired by the amazing [tinyfilemanager](https://tinyfilemanager.github.io/) your have config.php. 
@@ -122,7 +119,7 @@ session_name("SITE_SESSION_NAME");
 session_start();
 
 if (!isset($_SESSION["SITE_SESSION_NAME"])){
-    header("Location: https://SITE_DOMAIN/login/index.php?referer=$representive_url/");
+    header("Location: https://SITE_URL/login/index.php?referer=$representive_url/");
     exit();
 }
 

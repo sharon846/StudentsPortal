@@ -21,7 +21,7 @@ if (isset($_POST['user'], $_POST['name'], $_FILES["cv"])) {
             $name = explode(' ', $name)[0];
             $success = true;
             $message = "היי $name, שמנו לב שאינך מהחוג לDEPT_NAME. <br/>מעבר לעובדה שהאתר מיועד רק למי שלומד DEPT_NAME, אין בו שום תוכן רלוונטי לחוגים אחרים (גם קורסים עם שמות דומים, שונים לגמרי). בהצלחה!";
-            $message .= "<br/>לחזרה לעמוד הראשי לחצו <a style='color: blue' href='https://SITE_DOMAIN'>כאן</a>";
+            $message .= "<br/>לחזרה לעמוד הראשי לחצו <a style='color: blue' href='https://SITE_URL'>כאן</a>";
             break;
         }
         

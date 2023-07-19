@@ -23,7 +23,7 @@ session_name("SITE_SESSION_NAME");
 session_start();
 
 if (!isset($_SESSION["SITE_SESSION_NAME"])){
-    header("Location: https://SITE_DOMAIN/login/index.php?referer=$representive_url/");
+    header("Location: https://SITE_URL/login/index.php?referer=$representive_url/");
     exit();
 }
 

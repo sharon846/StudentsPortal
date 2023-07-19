@@ -50,7 +50,7 @@ if (isset($_POST['user'])) {
         
         $name = explode(' ', $name)[0];
         $encryption = base64_encode($encryption);
-        $link = "https://SITE_DOMAIN/login/password.php?data=$encryption";
+        $link = "https://SITE_URL/login/password.php?data=$encryption";
         $headers = "From: SITE_NAME <admin@SITE_DOMAIN>\r\n";
         $headers .= "MIME-Version: 1.0" . "\r\n"; 
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 

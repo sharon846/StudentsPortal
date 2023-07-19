@@ -15,7 +15,7 @@ if (isset($_POST['courses'], $_POST['user'], $_POST['text'], $_POST['phone'], $_
     $success = move_uploaded_file($_FILES["cv"]["tmp_name"], $target_file);
     
     if ($success){
-        file_put_contents(getcwd()."/../admin/updates", $_POST['user']." is new teacher##https://SITE_DOMAIN/teachers/uploads/viewer.php".PHP_EOL, FILE_APPEND);
+        file_put_contents(getcwd()."/../admin/updates", $_POST['user']." is new teacher##https://SITE_URL/teachers/uploads/viewer.php".PHP_EOL, FILE_APPEND);
         
         $lines = array();
         array_push($lines, $_POST['user'].PHP_EOL);

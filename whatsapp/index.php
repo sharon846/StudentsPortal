@@ -10,7 +10,7 @@ session_name("SITE_SESSION_NAME");
 session_start();
 
 if (!isset($_SESSION["SITE_SESSION_NAME"])){
-    header("Location: https://SITE_DOMAIN/login/index.php?referer=$representive_url/");
+    header("Location: https://SITE_URL/login/index.php?referer=$representive_url/");
     exit();
 }
 
@@ -169,7 +169,7 @@ $cell_data = '<div class="col-sm-6 caption flex"><a target="_blank" href="href_c
             $data = $cell_data;
             $data = str_replace('href_cap', $rows[$i]['href_cap'], $data);
             $data = str_replace('title_cap', $rows[$i]['title_cap'], $data);
-            $data = str_replace('img_cap', "https://SITE_DOMAIN/img/courses/".$rows[$i]['title_cap'].".jpg", $data);
+            $data = str_replace('img_cap', "https://SITE_URL/img/courses/".$rows[$i]['title_cap'].".jpg", $data);
             if ($rows[$i]["lecture"] != "")
                 $data = str_replace('<p></p>', "<p>מרצה: ".$rows[$i]['lecture']."</p>", $data);
             $str .= $data;

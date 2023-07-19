@@ -24,7 +24,7 @@ $ignore_file_list = array('.htaccess','.htaccess-con','index.php', 'trash', 'wor
 $sort_by = "name_asc"; // options: name_asc, name_desc, date_asc, date_desc
 	
 // ICON URL
-$icon_url = file_get_contents("https://SITE_DOMAIN/site_manager/icons");
+$icon_url = file_get_contents("https://SITE_URL/site_manager/icons");
 	
 // FORCE DOWNLOAD ATTRIBUTE
 $force_download = false;
@@ -40,7 +40,7 @@ session_name("SITE_SESSION_NAME");
 session_start();
 
 if (!isset($_SESSION["SITE_SESSION_NAME"])){
-    header("Location: https://SITE_DOMAIN/login/index.php?referer=$representive_url/");
+    header("Location: https://SITE_URL/login/index.php?referer=$representive_url/");
     exit();
 }
 
@@ -212,8 +212,8 @@ log_data($representive_dir, $_SESSION['SITE_SESSION_NAME']["mail"]);
 <header id="header" style="height: 100px; position: absolute; width: 100%; top: 0%;">
     <div style="width: 100%; height: 100%">
         <div style="width: 100%; height: 62%; top: 0%; position: absolute;">
-            <a class="hover" href="https://SITE_DOMAIN/site/uploads" title="Directory Lister" style="position: absolute; top: 15%; left: 4%; width: 50px; height:30px;">
-                <img width="100%" src="https://SITE_DOMAIN/img/upload.png"/>
+            <a class="hover" href="https://SITE_URL/site/uploads" title="Directory Lister" style="position: absolute; top: 15%; left: 4%; width: 50px; height:30px;">
+                <img width="100%" src="https://SITE_URL/img/upload.png"/>
             </a>
         
             <form onsubmit="return false" style="border-radius: 9999px; width: 64%;left: 20%;position: absolute;height: 59%; top: 23%;">
@@ -396,7 +396,7 @@ function build_blocks($folder, $url)
 	}
 }
 
-// https://SITE_DOMAIN/site/cs
+// https://SITE_URL/site/cs
 
 build_blocks($curr_dir, $representive_url);
 

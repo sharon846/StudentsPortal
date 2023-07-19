@@ -45,7 +45,7 @@ if (!empty($_FILES)) {
 
     if (empty($f['file']['error']) && !empty($tmp_name) && $tmp_name != 'none') {
         if (move_uploaded_file($tmp_name, $fullPath)) {
-            file_put_contents(getcwd()."/../../admin/updates", "$mail uploaded metirial from course $name##https://SITE_DOMAIN/site_manager/index.php?p=site/uploads/data/is".PHP_EOL, FILE_APPEND);
+            file_put_contents(getcwd()."/../../admin/updates", "$mail uploaded metirial from course $name##https://SITE_URL/site_manager/index.php?p=site/uploads/data/is".PHP_EOL, FILE_APPEND);
             die('Successfully uploaded');
         } else {
             die(sprintf('Error while uploading files. Uploaded files: %s', $uploads));
