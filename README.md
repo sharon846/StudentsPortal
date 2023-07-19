@@ -55,7 +55,6 @@ StudentsPortal is highly documented on the [guide](https://github.com/sharon846/
    - SITE_DOMAIN, with your domain adress.
 =======
    - SITE_DOMAIN, with your domain address (i.e. yourdomain.com)
->>>>>>> 3305163e8f4eb35afd3600c8c36ed25025be8f96
    - DOMAIN_REL_FOLDER, with your domain address (i.e. yourdomain.com/websiteDir)
    - SITE_SESSION_NAME, with a session name for your choice.
    - SITE_ENC_KEY with some encryption key, to protect personal links in mail sending.
