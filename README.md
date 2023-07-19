@@ -52,8 +52,6 @@ StudentsPortal is highly documented on the [guide](https://github.com/sharon846/
 
 2. Using grep, do the following replaces in all files:
 <<<<<<< HEAD
-   - SITE_DOMAIN, with your domain adress.
-=======
    - SITE_DOMAIN, with your domain address (i.e. yourdomain.com)
    - DOMAIN_REL_FOLDER, with your domain address (i.e. yourdomain.com/websiteDir)
    - SITE_SESSION_NAME, with a session name for your choice.
