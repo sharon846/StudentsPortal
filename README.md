@@ -109,22 +109,22 @@ function log_data($dir, $mail)
     $conn->close();
 }
 
-$server_root = 'SITE_PATH/';
+$server_root = "{$_SERVER['DOCUMENT_ROOT']}/";
 $curr_dir = getcwd();
 $representive_dir = str_replace($server_root, "", $curr_dir);
-$representive_url = $_SERVER['REQUEST_SCHEME'].'://DOMAIN/'.$representive_dir;
-$base_url = $_SERVER['REQUEST_SCHEME'].'://DOMAIN';
+$representive_url = $_SERVER['REQUEST_SCHEME'].'://SITE_DOMAIN/'.$representive_dir;
+$base_url = $_SERVER['REQUEST_SCHEME'].'://SITE_DOMAIN';
 
 @set_time_limit(3600);
-session_name("SESSION_NAME");
+session_name("SITE_SESSION_NAME");
 session_start();
 
-if (!isset($_SESSION["SESSION_NAME"])){
-    header("Location: https://DOMAIN/login/index.php?referer=$representive_url/");
+if (!isset($_SESSION["SITE_SESSION_NAME"])){
+    header("Location: https://SITE_DOMAIN/login/index.php?referer=$representive_url/");
     exit();
 }
 
-log_data($representive_dir, $_SESSION['SESSION_NAME']["mail"]);
+log_data($representive_dir, $_SESSION['SITE_SESSION_NAME']["mail"]);
 ```
 
 ### Change Log
