@@ -44,7 +44,7 @@ if (!isset($_SESSION["SITE_SESSION_NAME"])){
     exit();
 }
 
-log_data($representive_dir, $_SESSION['SESSION_NAME']["mail"]);
+log_data($representive_dir, $_SESSION['SITE_SESSION_NAME']["mail"]);
 
 ?>
 
