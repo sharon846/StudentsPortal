@@ -1153,7 +1153,7 @@ if (isset($_POST['group'], $_POST['delete']) && !FM_READONLY) {
     $trashItems = json_decode(file_get_contents(TRASH_DATA_PATH), true);
     
     if (is_array($files) && count($files)) {
-        if (FM_PATH == DOMAIN_TRASH_DIR)
+        if (FM_PATH == DOMAIN_TRASH_DIR || $_SESSION[FM_SESSION_ID]['logged'] != "admin")
 		{
 			foreach ($files as $f) {
 				if ($f != '') {

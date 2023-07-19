@@ -273,7 +273,6 @@ log_data($representive_dir, $_SESSION['SESSION_NAME']["mail"]);
 
 ## Rooms
 - Given day and hour, outputs all free rooms.
-- Support backdoor, enter 'sharon' in hours.
 
 ### ADMIN
 
