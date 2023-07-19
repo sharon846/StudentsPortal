@@ -52,6 +52,7 @@ StudentsPortal is highly documented on the [guide](https://github.com/sharon846/
 
 2. Using grep, do the following replaces in all files:
    - SITE_DOMAIN, with your domain adress.
+   - DOMAIN_REL_FOLDER, with your domain address (i.e. yourdomain.com/websiteDir)
    - SITE_SESSION_NAME, with a session name for your choice.
    - SITE_ENC_KEY with some encryption key, to protect personal links in mail sending.
    - SITE_NAME with your site name (i.e. StudDept).
@@ -101,7 +102,7 @@ To add login protection you should use (don't forget to replace the constants he
 ```php
 function log_data($dir, $mail)
 {
-    require_once 'SITE_PATH/site_manager/pdoconfig.php';
+    require_once "{$_SERVER['DOCUMENT_ROOT']}/site_manager/pdoconfig.php";
     $conn = @new mysqli($host, $username, $password, $dbname);
     
     $sql = "UPDATE `Tusers` SET `last_dir`='$dir' WHERE `email`='$mail'"; 
