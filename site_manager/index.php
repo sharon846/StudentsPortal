@@ -813,7 +813,8 @@ if (isset($_GET['new']) && isset($_GET['type']) && !FM_READONLY) {
             }
         } else {
             if (fm_mkdir($path . '/' . $new, false) === true) {
-                fm_rcopy("index", $path . '/' . $new . '/index.php');
+                if (str_starts_with(FM_PATH, "site"))
+                    fm_rcopy("index", $path . '/' . $new . '/index.php');
                 fm_set_msg(sprintf(lng('Folder').' <b>%s</b> '.lng('Created'), $new));
             } elseif (fm_mkdir($path . '/' . $new, false) === $path . '/' . $new) {
                 fm_set_msg(sprintf(lng('Folder').' <b>%s</b> '.lng('already exists'), fm_enc($new)), 'alert');
