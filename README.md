@@ -89,6 +89,9 @@ To enable/disable authentication set `$use_auth` to true or false.
 ## Drive
 The main part of each student's site is the drive / materials section. Next to each new folder (by [site manager](#site-manager)), a directory browser file is auto created. You may modify it by modiying site_manager/index file (NOT index.php).
 
+## Pdf Analyzer
+When new students register to the site, they should upload pdf document that proves they are students at your department. Nice tool tries to auto-detect specific text in each document (and also degree and year). You can modify and extend the login/valid_pdf.php script.
+
 ## Login
 There are sections in the site which are limied to only students. For now, the sections are:
 * Drive
