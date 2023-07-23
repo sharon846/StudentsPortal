@@ -3,7 +3,6 @@
 [![Documentation](https://img.shields.io/badge/Help-Docs-lightgrey.svg?style=flat-square)](https://github.com/sharon846/StudentsPortal/guide.pdf)
 [![GitHub License](https://img.shields.io/github/license/prasathmani/tinyfilemanager.svg?style=flat-square)](https://github.com/sharon846/StudentsPortal/blob/master/LICENSE)
 [![Paypal](https://img.shields.io/badge/Donate-Paypal-lightgrey.svg?style=flat-square)](https://www.paypal.me/srotgaizer)
-![GitHub Sponsors]()
 
 > A site for the students in department at the university (of haifa). Includes - grades, materials, reviews, courses planner, file manager, admin panel and lots more
 
