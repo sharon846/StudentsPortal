@@ -114,7 +114,7 @@ div.charts{
 </header>
 
 <center style="top: 100px;position: relative">
-    <h3 id='statics'>באתר הוזנו עד כה 33 קורסים ו 33 מועדים</h3>
+    <h3 id='statics'>באתר הוזנו עד כה courses קורסים ו moeds מועדים</h3>
 </center>
 
 <?php
