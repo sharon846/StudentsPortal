@@ -5,6 +5,40 @@ if (!isset($_POST['data'])){
     exit();
 }
 
+function sortXmlFile($filePath, $key)
+{
+    $xml = new DOMDocument();
+    $xml->preserveWhiteSpace = false;
+    $xml->formatOutput = true;
+    $xml->load($filePath);
+
+    $lectures = $xml->getElementsByTagName($key);
+    $lectureArr = [];
+
+    foreach ($lectures as $lecture) {
+        $lectureArr[] = $lecture->nodeValue;
+    }
+
+    // Sort the lectures
+    usort($lectureArr, function($a, $b) {
+        return strcmp($a, $b);
+    });
+
+    $newXml = new DOMDocument('1.0', 'UTF-8');
+    $newXml->preserveWhiteSpace = false;
+    $newXml->formatOutput = true;
+
+    $newData = $newXml->createElement('Data', "");
+    
+    foreach ($lectureArr as $lectureText) {
+        $newLecture = $newXml->createElement($key, $lectureText);
+        $newData->appendChild($newLecture);
+    }
+    $newXml->appendChild($newData);
+
+    $newXml->save($filePath);
+}
+
 if (isset($_POST['command']))       //update year or new course
 {
     if ($_POST['command'] == "year")
@@ -117,6 +151,9 @@ else                            //update kdams
     
     file_put_contents("../data/courses.xml", $courses);
     file_put_contents("../data/lectures.xml", $lectures);
+
+    sortXmlFile("../data/courses.xml", 'Course');
+    sortXmlFile("../data/lectures.xml", 'Lecture');
 }
 
 
