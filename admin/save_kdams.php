@@ -1,10 +1,6 @@
 <?php
 require_once '../site_manager/pdoconfig.php';
 
-if (!isset($_POST['data'])){
-    exit();
-}
-
 function sortXmlFile($filePath, $key)
 {
     $xml = new DOMDocument();
@@ -38,6 +34,11 @@ function sortXmlFile($filePath, $key)
 
     $newXml->save($filePath);
 }
+
+if (!isset($_POST['data'])){
+    exit();
+}
+
 
 if (isset($_POST['command']))       //update year or new course
 {
