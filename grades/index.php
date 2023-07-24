@@ -179,6 +179,14 @@ try {
     die("Could not connect to the database $dbname :" . $pe->getMessage());
 }
 
+$sql = "SELECT COUNT(*) FROM TgradesSemesters UNION SELECT COUNT(*) FROM Tgrades;";
+
+$result = $conn->query($sql);
+
+$row_counts = $result->fetchAll();
+$courses = $row_counts[0][0];
+$moeds = $row_counts[1][0];
+
 $sql = "SELECT * FROM TgradesSemesters,`Tgrades` WHERE Tgrades.`idsemester` IN (SELECT id from TgradesSemesters WHERE lecture='data' OR name='data') AND TgradesSemesters.id=Tgrades.`idsemester` ORDER BY TgradesSemesters.year DESC, TgradesSemesters.semester DESC, id, Tgrades.moed ASC";
 $sql = str_replace('data', $data, $sql);
 $result = $conn->query($sql);
@@ -239,9 +247,11 @@ echo "<br /></div><br />";
 
 window.onload = function(){
         
+        $("#statics").text($("#statics").text().replace('courses', <?php echo "'$courses'"; ?>).replace('moeds', <?php echo "'$moeds'"; ?>));
+
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
-    		    switchMode();
-    		    
+            switchMode();
+
         $("div#mode").click(switchMode);
         
         var arr = document.getElementsByTagName('canvas');
