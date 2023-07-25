@@ -68,16 +68,16 @@ if (isset($_POST['user'], $_POST['password'])) {
         $conn->query($sql);
 
         @set_time_limit(3600);
-	    session_name("SESSION_NAME");
+	    session_name("SITE_SESSION_NAME");
         session_start();
     
-	    $_SESSION["SESSION_NAME"]['deg'] = $degree;
-	    $_SESSION["SESSION_NAME"]['mail'] = $mail;
+	    $_SESSION["SITE_SESSION_NAME"]['deg'] = $degree;
+	    $_SESSION["SITE_SESSION_NAME"]['mail'] = $mail;
 	    
 	    if (isset($_GET['referer']))
 	        $location = $_GET['referer'];
 	    else    
-	        $location = "../site/cs/";
+	        $location = "../site/files/";
 	    
 	    if ($msg != "")
 	    {

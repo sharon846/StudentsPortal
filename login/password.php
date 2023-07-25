@@ -57,13 +57,13 @@ if (isset($_POST['password']) && $_POST['password'] != NULL && $_POST['password'
         ?> <script> window.alert(<?php echo "'user does not exists'"; ?>); history.back();</script> <?php exit();
     } else {
         @set_time_limit(3600);
-	    session_name("SESSION_NAME");
+	    session_name("SITE_SESSION_NAME");
         session_start();
     
-	    $_SESSION["SESSION_NAME"]['deg'] = $degree;
-	    $_SESSION["SESSION_NAME"]['mail'] = $mail;
+	    $_SESSION["SITE_SESSION_NAME"]['deg'] = $degree;
+	    $_SESSION["SITE_SESSION_NAME"]['mail'] = $mail;
 	    
-	    $location = "../site/is/";
+	    $location = "../site/files/";
 	    
 	    ?> <script> window.location.href = <?php echo "'$location'"; ?> </script> <?php exit();
     }
