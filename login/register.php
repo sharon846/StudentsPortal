@@ -67,7 +67,7 @@ if (isset($_POST['user'], $_POST['name'], $_FILES["cv"])) {
             if ($deg == "2")
                 $message .= "<br/>Special addition for MSC";
                
-            file_put_contents(getcwd()."/../admin/updates", "$mail registered".PHP_EOL, FILE_APPEND);
+            file_put_contents(getcwd()."/../admin/updates", "$mail registered##deg=$deg,year=$year".PHP_EOL, FILE_APPEND);
             $message .= "<br/>לחזרה לדף ההתחברות לחצו <a style='color: blue' href='index.php'>כאן</a>";
             $success = true;
         } 
