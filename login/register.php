@@ -13,6 +13,7 @@ if (isset($_POST['user'], $_POST['name'], $_FILES["cv"])) {
     {
         $mail = $_POST['user'];
         $name = $_POST['name'];
+	$name = str_replace("'", "", str_replace("`", "", str_replace("`", "", $name)));
         
         $pdf_data = detect($_FILES['cv']['tmp_name']);
     
