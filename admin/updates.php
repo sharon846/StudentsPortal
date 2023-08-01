@@ -206,6 +206,13 @@ td.middle{
                 }
             });
         });
+
+        $("a").on("click", function() {
+            if ($(this).text().includes("registered")){
+                window.alert($(this).attr("href"));
+                return false;
+            }
+        });
     </script>
 </body>
 </html>
