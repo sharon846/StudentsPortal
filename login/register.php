@@ -3,6 +3,16 @@ include '../resources/header.php';
 include 'validate_pdf.php';
 require_once '../site_manager/pdoconfig.php';
 
+function cleanName($name) {
+    // Remove non-Hebrew and non-English characters using regular expressions
+    $cleanedName = preg_replace('/[^\p{Hebrew}\p{L}\s]/u', '', $name);
+    
+    // Trim leading and trailing spaces
+    $cleanedName = trim($cleanedName);
+
+    return $cleanedName;
+}
+
 $show_msg = false;
 $message = "";
 $success = false;
@@ -13,7 +23,7 @@ if (isset($_POST['user'], $_POST['name'], $_FILES["cv"])) {
     {
         $mail = $_POST['user'];
         $name = $_POST['name'];
-	$name = str_replace("'", "", str_replace("`", "", str_replace("`", "", $name)));
+	$name = cleanName($name);
         
         $pdf_data = detect($_FILES['cv']['tmp_name']);
     
