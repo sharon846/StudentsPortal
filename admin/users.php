@@ -189,7 +189,7 @@ img.update{
         <div class="drive" hidden>
             <h3>שימו לב! בכל שליחה 300 אנשים לכל היותר.</h3>
             <h4>כמו כן, בסוף כל הודעת מייל, חובתנו המשפטית לספק קישור הסרה:</h4>
-            <h4>להסרה מרשימת התפוצה לחצו <a href='https://cs-haifa.com/login/unsubscribe.php'>כאן</a></h4>
+            <h4>להסרה מרשימת התפוצה לחצו <a href='https://SITE_URL/login/unsubscribe.php'>כאן</a></h4>
             <br/><br/>
             <button class="mail_data" onclick="load_mails(1,1)">Load year 1</button>
             <button class="mail_data" onclick="load_mails(1,2)">Load year 2</button>
