@@ -136,7 +136,7 @@ table#grade-edit{
             window.location = "link to db";
         }
         if (id == 7){
-            window.location = "json_viewer.php?data=courses";
+            window.location = "txt_editor.php?filename=../data/duties.json";
         }
         if (id == 8){
             window.location = "json_viewer.php?data=lecturers";
