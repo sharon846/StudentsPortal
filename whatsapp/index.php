@@ -1,6 +1,6 @@
 <?php
 
-$server_root = "{$_SERVER['DOCUMENT_ROOT']}/"
+$server_root = "{$_SERVER['DOCUMENT_ROOT']}/";
 $curr_dir = getcwd();
 $representive_dir = str_replace($server_root, "", $curr_dir);
 $representive_url = $_SERVER['REQUEST_SCHEME'].'://SITE_DOMAIN/'.$representive_dir;
