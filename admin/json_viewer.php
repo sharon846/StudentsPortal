@@ -54,66 +54,7 @@ function pretty_print($json_data)
 
 if (isset($_POST['data'])){
     
-    $str =  $_POST['data'];  
-    $is_courses = $str == "courses";
-
-    $old = $_POST['old'];
-
-    if (!isset($_POST['new']))
-    {
-        $data = file_get_contents("../data/$str.json");
-        $data = json_decode($data, true);
-        $data['Data'] = array_diff($data['Data'], [$old]);
-        $data['Data'] = array_values($data['Data']);
-        $data['Data'] = array_unique($data['Data']);
-        $data['Data'] = array_values($data['Data']);
-        
-        $updatedJsonData = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-        file_put_contents("../data/$str.json", $updatedJsonData);
-        
-        exit();
-    }
-
-    require_once '../site_manager/pdoconfig.php';
-    
-    $new = $_POST['new'];
-
-    try {
-        $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    } catch (PDOException $pe) {
-        die("Could not connect to the database $dbname :" . $pe->getMessage());
-    }
-    
-    if ($str == "lecturers")
-        $sql = 'UPDATE Twhatsapp SET Twhatsapp.lecture = "new" WHERE Twhatsapp.lecture = "old";UPDATE Tquestions SET Tquestions.lecture = "new" WHERE Tquestions.lecture = "old";UPDATE TgradesSemesters SET TgradesSemesters.lecture = "new" WHERE TgradesSemesters.lecture = "old"';
-    
-    else{
-        $sql = 'UPDATE Twhatsapp SET Twhatsapp.title_cap = "new" WHERE Twhatsapp.title_cap = "old";UPDATE Tquestions SET Tquestions.course = "new" WHERE Tquestions.course = "old";UPDATE Tkdams SET Tkdams.name = "new" WHERE Tkdams.name = "old";UPDATE Tkdams SET Tkdams.`kdams` = REPLACE(Tkdams.`kdams`, "old", "new");UPDATE TgradesSemesters SET TgradesSemesters.name = "new" WHERE TgradesSemesters.name = "old"';
-        @rename("../img/courses/$old.jpg", "../img/courses/$new.jpg");
-    }
-    
-    $sql = str_replace("new", $new, $sql);
-    $sql = str_replace("old", $old, $sql);
-    
-    $sqls = explode(';',$sql);
-        
-    foreach ($sqls as $sql1)
-        $conn->query($sql1);
-    
-    //update json
-    $data = file_get_contents("../data/$str.json");
-    $data = json_decode($data, true);
-    
-    $data['Data'] = array_diff($data['Data'], [$old]);
-    array_push($data['Data'], $new);
-    $data['Data'] = array_values($data['Data']);
-    $data['Data'] = array_unique($data['Data']);
-    $data['Data'] = array_values($data['Data']);
-    
-    sort($data["Data"]); // Sort the array
-        
-    $updatedJsonData = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-    file_put_contents("../data/$str.json", $updatedJsonData);
+    ?> <script> window.alert(<?php echo "'success (demo)'"; ?>); </script> <?php
     
     exit();
 } 
