@@ -110,6 +110,11 @@ button:hover{
     
 }
 
+h4{
+    direction: rtl;
+    color: white
+}
+
 </style>
 </head>
 
@@ -151,9 +156,9 @@ button:hover{
                 <td>
                     <select id="courses">
                         <?php
-                        $xml = simplexml_load_file("../data/courses.xml");
+                        $courses = json_decode(file_get_contents("../data/courses.json"), true)["Data"];
                     
-                        foreach ($xml->Course as $course){
+                        foreach ($courses as $course){
                             echo "<option value='".$course."'>$course</option>";  
                         }
                         ?>
@@ -165,10 +170,10 @@ button:hover{
                 <td>
                     <select id="lectures">
                         <?php
-                        $xml = simplexml_load_file("../data/lectures.xml");
+                        $lecturers = json_decode(file_get_contents("../data/lecturers.json"), true)["Data"];
                     
-                        foreach ($xml->Lecture as $lecture){
-                            echo "<option value='".$lecture."'>$lecture</option>";  
+                        foreach ($lecturers as $lecturer){
+                            echo "<option value='".$lecturer."'>$lecturer</option>";  
                         }
                         ?>
                     </select>
