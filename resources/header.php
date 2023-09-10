@@ -10,8 +10,8 @@ function show_header(){
 	    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700;900&amp;display=swap">
 		 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	    <link rel="stylesheet" href="/resources/header.css">
-	    <link rel="stylesheet" href="/resources/style.css">
+	    <link rel="stylesheet" href="https://SITE_URL/resources/header.css">
+	    <link rel="stylesheet" href="https://SITE_URL/resources/style.css">
 	</head>
 	
 	<body oncontextmenu="return false;" class="bg-secondary text-dark min-h-screen flex flex-col">
@@ -21,7 +21,7 @@ function show_header(){
 					<div class="top-bar">
 						<div class="bar-block">
 							<a href="/" class="h-full inline-flex nuxt-link-active">
-								<img src="../img/logoranker.png" alt="לוגו ועד הסטודנטים" class="h-16 w-16 rounded-full bg-white"> 
+								<img src="https://SITE_URL/img/logoranker.png" alt="לוגו ועד הסטודנטים" class="h-16 w-16 rounded-full bg-white"> 
 								<div class="mr-6 flex flex-col justify-center items-center tracking-wider">
 									<span>ועד הסטודנטים</span> 
 									<span>DEPT_NAME</span>
