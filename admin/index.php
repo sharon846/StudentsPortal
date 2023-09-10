@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Manage IS</title>
+<title>Manage SITE_NAME</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="max-age=0, must-revalidate"/>
@@ -102,15 +102,16 @@ table#grade-edit{
         <button onclick="load(3)">הודעות חדשות</button>
         <br/><br/><br/><br/>
         <button onclick="load(4)">ניהול קדמים</button>
-        <button onclick="load(5)">עריכת קורסים</button>
-        <button onclick="load(6)">עריכת מרצים</button>
+        <button onclick="load(5)">הודעות באתר</button>
+        <button onclick="load(6)">מסד הנתונים</button>
         <br/><br/><br/><br/>
-        <button onclick="load(7)">הודעות באתר</button>
-        <button onclick="load(8)">מסד הנתונים</button>
-		<button onclick="load(10)">לוח מבחנים</button>
+        <button onclick="load(7)">עריכת קורסים</button>
+        <button onclick="load(8)">עריכת מרצים</button>
+        <button onclick="load(9)">עריכת קורסי חובה</button>
         <br/><br/><br/><br/>>
-        <button onclick="load(12)">שינוי מנהל</button>
-        <button onclick="load(13)">תאריכי סמסטרים</button>
+        <button onclick="load(10)">לוח מבחנים</button>
+        <button onclick="load(11)">שינוי מנהל</button>
+        <button onclick="load(12)">תאריכי סמסטרים</button>
         <br/><br/><br/><br/>
     </center>
 
@@ -129,24 +130,27 @@ table#grade-edit{
             window.location = "kdams.php"
         }
         if (id == 5){
-            window.location = "xml_editor.php?filename=../data/courses.xml";
+            window.location = "txt_editor.php?filename=../data/news";
         }
         if (id == 6){
-            window.location = "xml_editor.php?filename=../data/lectures.xml";
+            window.location = "link to db";
         }
         if (id == 7){
-            window.location = "xml_editor.php?filename=../data/news";
+            window.location = "json_viewer.php?data=courses";
         }
         if (id == 8){
-            window.location = "link to data base";
+            window.location = "json_viewer.php?data=lecturers";
+        }
+        if (id == 9){
+            window.location = "json_viewer.php?data=duties";
         }
         if (id == 10){
             window.location = "exams.php";
         }
-        if (id == 12){
+        if (id == 11){
             window.location = "txt_editor.php?filename=../site_manager/pdoconfig.php";
         }
-        if (id == 13){
+        if (id == 12){
             window.location = "txt_editor.php?filename=../data/semester_dates.php";
         }
     }
