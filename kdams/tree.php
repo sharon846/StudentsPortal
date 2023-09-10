@@ -19,7 +19,7 @@ while (count($current) > 0)
         
     $result = $GLOBALS['conn']->query($sql);
     $arr = $result->fetchAll(); 
-    $arr["code"] = 
+
     $current = array_filter($arr, function($tp) use($total_names) { return $tp["kdams"] == "" || count(array_diff(explode(',',$tp["kdams"]),$total_names)) == 0; });
 
     $current = array_map(function($tp) {
