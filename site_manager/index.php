@@ -391,7 +391,7 @@ defined('TRASH_DATA_PATH') || define('TRASH_DATA_PATH', $root_path.DOMAIN_TRASH_
 defined('TRASH_DIR_PATH') || define('TRASH_DIR_PATH', "$root_path/".DOMAIN_TRASH_DIR);
 
 defined('FM_SHOW_HIDDEN') || define('FM_SHOW_HIDDEN', $show_hidden_files);
-defined('FM_root_path') || define('FM_root_path', $root_path);
+defined('FM_ROOT_PATH') || define('FM_ROOT_PATH', $root_path);
 defined('FM_LANG') || define('FM_LANG', $lang);
 defined('FM_FILE_EXTENSION') || define('FM_FILE_EXTENSION', $allowed_file_extensions);
 defined('FM_UPLOAD_EXTENSION') || define('FM_UPLOAD_EXTENSION', $allowed_upload_extensions);
@@ -436,7 +436,7 @@ if (isset($_POST['ajax']) && !FM_READONLY) {
     // save
     if (isset($_POST['type']) && $_POST['type'] == "save") {
         // get current path
-        $path = FM_root_path;
+        $path = FM_ROOT_PATH;
         if (FM_PATH != '') {
             $path .= '/' . FM_PATH;
         }
@@ -468,7 +468,7 @@ if (isset($_POST['ajax']) && !FM_READONLY) {
     //search : get list of files from the current folder
     if(isset($_POST['type']) && $_POST['type']=="search") {
         
-        $path = FM_root_path;
+        $path = FM_ROOT_PATH;
         if (FM_PATH != '') {
             $path .= '/' . FM_PATH;
         }
@@ -496,7 +496,7 @@ if (isset($_POST['ajax']) && !FM_READONLY) {
     		if (in_array(basename($file), FM_EXCLUDE_ITEMS))
     			continue;
     		
-    		$files[] =array("file" => str_replace('\\', "/", str_replace(FM_root_path, "", $file)), "isdir" => is_dir($file));
+    		$files[] =array("file" => str_replace('\\', "/", str_replace(FM_ROOT_PATH, "", $file)), "isdir" => is_dir($file));
     		
     	}
     
@@ -517,7 +517,7 @@ if (isset($_POST['ajax']) && !FM_READONLY) {
     // backup files
     if (isset($_POST['type']) && $_POST['type'] == "backup" && !empty($_POST['file'])) {
         $fileName = $_POST['file'];
-        $fullPath = FM_root_path . '/';
+        $fullPath = FM_ROOT_PATH . '/';
         if (!empty($_POST['path'])) {
             $relativeDirPath = fm_clean_path($_POST['path']);
             $fullPath .= "{$relativeDirPath}/";
@@ -594,7 +594,7 @@ if (isset($_POST['ajax']) && !FM_READONLY) {
 
     //upload using url
     if(isset($_POST['type']) && $_POST['type'] == "upload" && !empty($_REQUEST["uploadurl"])) {
-        $path = FM_root_path;
+        $path = FM_ROOT_PATH;
         if (FM_PATH != '') {
             $path .= '/' . FM_PATH;
         }
@@ -690,7 +690,7 @@ if (isset($_GET['restore']) && !FM_READONLY) {
     $old = $trashItems["'".$_GET['restore']."'"];
     	
     $from = TRASH_DIR_PATH.'/'.$new;
-    $dest = FM_root_path.'/'.$old;
+    $dest = FM_ROOT_PATH.'/'.$old;
     
     $rename = fm_rename($from, $dest);
     	
@@ -722,7 +722,7 @@ if (isset($_GET['del']) && !FM_READONLY) {
     $del = str_replace( '/', '', fm_clean_path( $_GET['del'] ) );
     if ($del != '' && $del != '..' && $del != '.') {
         $trashItems = json_decode(file_get_contents(TRASH_DATA_PATH), true);
-        $path = FM_root_path;
+        $path = FM_ROOT_PATH;
         if (FM_PATH != '') {
             $path .= '/' . FM_PATH;
         }
@@ -796,7 +796,7 @@ if (isset($_GET['new']) && isset($_GET['type']) && !FM_READONLY) {
     $type = $_GET['type'];
     $new = str_replace( '/', '', fm_clean_path( strip_tags( $_GET['new'] ) ) );
     if (fm_isvalid_filename($new) && $new != '' && $new != '..' && $new != '.') {
-        $path = FM_root_path;
+        $path = FM_ROOT_PATH;
         if (FM_PATH != '') {
             $path .= '/' . FM_PATH;
         }
@@ -842,9 +842,9 @@ if (isset($_GET['copy'], $_GET['finish']) && !FM_READONLY) {
         fm_redirect(FM_SELF_URL . '?p=' . urlencode(FM_PATH));
     }
     // abs path from
-    $from = FM_root_path . '/' . $copy;
+    $from = FM_ROOT_PATH . '/' . $copy;
     // abs path to
-    $dest = FM_root_path;
+    $dest = FM_ROOT_PATH;
     if (FM_PATH != '') {
         $dest .= '/' . FM_PATH;
     }
@@ -907,12 +907,12 @@ if (isset($_GET['copy'], $_GET['finish']) && !FM_READONLY) {
 // Mass copy files/ folders
 if (isset($_POST['file'], $_POST['copy_to'], $_POST['finish']) && !FM_READONLY) {
     // from
-    $path = FM_root_path;
+    $path = FM_ROOT_PATH;
     if (FM_PATH != '') {
         $path .= '/' . FM_PATH;
     }
     // to
-    $copy_to_path = FM_root_path;
+    $copy_to_path = FM_ROOT_PATH;
     $copy_to = fm_clean_path($_POST['copy_to']);
     if ($copy_to != '') {
         $copy_to_path .= '/' . $copy_to;
@@ -967,6 +967,38 @@ if (isset($_POST['file'], $_POST['copy_to'], $_POST['finish']) && !FM_READONLY) 
     fm_redirect(FM_SELF_URL . '?p=' . urlencode(FM_PATH));
 }
 
+
+// Rename Pattern
+if (isset($_GET['ptrn_name']) && !FM_READONLY) {
+    $to_remove = $_GET['ptrn_name'];
+    // path
+    $path = FM_ROOT_PATH;
+    if (FM_PATH != '') {
+        $path .= '/' . FM_PATH;
+    }
+    
+    $files = scandir($path);
+    foreach ($files as $file) {
+        if ($file == '.' || $file == '..') {
+            continue;
+        }
+        if (!FM_SHOW_HIDDEN && substr($file, 0, 1) === '.') {
+            continue;
+        }
+        $files = [];
+        $new_path = $path . '/' . $file;
+        if (@is_file($new_path) && fm_is_exclude_items($file)) {
+            $file = str_replace($to_remove, "", $file);
+            rename($new_path, $path . '/' . $file);
+        }
+    }
+        
+    file_put_contents(FM_LOG_PATH, "deleted $to_remove pattern from all files in $path from".PHP_EOL, FILE_APPEND | LOCK_EX);
+    fm_set_msg(sprintf(lng('Sucessfully renamed!')));
+    fm_redirect(FM_SELF_URL . '?p=' . urlencode(FM_PATH));
+}
+
+
 // Rename
 if (isset($_GET['ren'], $_GET['to']) && !FM_READONLY) {
     // old name
@@ -978,7 +1010,7 @@ if (isset($_GET['ren'], $_GET['to']) && !FM_READONLY) {
     $new = fm_clean_path(strip_tags($new));
     $new = str_replace('/', '', $new);
     // path
-    $path = FM_root_path;
+    $path = FM_ROOT_PATH;
     if (FM_PATH != '') {
         $path .= '/' . FM_PATH;
     }
@@ -1005,7 +1037,7 @@ if (isset($_GET['dl'])) {
     
     //put log file
     file_put_contents(FM_LOG_PATH, "downloaded $dl".PHP_EOL, FILE_APPEND | LOCK_EX);
-    $path = FM_root_path;
+    $path = FM_ROOT_PATH;
     if (FM_PATH != '') {
         $path .= '/' . FM_PATH;
     }
@@ -1025,7 +1057,7 @@ if (!empty($_FILES) && !FM_READONLY) {
     $chunkTotal = $_POST['dztotalchunkcount'];
 
     $f = $_FILES;
-    $path = FM_root_path;
+    $path = FM_ROOT_PATH;
     $ds = DIRECTORY_SEPARATOR;
     if (FM_PATH != '') {
         $path .= '/' . FM_PATH;
@@ -1144,7 +1176,7 @@ if (!empty($_FILES) && !FM_READONLY) {
 
 // Mass deleting
 if (isset($_POST['group'], $_POST['delete']) && !FM_READONLY) {
-    $path = FM_root_path;
+    $path = FM_ROOT_PATH;
     if (FM_PATH != '') {
         $path .= '/' . FM_PATH;
     }
@@ -1235,7 +1267,7 @@ if (isset($_POST['group'], $_POST['delete']) && !FM_READONLY) {
 
 // Pack files
 if (isset($_POST['group']) && (isset($_POST['zip']) || isset($_POST['tar'])) && !FM_READONLY) {
-    $path = FM_root_path;
+    $path = FM_ROOT_PATH;
     $ext = 'zip';
     if (FM_PATH != '') {
         $path .= '/' . FM_PATH;
@@ -1291,7 +1323,7 @@ if (isset($_GET['unzip']) && !FM_READONLY) {
     $unzip = str_replace('/', '', $unzip);
     $isValid = false;
 
-    $path = FM_root_path;
+    $path = FM_ROOT_PATH;
     if (FM_PATH != '') {
         $path .= '/' . FM_PATH;
     }
@@ -1317,6 +1349,8 @@ if (isset($_GET['unzip']) && !FM_READONLY) {
             $tofolder = pathinfo($zip_path, PATHINFO_FILENAME);
             if (fm_mkdir($path . '/' . $tofolder, true)) {
                 $path .= '/' . $tofolder;
+                if (str_starts_with(FM_PATH, "site") || str_ends_with(FM_ROOT_PATH, "site"))
+                    fm_rcopy("index", $path . '/index.php');
             }
         }
 
@@ -1352,7 +1386,7 @@ if (isset($_GET['unzip']) && !FM_READONLY) {
 
 // Change Perms (not for Windows)
 if (isset($_POST['chmod']) && !FM_READONLY && !FM_IS_WIN) {
-    $path = FM_root_path;
+    $path = FM_ROOT_PATH;
     if (FM_PATH != '') {
         $path .= '/' . FM_PATH;
     }
@@ -1406,7 +1440,7 @@ if (isset($_POST['chmod']) && !FM_READONLY && !FM_IS_WIN) {
 /*************************** /ACTIONS ***************************/
 
 // get current path
-$path = FM_root_path;
+$path = FM_ROOT_PATH;
 if (FM_PATH != '') {
     $path .= '/' . FM_PATH;
 }
@@ -1569,9 +1603,9 @@ if (isset($_POST['copy']) && !FM_READONLY) {
                     }
                     ?>
                     <p class="break-word"><?php echo lng('Files') ?>: <b><?php echo implode('</b>, <b>', $copy_files) ?></b></p>
-                    <p class="break-word"><?php echo lng('SourceFolder') ?>: <?php echo fm_enc(fm_convert_win(FM_root_path . '/' . FM_PATH)) ?><br>
+                    <p class="break-word"><?php echo lng('SourceFolder') ?>: <?php echo fm_enc(fm_convert_win(FM_ROOT_PATH . '/' . FM_PATH)) ?><br>
                         <label for="inp_copy_to"><?php echo lng('DestinationFolder') ?>:</label>
-                        <?php echo FM_root_path ?>/<input type="text" name="copy_to" id="inp_copy_to" value="<?php echo fm_enc(FM_PATH) ?>">
+                        <?php echo FM_ROOT_PATH ?>/<input type="text" name="copy_to" id="inp_copy_to" value="<?php echo fm_enc(FM_PATH) ?>">
                     </p>
                     <p class="custom-checkbox custom-control"><input type="checkbox" name="move" value="1" id="js-move-files" class="custom-control-input"><label for="js-move-files" class="custom-control-label" style="vertical-align: sub"> <?php echo lng('Move') ?></label></p>
                     <p>
@@ -1591,7 +1625,7 @@ if (isset($_POST['copy']) && !FM_READONLY) {
 if (isset($_GET['copy']) && !isset($_GET['finish']) && !FM_READONLY) {
     $copy = $_GET['copy'];
     $copy = fm_clean_path($copy);
-    if ($copy == '' || !file_exists(FM_root_path . '/' . $copy)) {
+    if ($copy == '' || !file_exists(FM_ROOT_PATH . '/' . $copy)) {
         fm_set_msg(lng('File not found'), 'error');
         fm_redirect(FM_SELF_URL . '?p=' . urlencode(FM_PATH));
     }
@@ -1602,8 +1636,8 @@ if (isset($_GET['copy']) && !isset($_GET['finish']) && !FM_READONLY) {
     <div class="path">
         <p><b>Copying</b></p>
         <p class="break-word">
-            Source path: <?php echo fm_enc(fm_convert_win(FM_root_path . '/' . $copy)) ?><br>
-            Destination folder: <?php echo fm_enc(fm_convert_win(FM_root_path . '/' . FM_PATH)) ?>
+            Source path: <?php echo fm_enc(fm_convert_win(FM_ROOT_PATH . '/' . $copy)) ?><br>
+            Destination folder: <?php echo fm_enc(fm_convert_win(FM_ROOT_PATH . '/' . FM_PATH)) ?>
         </p>
         <p>
             <b><a href="?p=<?php echo urlencode(FM_PATH) ?>&amp;copy=<?php echo urlencode($copy) ?>&amp;finish=1"><i class="fa fa-check-circle"></i> Copy</a></b> &nbsp;
@@ -2404,8 +2438,9 @@ $tableTheme = (FM_THEME == "dark") ? "text-white bg-dark table-dark" : "bg-white
                     <a href="javascript:document.getElementById('a-zip').click();" class="btn btn-small btn-outline-primary btn-2"><i class="fa fa-file-archive-o"></i> <?php echo lng('Zip') ?> </a></li>
                 <li class="list-inline-item"><input type="submit" class="hidden" name="tar" id="a-tar" value="tar" onclick="return confirm('<?php echo lng('Create archive?'); ?>')">
                     <a href="javascript:document.getElementById('a-tar').click();" class="btn btn-small btn-outline-primary btn-2"><i class="fa fa-file-archive-o"></i> <?php echo lng('Tar') ?> </a></li>
-                <li class="list-inline-item"><input type="submit" class="hidden" name="copy" id="a-copy" value="Copy">
-                    <a href="javascript:document.getElementById('a-copy').click();" class="btn btn-small btn-outline-primary btn-2"><i class="fa fa-files-o"></i> <?php echo lng('Copy') ?> </a></li>
+                <li class="list-inline-item"><a href="#/rename-pattern" class="btn btn-small btn-outline-primary btn-2" onclick="rename_pattern('<?php echo fm_enc(addslashes(FM_PATH)) ?>');return false;"><i class="fa fa-edit"></i> <?php echo lng('Rename Pattern') ?> </a></li>
+                <!--<li class="list-inline-item"><input type="submit" class="hidden" name="copy" id="a-copy" value="Copy">
+                    <a href="javascript:document.getElementById('a-copy').click();" class="btn btn-small btn-outline-primary btn-2"><i class="fa fa-files-o"></i> <?php echo lng('Copy') ?> </a></li>-->
             </ul>
         </div>
         <div class="col-3 d-none d-sm-block"><a class="float-right text-muted"><?php echo file_get_contents("../data/logCount"); ?> entries</a></div>
@@ -3266,7 +3301,7 @@ function fm_get_file_mimes($extension)
  * @return json
  */
  function scan($dir, $filter = '') {
-    $path = FM_root_path.'/'.$dir;
+    $path = FM_ROOT_PATH.'/'.$dir;
      if($dir) {
          $ite = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path));
          $rii = new RegexIterator($ite, "/(" . $filter . ")/i");
@@ -3275,7 +3310,7 @@ function fm_get_file_mimes($extension)
          foreach ($rii as $file) {
              if (!$file->isDir()) {
                  $fileName = $file->getFilename();
-                 $location = str_replace(FM_root_path, '', $file->getPath());
+                 $location = str_replace(FM_ROOT_PATH, '', $file->getPath());
                  $files[] = array(
                      "name" => $fileName,
                      "type" => "file",
@@ -3665,7 +3700,7 @@ function fm_show_nav_path($path)
     			<?php endif; ?>
                 <?php
                 $path = fm_clean_path($path);
-                $root_url = "<a href='?p='><i class='fa fa-home' aria-hidden='true' title='" . FM_root_path . "'></i></a>";
+                $root_url = "<a href='?p='><i class='fa fa-home' aria-hidden='true' title='" . FM_ROOT_PATH . "'></i></a>";
                 $sep = '<i class="bread-crumb"> / </i>';
                 if ($path != '') {
                     $exploded = explode('/', $path);
@@ -4108,8 +4143,9 @@ $isStickyNavBar = $sticky_navbar ? 'navbar-fixed' : 'navbar-normal';
         null !== t && "" !== t && n && (window.location.hash = "#", window.location.search = "p=" + encodeURIComponent(e) + "&new=" + encodeURIComponent(t) + "&type=" + encodeURIComponent(n))
     }
     function rename(e, t) {var n = prompt("New name", t);null !== n && "" !== n && n != t && (window.location.search = "p=" + encodeURIComponent(e) + "&ren=" + encodeURIComponent(t) + "&to=" + encodeURIComponent(n))}
+    function rename_pattern(e) {var n = prompt("Pattern to delete");null !== n && "" !== n && (window.location.search = "p=" + encodeURIComponent(e) + "&ptrn_name=" + encodeURIComponent(n))}
     function restore(e, t) { null !== t && "" !== t &&
-	    (window.location.search = "?p=" + encodeURIComponent(e) + "&restore=" +  encodeURIComponent(t))
+        (window.location.search = "?p=" + encodeURIComponent(e) + "&restore=" +  encodeURIComponent(t))
     }
     function change_checkboxes(e, t) { for (var n = e.length - 1; n >= 0; n--) e[n].checked = "boolean" == typeof t ? t : !e[n].checked }
     function get_checkboxes() { for (var e = document.getElementsByName("file[]"), t = [], n = e.length - 1; n >= 0; n--) (e[n].type = "checkbox") && t.push(e[n]); return t }
@@ -4332,7 +4368,7 @@ function lng($txt) {
     global $lang;
 
     // English Language
-    $tr['en']['AppName']        = 'IS File Manager';      $tr['en']['AppTitle']           = 'File Manager';
+    $tr['en']['AppName']        = 'SITE_NAME File Manager';      $tr['en']['AppTitle']           = 'File Manager';
     $tr['en']['Login']          = 'Sign in';                $tr['en']['Username']           = 'Username';
     $tr['en']['Password']       = 'Password';               $tr['en']['Logout']             = 'Sign Out';
     $tr['en']['Move']           = 'Move';                   $tr['en']['Copy']               = 'Copy';
