@@ -142,7 +142,7 @@ table#grade-edit{
             window.location = "json_viewer.php?data=lecturers";
         }
         if (id == 9){
-            window.location = "json_viewer.php?data=duties";
+            window.location = "txt_editor.php?filename=../data/duties.json";
         }
         if (id == 10){
             window.location = "exams.php";
