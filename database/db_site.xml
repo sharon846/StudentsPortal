@@ -5,7 +5,7 @@
 - https://www.phpmyadmin.net
 -
 - Host: 127.0.0.1:3306
-- Generation Time: ספטמבר 10, 2023 בזמן 04:25 PM
+- Generation Time: ספטמבר 10, 2023 בזמן 07:59 PM
 - גרסת שרת: 10.6.14-MariaDB-cll-lve
 - PHP Version: 7.2.34
 -->
@@ -15,7 +15,7 @@
     - Structure schemas
     -->
     <pma:structure_schemas>
-        <pma:database name="replace_with_dbname" collation="utf8mb4_unicode_ci" charset="utf8mb4">
+        <pma:database name="dbsite" collation="utf8mb4_unicode_ci" charset="utf8mb4">
             <pma:table name="Tcomments">
                 CREATE TABLE `Tcomments` (
                   `idquestion` int(11) NOT NULL,
@@ -72,7 +72,7 @@
                   `more_data` text NOT NULL,
                   `hidden` int(11) NOT NULL DEFAULT 0,
                   UNIQUE KEY `id` (`id`)
-                ) ENGINE=InnoDB AUTO_INCREMENT=894 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+                ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
             </pma:table>
             <pma:table name="Tquestions">
                 CREATE TABLE `Tquestions` (
@@ -127,9 +127,9 @@
     </pma:structure_schemas>
 
     <!--
-    - Database: 'replace_with_dbname'
+    - Database: 'dbsite'
     -->
-    <database name="replace_with_dbname">
+    <database name="dbsite">
         <!-- טבלה Tcomments -->
         <table name="Tcomments">
             <column name="idquestion">3</column>
@@ -248,15 +248,15 @@
         <table name="Tlinks">
             <column name="id">1</column>
             <column name="title_cap">תגובות לקורסים</column>
-            <column name="href_cap">https://SITE_DOMAIN/comments/</column>
-            <column name="img_cap">https://SITE_DOMAIN/img/ranker.png</column>
+            <column name="href_cap">https://SITE_URL/comments/</column>
+            <column name="img_cap">https://SITE_URL/img/ranker.png</column>
             <column name="more_data"></column>
             <column name="hidden">0</column>
         </table>
         <table name="Tlinks">
             <column name="id">2</column>
             <column name="title_cap">קישורים לקבוצות</column>
-            <column name="href_cap">https://SITE_DOMAIN/whatsapp/</column>
+            <column name="href_cap">https://SITE_URL/whatsapp/</column>
             <column name="img_cap">https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/640px-WhatsApp.svg.png</column>
             <column name="more_data"></column>
             <column name="hidden">0</column>
@@ -264,88 +264,80 @@
         <table name="Tlinks">
             <column name="id">3</column>
             <column name="title_cap">ציונים</column>
-            <column name="href_cap">https://SITE_DOMAIN/grades</column>
-            <column name="img_cap">https://SITE_DOMAIN/img/grade.png</column>
+            <column name="href_cap">https://SITE_URL/grades</column>
+            <column name="img_cap">https://SITE_URL/img/grade.png</column>
             <column name="more_data"></column>
             <column name="hidden">0</column>
         </table>
         <table name="Tlinks">
             <column name="id">4</column>
             <column name="title_cap">חומרים</column>
-            <column name="href_cap">https://SITE_DOMAIN/site/files</column>
-            <column name="img_cap">https://SITE_DOMAIN/img/drive.png</column>
+            <column name="href_cap">https://SITE_URL/site/files</column>
+            <column name="img_cap">https://SITE_URL/img/drive.png</column>
+            <column name="more_data"></column>
+            <column name="hidden">0</column>
+        </table>
+        <table name="Tlinks">
+            <column name="id">5</column>
+            <column name="title_cap">העלאת חומרים</column>
+            <column name="href_cap">https://SITE_URL/site/uploads</column>
+            <column name="img_cap">https://SITE_URL/img/upload.png</column>
+            <column name="more_data"></column>
+            <column name="hidden">0</column>
+        </table>
+        <table name="Tlinks">
+            <column name="id">6</column>
+            <column name="title_cap">עץ קדמים</column>
+            <column name="href_cap">https://SITE_URL/kdams/tree.php</column>
+            <column name="img_cap">https://SITE_URL/img/tree.png</column>
+            <column name="more_data"></column>
+            <column name="hidden">0</column>
+        </table>
+        <table name="Tlinks">
+            <column name="id">7</column>
+            <column name="title_cap">בניית מערכת</column>
+            <column name="href_cap">https://SITE_URL/scheduling/</column>
+            <column name="img_cap">https://SITE_URL/img/scheduling.jpg</column>
             <column name="more_data"></column>
             <column name="hidden">0</column>
         </table>
         <table name="Tlinks">
             <column name="id">8</column>
-            <column name="title_cap">העלאת חומרים</column>
-            <column name="href_cap">https://SITE_DOMAIN/site/uploads</column>
-            <column name="img_cap">https://SITE_DOMAIN/img/upload.png</column>
+            <column name="title_cap">העלאת ציונים</column>
+            <column name="href_cap">https://SITE_URL/grades/uploads/</column>
+            <column name="img_cap">https://SITE_URL/img/grade.png</column>
             <column name="more_data"></column>
             <column name="hidden">0</column>
         </table>
         <table name="Tlinks">
             <column name="id">9</column>
-            <column name="title_cap">עץ קדמים</column>
-            <column name="href_cap">https://SITE_DOMAIN/kdams/tree.php</column>
-            <column name="img_cap">https://SITE_DOMAIN/img/tree.png</column>
+            <column name="title_cap">קדמים וקורסים</column>
+            <column name="href_cap">https://SITE_URL/kdams/</column>
+            <column name="img_cap">https://SITE_URL/img/kdams.png</column>
             <column name="more_data"></column>
             <column name="hidden">0</column>
         </table>
         <table name="Tlinks">
             <column name="id">10</column>
-            <column name="title_cap">בניית מערכת</column>
-            <column name="href_cap">https://SITE_DOMAIN/scheduling/</column>
-            <column name="img_cap">https://SITE_DOMAIN/img/scheduling.jpg</column>
+            <column name="title_cap">כתבו לנו</column>
+            <column name="href_cap">https://SITE_URL/write/</column>
+            <column name="img_cap">https://SITE_URL/img/complain.png</column>
             <column name="more_data"></column>
             <column name="hidden">0</column>
         </table>
         <table name="Tlinks">
             <column name="id">11</column>
-            <column name="title_cap">העלאת ציונים</column>
-            <column name="href_cap">https://SITE_DOMAIN/grades/uploads/</column>
-            <column name="img_cap">https://SITE_DOMAIN/img/grade.png</column>
+            <column name="title_cap">לוח מבחנים</column>
+            <column name="href_cap">https://SITE_URL/exams</column>
+            <column name="img_cap">https://SITE_URL/img/exams.jpg</column>
             <column name="more_data"></column>
             <column name="hidden">0</column>
         </table>
         <table name="Tlinks">
             <column name="id">12</column>
-            <column name="title_cap">הורדת חומרים</column>
-            <column name="href_cap">https://SITE_DOMAIN/site/uploads/guide.html</column>
-            <column name="img_cap">https://SITE_DOMAIN/img/download.png</column>
-            <column name="more_data"></column>
-            <column name="hidden">0</column>
-        </table>
-        <table name="Tlinks">
-            <column name="id">13</column>
-            <column name="title_cap">קדמים וקורסים</column>
-            <column name="href_cap">https://SITE_DOMAIN/kdams/</column>
-            <column name="img_cap">https://SITE_DOMAIN/img/kdams.png</column>
-            <column name="more_data"></column>
-            <column name="hidden">0</column>
-        </table>
-        <table name="Tlinks">
-            <column name="id">14</column>
-            <column name="title_cap">כתבו לנו</column>
-            <column name="href_cap">https://SITE_DOMAIN/write/</column>
-            <column name="img_cap">https://SITE_DOMAIN/img/complain.png</column>
-            <column name="more_data"></column>
-            <column name="hidden">0</column>
-        </table>
-        <table name="Tlinks">
-            <column name="id">15</column>
-            <column name="title_cap">לוח מבחנים</column>
-            <column name="href_cap">https://SITE_DOMAIN/exams</column>
-            <column name="img_cap">https://SITE_DOMAIN/img/exams.jpg</column>
-            <column name="more_data"></column>
-            <column name="hidden">0</column>
-        </table>
-        <table name="Tlinks">
-            <column name="id">16</column>
             <column name="title_cap">מורים פרטיים בחוג</column>
-            <column name="href_cap">https://SITE_DOMAIN/teachers/</column>
-            <column name="img_cap">https://SITE_DOMAIN/img/tutor.png</column>
+            <column name="href_cap">https://SITE_URL/teachers/</column>
+            <column name="img_cap">https://SITE_URL/img/tutor.png</column>
             <column name="more_data"></column>
             <column name="hidden">0</column>
         </table>
@@ -386,10 +378,10 @@
             <column name="name">Example User2</column>
             <column name="degree">1</column>
             <column name="year">1</column>
-            <column name="connected">2023-07-20 22:54:54</column>
+            <column name="connected">2023-09-10 22:36:32</column>
             <column name="password">81dc9bdb52d04dc20036dbd8313ed055</column>
             <column name="msg">NULL</column>
-            <column name="last_dir">StudentsPortal/comments</column>
+            <column name="last_dir">StudentsPortal/site/files</column>
             <column name="sendmail">1</column>
         </table>
         <!-- טבלה Twhatsapp -->
