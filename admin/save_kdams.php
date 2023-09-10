@@ -39,70 +39,21 @@ if (!isset($_POST['data'])){
     exit();
 }
 
-
 if (isset($_POST['command']))       //update year or new course
 {
     if ($_POST['command'] == "year")
         file_put_contents("../data/kdams_year", $_POST['data']);
-    if ($_POST['command'] == "change_course")
-    {
-        $old = $_POST['old'];
-        $new = $_POST['data'];
-        
-        try {
-            $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-        } catch (PDOException $pe) {
-            die("Could not connect to the database $dbname :" . $pe->getMessage());
-        }
-        
-        $sql = 'UPDATE Twhatsapp SET Twhatsapp.title_cap = "new" WHERE Twhatsapp.title_cap = "old";UPDATE Tquestions SET Tquestions.course = "new" WHERE Tquestions.course = "old";UPDATE Tkdams SET Tkdams.name = "new" WHERE Tkdams.name = "old";UPDATE Tkdams SET Tkdams.`kdams` = REPLACE(Tkdams.`kdams`, "old", "new");UPDATE TgradesSemesters SET TgradesSemesters.name = "new" WHERE TgradesSemesters.name = "old"';
-        $sql = str_replace("new", $new, $sql);
-        $sql = str_replace("old", $old, $sql);
-        $sqls = explode(';',$sql);
-        
-        foreach ($sqls as $sql1)
-            $conn->query($sql1);
-    
-        $dt = file_get_contents("../data/courses.xml");
-        $dt = str_replace("<Course>$old</Course>", "<Course>$new</Course>", $dt);
-        file_put_contents("../data/courses.xml", $dt);
-        
-        rename("../img/courses/$old.jpg", "../img/courses/$new.jpg");
-    }
-    if ($_POST['command'] == "change_lecture")
-    {
-        $old = $_POST['old'];
-        $new = $_POST['data'];
-        
-        try {
-            $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-        } catch (PDOException $pe) {
-            die("Could not connect to the database $dbname :" . $pe->getMessage());
-        }
-        
-        $sql = 'UPDATE Twhatsapp SET Twhatsapp.lecture = "new" WHERE Twhatsapp.lecture = "old";UPDATE Tquestions SET Tquestions.lecture = "new" WHERE Tquestions.lecture = "old";UPDATE Tkdams SET Tkdams.`lecture` = REPLACE(Tkdams.`lecture`, "old", "new");UPDATE TgradesSemesters SET TgradesSemesters.lecture = "new" WHERE TgradesSemesters.lecture = "old";';
-        $sql = str_replace("new", $new, $sql);
-        $sql = str_replace("old", $old, $sql);
-        $sqls = explode(';',$sql);
-        
-        foreach ($sqls as $sql1)
-            $conn->query($sql1);
-    
-        $dt = file_get_contents("../data/lectures.xml");
-        $dt = str_replace("<Lecture>$old</Lecture>", "<Lecture>$new</Lecture>", $dt);
-        file_put_contents("../data/lectures.xml", $dt);
-    }
     if ($_POST['command'] == "delete_course")       //an existing one
     {
-        $link = $_POST['data'];
+        $code = $_POST['data'];
         try {
             $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
         } catch (PDOException $pe) {
             die("Could not connect to the database $dbname :" . $pe->getMessage());
         }
         
-        $sql = 'DELETE FROM `Tkdams` WHERE `link`="link_str"';
-        $sql = str_replace("link_str", $link, $sql);
+        $sql = 'DELETE FROM `Tkdams` WHERE `code`="code_str"';
+        $sql = str_replace("code_str", $code, $sql);
         $result = $conn->query($sql);
         echo $result->rowCount();
     }
@@ -132,30 +83,23 @@ else                            //update kdams
     foreach ($sqls as $sql)
         $conn->query($sql);
     
-    $courses = file_get_contents("../data/courses.xml");
-    $lectures = file_get_contents("../data/lectures.xml");
-    
+    //update courses
+    $courses = file_get_contents("../data/courses.json");
+    $courses = json_decode($courses, true);
     $courses_j = json_decode($_POST['courses'], true);
-    $lectures_j = json_decode($_POST['lectures'], true);
     
-    foreach ($courses_j as $crs){
-        if (strpos($courses, "<Course>$crs</Course>") === false){
-            $courses = str_replace("</Data>", "\t<Course>$crs</Course>\n</Data>", $courses);
+    $existingLecturers = $courses["Data"];
+    foreach ($courses_j as $lecturer) {
+        if (!in_array($lecturer, $existingLecturers)) {
+            $existingLecturers[] = $lecturer;
         }
     }
-    
-    foreach ($lectures_j as $lec){
-        if (strpos($lectures, "<Lecture>$lec</Lecture>") === false){
-            $lectures = str_replace("</Data>", "\t<Lecture>$lec</Lecture>\n</Data>", $lectures);
-        }
-    }
-    
-    file_put_contents("../data/courses.xml", $courses);
-    file_put_contents("../data/lectures.xml", $lectures);
-
-    sortXmlFile("../data/courses.xml", 'Course');
-    sortXmlFile("../data/lectures.xml", 'Lecture');
+    sort($existingLecturers);
+    $updatedData = ["Data" => $existingLecturers];
+    $updatedJsonData = json_encode($updatedData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+    file_put_contents("../data/courses.json", $updatedJsonData);
 }
+
 
 
 exit();

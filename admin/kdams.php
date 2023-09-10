@@ -128,6 +128,60 @@ input.year{
     font-size: 3em;
 }
 
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+.popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 400px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: black;
+}
+.ui-autocomplete {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    max-height: 150px; /* Limit the height of the dropdown */
+    overflow-y: auto; /* Add a scrollbar when needed */
+    z-index: 1000; /* Adjust z-index to ensure it's displayed above other elements */
+    direction: rtl;
+}
+.ui-menu-item {
+    padding: 10px;
+    cursor: pointer;
+    direction: rtl;
+}
+.ui-menu-item:hover {
+    background-color: #f0f0f0;
+}
+
+
 </style>
 </head>
 
@@ -136,15 +190,13 @@ input.year{
     <center>
         <h1>מערכת ניהול קדמים</h1>
         <input onchange="update_year();" class="year" type="text" value=<?php echo "'".file_get_contents("../data/kdams_year")."'"; ?>/>
-        <h3 style="color: white;"><u><a onclick="change_course_name()" style="color: white;">click here to change globally course name</a></u></h3>
-        <h3 style="color: white;"><u><a onclick="change_lecture_name()" style="color: white;">click here to change globally lecture name</a></u></h3>
         <h3 style="color: white;">dbclick on course name to change its picture</h3>
+        <h4 style="color: white;">to edit course name, go to global course change!</h4>
         <input hidden type='file' name='fileToUpload' id='formImage' accept="image/jpeg"/>
         <table>
             <thead>
                 <tr>
                     <td>name</td>
-                    <td>lecture</td>
                     <td>points</td>
                     <td>semesters</td>
                     <td>note</td>
@@ -165,24 +217,15 @@ input.year{
                     $result = $conn->query($sql);
                     $list = $result->fetchAll(); 
                     
-                    //$all_courses = simplexml_load_file("../data/courses.xml")->Course;
-                    //$all_courses = json_decode(json_encode($all_courses), true);
+                    $all_courses = json_decode(file_get_contents("../data/courses.json"), true)["Data"];
+                    $all_courses = json_encode($all_courses);
                     
                     foreach ($list as $course) {
                         if ($course["name"] == "מפגש חוגי") continue;
                         
                         echo "<tr>";
-                        /*echo "<td class='middle'><select>";
-                        foreach ($all_courses as $ccrs){
-                            if ($ccrs == $course["name"])
-                                echo "<option selected value='$ccrs'>".$ccrs."</option>";
-                            else
-                                echo "<option value='$ccrs'>".$ccrs."</option>";
-                        }
-                        echo "</select></td>";*/
                         
-                        echo "<td class='thin'><img class='line'/><input id='name' class='big' type='text' value='".$course["name"]."'/></td>";
-                        echo "<td class='thin'><input id='lecture' class='big' type='text' value='".$course["lecture"]."'/></td>";
+                        echo "<td class='thin'><img class='line'/><input id='name' class='big he' type='text' value='".$course["name"]."'/></td>";
                         echo "<td class='thin'><input id='pts' type='text' value='".$course["pts"]."'/></td>";
                         echo "<td class='thin'><input id='ids' type='text' value='".implode(',', str_split($course["ids"]))."'/></td>";
                         echo "<td class='thin'><input id='note' type='text' value='";
@@ -203,8 +246,7 @@ input.year{
                         else{
                             echo "<td class='thin'><img class='add'/>None</td>";
                         }
-                        echo "<input type='hidden' value='".$course["year"]."'/>";
-                        echo "<input type='hidden' value='".$course["link"]."'/>";
+                        echo "<input type='hidden' value='".$course["code"]."'/>";
                         echo "<tr/>";
                     }
                 
@@ -216,19 +258,38 @@ input.year{
         <button onclick="restore()">Restore</button>
     </center>
 
+<div id="overlay" class="overlay">
+    <div id="popup" class="popup">
+        <span class="close" onclick="overlay.style.display = 'none';" id="closeButton">&times;</span>
+        <input id="lname" type="text" class="input-field" placeholder="שם הקורס אותו תרצה להוסיף">
+    </div>
+</div>
 </body>
 
 <script>
-var arr = [];
+var all_existing = <?php echo $all_courses; ?>;
 var new_crs = [];
 
 var curr = "";
 
 window.onload = function(){
     
-    
-    $("input#name").each(function(){
-        arr.push($(this).val());
+    $("#lname").autocomplete({
+        source: all_existing,
+        appendTo: "#popup",
+        select: function(event, ui) {
+            const selectedValue = ui.item.value;
+            if (currOpt.parent().find("option:contains('" + selectedValue + "')").length > 0) {
+                window.alert("already in list!");
+            }
+            else
+            {
+                currOpt.before("<option value='"+selectedValue+"'>"+selectedValue+"</option>");
+                currOpt.parent().prop('selectedIndex', currOpt.parent().children().length - 3);
+                currOpt = null;
+                overlay.style.display = "none";
+            }
+        },
     });
     
     $(document).on("dblclick", "input#name" , function() {
@@ -278,6 +339,7 @@ window.onload = function(){
     });
 
     $("input.big").each(function() {
+        $(this).attr('disabled', true);
         $(this).width(11.5 * Math.max(1, $(this).val().length));
     })
     
@@ -288,7 +350,7 @@ window.onload = function(){
     $(document).on("click", "img.line" , function() {
         var del = confirm("Are you sure you want to delete course?");
         if (del) {
-            var val = $(this).parent().parent().children()[7].value;
+            var val = $(this).parent().parent().children()[5].value;
             const index = new_crs.indexOf(val);
             if (index > -1) { 
               new_crs.splice(index, 1);
@@ -320,42 +382,35 @@ window.onload = function(){
 
     $("button#add-line").on('click', function(){
         
-        var year = prompt("for specific year?");
-        var link = prompt("course link", "50620094");
+        var code = prompt("course code", "203.1111");
         
-        if (link == "" || link == null) return false;
-        
-        var text = "<tr><td class='thin'><img class='line'/><input id='name' class='big' type='text' value='name'/></td>" + 
-                    "<td class='thin'><input class='big' type='text' value='lecture'/></td>" + 
+        if (code == "" || code == null) return false;
+
+        var text = "<tr><td class='thin'><img class='line'/><input id='name' class='big he' type='text' value='name'/></td>" + 
                     "<td class='thin'><input id='pts' type='text' value='0'/></td>" + 
                     "<td class='thin'><input id='ids' type='text' value='a'/></td>" +
                     "<td class='thin'><input id='note' type='text' value='None'/></td>" + 
-                    "<td class='thin'><img class='add'/>None</td><input type='hidden' value='"+year+"'/><input type='hidden' value='"+link+"'/><tr/>";
+                    "<td class='thin'><img class='add'/>None</td><input type='hidden' value='"+code+"'/><tr/>";
         
-        new_crs.push(link);
+        new_crs.push(code);
         $("tbody").append(text);
     })
     
+    var currOpt = null;
     $(document).on("change", "select" , function() {
-            var opt = $(this).children("option:selected");
-            if (opt.val() == "הוספה"){
-                var crs = prompt("מהו שם הקורס אותו תרצה להוסיף?");
-                if (crs != null) {
-                    if (!arr.includes(crs)) {
-                        window.alert("course doesnt exists");
-                        return;
-                    }
-                    opt.before("<option value='"+crs+"'>"+crs+"</option>");
-                }
-                $(this).prop('selectedIndex', $(this).children().length - 3);
-            } else if (opt.val() == "מחיקה"){
-                var ind = prompt("select removal index");
-                if (ind != null && ind < $(this).children().length - 2) {
-                    $(this).children().eq(ind).remove();
-                }
-                $(this).prop('selectedIndex', -1);
+        var opt = $(this).children("option:selected");
+        if (opt.val() == "הוספה"){
+            overlay.style.display = "block";
+            $("#lname").val("");
+            currOpt = opt;
+        } else if (opt.val() == "מחיקה"){
+            var ind = prompt("select removal index");
+            if (ind != null && ind < $(this).children().length - 2) {
+                $(this).children().eq(ind).remove();
             }
-        });
+            $(this).prop('selectedIndex', 0);
+        }
+    });
 }
 
 function update_year()
@@ -380,6 +435,47 @@ function update_year()
     }
 }
 
+function load_specific()
+{
+    var crs = prompt("Add link", "51314543/001");
+    if (crs != null && /^\d{8}\/00[123]$/.test(crs)) {
+        $.ajax({
+            url:"save_kdams.php", //the page containing php script
+            type: "post", //request type,
+            data: {"command": "load_specific", "data": crs},
+                success:function(result){
+                if (result == "") {
+                    window.alert("saved");
+                    location.reload();
+                }
+                else 
+                    window.alert(result);
+            }
+        });
+    }
+}
+
+function auto_load()
+{
+    var isExecuted = confirm("Warning: this will REMOVE the existing data and insert new data. Proceed?");
+    if (isExecuted)
+    {
+        $.ajax({
+            url:"save_kdams.php", //the page containing php script
+            type: "post", //request type,
+            data: {"command": "auto_load", "data": ""},
+                success:function(result){
+                    if (result == "") {
+                        window.alert("success!");
+                        location.reload();
+                    }
+                    else
+                        window.alert(result);
+               }
+            });
+    }
+}
+
 /*
 each course has to be a,b lec1,lec2 or non ',' at all
 
@@ -391,14 +487,14 @@ None becomes ""
 function save(){
     
     var success = true;
-    var arr2 = [];
+    var arr = [];
     $("input#name").each(function(){
-        if (arr2.includes($(this).val())) {
+        if (arr.includes($(this).val())) {
             window.alert($(this).val() + " appears twice");
             success = false;
             return false;
         }
-        arr2.push($(this).val());
+        arr.push($(this).val());
     });
 
     if (!success) return false;
@@ -418,19 +514,18 @@ function save(){
                 values.push($(this).val()); 
         });
         
-        if (values[0] == "" || values[1] == "" || values[2] == "" || values[3] == "") success = false;
-        if (values[0] == "name" || values[1] == "lecture") success = false;
-        if (values[2] == "0") success = false;
-        if (values[3].indexOf('a') == -1 && values[3].indexOf('b') == -1 && values[3].indexOf('c') == -1) success = false;
-        if ((values[1].match(/,/g) || []).length != (values[3].match(/,/g) || []).length) success = false;
+        if (values[0] == "" || values[1] == "" || values[2] == "") success = false;
+        if (values[0] == "name") success = false;
+        if (values[1] == "0") success = false;
+        if (values[2].indexOf('a') == -1 && values[2].indexOf('b') == -1 && values[2].indexOf('c') == -1) success = false;
         
         if (!success){
             window.alert("syntax error in " + values[0]);
             return false;
         }
         
-        if (values[4] == "None") values[4] = "";
-        values[3] = values[3].replace(",","");
+        if (values[3] == "None") values[3] = "";
+        values[2] = values[2].replace(",","");
         
         var depens = [];
         if ($(this).find("option").length > 2){
@@ -440,41 +535,38 @@ function save(){
         }
         values.push(depens);
         
-        var data = "UPDATE `Tkdams` SET `name`='" + values[0] + "',`lecture`='" + values[1] + "',`ids`='" + values[3].replace(",","") + "',`pts`='" + values[2] + "',`year`='" + values[5] + "',`note`='" + values[4] + "'";
-        if (new_crs.includes(values[6]))
-            data = "INSERT INTO `Tkdams`(`link`, `name`, `lecture`, `ids`, `pts`, `year`, `note`, `kdams`) VALUES ('" + values[6] + "','" + values[0] + "','" + values[1] + "','" + values[3].replace(",","") + "','" + values[2] + "','" + values[5] + "','" + values[4] + "'";
+        var data = "UPDATE `Tkdams` SET `ids`='" + values[2].replace(",","") + "',`pts`='" + values[1] + "',`note`='" + values[3] + "'";
+        if (new_crs.includes(values[4]))
+            data = "INSERT INTO `Tkdams`(`code`, `name`, `ids`, `pts`, `note`, `kdams`) VALUES ('" + values[4] + "','" + values[0] + "','" + values[2].replace(",","") + "','" + values[1] + "','" + values[3] + "'";
         
-        if (values[7].length > 0){
-            if (new_crs.includes(values[6])) data += ",'";
+        if (values[5].length > 0){
+            if (new_crs.includes(values[4])) data += ",'";
             else data += ", kdams='";
-            for (var i = 0; i < values[7].length; i++)
-                data += values[7][i] + ",";
+            for (var i = 0; i < values[5].length; i++)
+                data += values[5][i] + ",";
             data = data.slice(0, -1);
             data += "'";
-            if (new_crs.includes(values[6])) data += ");";
+            if (new_crs.includes(values[4])) data += ");";
         }
-        else if (new_crs.includes(values[6]))
+        else if (new_crs.includes(values[4]))
             data += ",NULL);";
         
-        if (!new_crs.includes(values[6]))
-            data += " WHERE link='" + values[6] + "';";
+        if (!new_crs.includes(values[4]))
+            data += " WHERE code='" + values[4] + "';";
             
         output += data;
-        
-        data = values[1].split(',')
-        lectures.push(...data);
+
         courses.push(values[0]);
     });
     
     if (success){
         
         output = output.slice(0,-1);
-        lectures = lectures.filter((v, i, a) => a.indexOf(v) === i);
         
         $.ajax({
             url:"save_kdams.php", //the page containing php script
             type: "post", //request type,
-            data: {"data": output, "courses": JSON.stringify(courses), "lectures": JSON.stringify(lectures)},
+            data: {"data": output, "courses": JSON.stringify(courses)},
             success:function(result){
                 if (result == "") 
                     window.alert("saved");
@@ -485,63 +577,6 @@ function save(){
             }
         });
     }
-}
-
-function change_course_name(){
-    var old = prompt("enter old course name");
-    if (old == null || old.trim().length == 0) return;
-    if (!arr.includes(old)){
-        window.alert("no such course");
-        return;
-    }
-    
-    var new_name = prompt("enter new course name");
-    if (new_name.trim().length == 0 || new_name == null){
-        window.alert("empty course is not possible");
-        return;
-    }
-    
-    $.ajax({
-        url:"save_kdams.php", //the page containing php script
-        type: "post", //request type,
-        data: {"command": "change_course", "old": old, "data": new_name},
-        success:function(result){
-            if (result == "") 
-                window.alert("saved");
-            else 
-                window.alert(result);
-                
-            location.reload();
-        }
-    });
-}
-
-function change_lecture_name(){
-    var old = prompt("enter old lecture name");
-    if (old.trim().length == 0 || old == null){
-        window.alert("no such lecture");
-        return;
-    }
-    
-    var new_name = prompt("enter new lecture name");
-    if (new_name.trim().length == 0 || new_name == null){
-        window.alert("empty lecture is not possible");
-        return;
-    }
-    
-    $.ajax({
-        url:"save_kdams.php", //the page containing php script
-        type: "post", //request type,
-        data: {"command": "change_lecture", "old": old, "data": new_name},
-        success:function(result){
-            if (result == "") 
-                window.alert("saved");
-            else 
-                window.alert(result);
-                
-            location.reload();
-        }
-    });
 }
 
 function restore(){

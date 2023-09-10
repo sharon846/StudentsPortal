@@ -1,15 +1,29 @@
 <?php
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    foreach ($_POST as $key => $value) {
+        if (is_array($value)) {
+            // If the value is an array, you can recursively apply htmlspecialchars
+            $_POST[$key] = array_map(function($item) {
+                return is_array($item) ? $item : htmlspecialchars($item, ENT_QUOTES);
+            }, $value);
+        } else {
+            // If the value is a string, apply htmlspecialchars
+            $_POST[$key] = htmlspecialchars($value, ENT_QUOTES);
+        }
+    }
+}
+
 function year_translate($year){
     $ar = explode(' ', jdtojewish(gregoriantojd(1, 1, $year), true, CAL_JEWISH_ADD_ALAFIM));
     return iconv ('WINDOWS-1255', 'UTF-8', end($ar));
 }
 
-if (count($_FILES) > 0 && isset($_POST['course'], $_POST['year_sem'])){
+if (count($_FILES) > 0 && isset($_POST['course'], $_POST['lecturer'], $_POST['year_sem'])){
 
 $target_dir = "data/";
 
-$new_name = 'cs_'.str_replace(' ', '_', $_POST['year_sem']).str_replace(' ', '_', $_POST['course']);
+$new_name = 'DEPT_NAME_'.str_replace(' ', '_', $_POST['year_sem']).'_'.str_replace(' ', '_', $_POST['course']).'_'.str_replace(' ', '_', $_POST['lecturer']);
 
 $target_file = $target_dir .$new_name. ".jpg";
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -78,17 +92,27 @@ else {
         </div>
         
         <div class="form__item">
-            <div class="form__label">קורס*:</div>
-            <select id="sel2" onchange="select(this)" name="course" class="select">
-                <option value="def">ברירת מחדל</option>
-                <?php
-                    $courses = simplexml_load_file('../../data/courses.xml');
-                    foreach ($courses->Course as $course){
-                        echo "<option value='$course'>$course</option>";
-                    }
-                ?>
-            </select>
-        </div>
+               <div class="form__label">קורס*:</div>
+               <select id="sel2" onchange="select(this)" name="course" class="select">
+                  <option value="def">ברירת מחדל</option>
+                  <?php
+                     $courses = json_decode(file_get_contents("../../data/courses.json"), true)["Data"];
+                     foreach ($courses as $course){
+                         echo "<option value='$course'>$course</option>";
+                     }
+                     ?>
+               </select>
+               <div class="form__label">מרצה*:</div>
+               <select id="sel3" onchange="select(this)" name="lecturer" class="select">
+                  <option value="def">ברירת מחדל</option>
+                  <?php
+                     $lecturers = json_decode(file_get_contents("../../data/lecturers.json"), true)["Data"];
+                     foreach ($lecturers as $lecturer){
+                         echo "<option value='$lecturer'>$lecturer</option>";
+                     }
+                     ?>
+               </select>
+            </div>
 
 
 <div class="form__item">
@@ -121,7 +145,7 @@ else {
     }
                     
     function validate(){
-        if ($('#sel1 option:selected').val() == "def" || $('#sel2 option:selected').val() == "ברירת מחדל")
+        if ($('#sel1 option:selected').val() == "def" || $('#sel2 option:selected').val() == "ברירת מחדל" || $('#sel3 option:selected').val() == "ברירת מחדל")
             return false;
             
         return $("#img").attr('src') != "";

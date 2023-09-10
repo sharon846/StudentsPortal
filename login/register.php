@@ -23,10 +23,36 @@ if (isset($_POST['user'], $_POST['name'], $_FILES["cv"])) {
     {
         $mail = $_POST['user'];
         $name = $_POST['name'];
-	$name = cleanName($name);
-        
+        $name = cleanName($name);
+
+        if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+            $show_msg = true;
+            $message = "המייל שהוזן אינו תקין";
+            break;
+        }
+
+        try {
+            $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+        } catch (PDOException $pe) {
+            $show_msg = true;
+            $message = "Could not connect to the database $dbname";
+            break;
+        }
+
+        $sql = "SELECT * FROM `Tusers` WHERE `email`='$mail'";
+        $result = $conn->query($sql);
+
+        if ($result->rowCount() != 0)
+        {
+            $show_msg = true;
+            $message = "אתם כבר רשומים לאתר!";
+            $success = true;
+            $message .= "<br/>לחזרה לדף ההתחברות לחצו <a style='color: blue' href='index.php'>כאן</a>";
+            break;
+        }
+
         $pdf_data = detect($_FILES['cv']['tmp_name']);
-    
+
         if (is_numeric($pdf_data)) {
             $show_msg = true;
             $name = explode(' ', $name)[0];
@@ -35,50 +61,23 @@ if (isset($_POST['user'], $_POST['name'], $_FILES["cv"])) {
             $message .= "<br/>לחזרה לעמוד הראשי לחצו <a style='color: blue' href='https://SITE_URL'>כאן</a>";
             break;
         }
-        
-        if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-            $show_msg = true;
-            $message = "המייל שהוזן אינו תקין";
-            break;
-        }
      
-        try {
-            $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-        } catch (PDOException $pe) {
-            $show_msg = true;
-            $message = "Could not connect to the database $dbname";
-            break;
-        }
-    
-    	$sql = "SELECT * FROM `Tusers` WHERE `email`='$mail'";
-        $result = $conn->query($sql);
-    
-        if ($result->rowCount() == 0)
-        {
-            $deg = $pdf_data[0];
-            $year = $pdf_data[1];
-            
-            $sql = "INSERT IGNORE INTO `Tusers`(`email`, `name`, `degree`, `year`) VALUES ('$mail', '$name', '$deg', '$year');";
-            $res = $conn->query($sql);
-            
-            $show_msg = true;
-            $message = "Your registration was approved!<br/>Login to our site and than choose permanent password. Good Luck!";
-            
-            if ($deg == "2")
-                $message .= "<br/>Special addition for MSC";
-               
-            file_put_contents(getcwd()."/../admin/updates", "$mail registered##deg=$deg,year=$year".PHP_EOL, FILE_APPEND);
-            $message .= "<br/>לחזרה לדף ההתחברות לחצו <a style='color: blue' href='index.php'>כאן</a>";
-            $success = true;
-        } 
         
-        else 
-        {
-            $show_msg = true;
-            $message = "You already registered!";
-            $success = true;
-            $message .= "<br/>לחזרה לדף ההתחברות לחצו <a style='color: blue' href='index.php'>כאן</a>";
-        }
+        $deg = $pdf_data[0];
+        $year = $pdf_data[1];
+        $id = $pdf_data[2];
+    
+        $sql = "INSERT IGNORE INTO `Tusers`(`email`, `name`, `degree`, `year`) VALUES ('$mail', '$name', '$deg', '$year');";
+        $res = $conn->query($sql);
+    
+        $show_msg = true;
+        $message = "Your registration was approved!<br/>Login to our site and than choose permanent password. Good Luck!";
+        
+        file_put_contents(getcwd()."/../admin/updates", "$mail registered##deg=$deg,year=$year".PHP_EOL, FILE_APPEND);
+        $message .= "<br/>לחזרה לדף ההתחברות לחצו <a style='color: blue' href='index.php'>כאן</a>";
+        if ($deg == "2")
+                $message .= "<br/>Special addition for MSC";
+        $success = true;
     } while (0);
 }
  

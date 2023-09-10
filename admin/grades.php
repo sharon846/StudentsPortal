@@ -283,9 +283,10 @@ function save(){
         
         if (!$(this).find(":input").eq(1).prop('checked') && 
             ["", "avg"].includes($(this).find(":input").eq(0).val()))  { return; }
-        if ($(this).find(":input").eq(3).val() == "")  { return; }
-        if (($(this).find(":input").eq(3).val().match(/,/g) || []).length != 9)   { return; }
-        if (($(this).find(":input").eq(3).val().match(/,,/g) || []).length > 0) {window.alert("syntax error in moed " + $(this).attr('id')); return; }
+        if (!$(this).find(":input").eq(1).prop('checked') && 
+            ["", "avg"].includes($(this).find(":input").eq(0).val()))  { return; }
+        if (/^\d+,\d+,\d+,\d+,\d+,\d+,\d+,\d+,\d+,\d+$/.test($(this).find(":input").eq(3).val()) == false) {window.alert("syntax error in moed " + $(this).attr('id')); return; }
+
         
         var avg = $(this).find(":input").eq(0).val();
         var grades = $(this).find(":input").eq(3).val().split(',').map(x=>+x);

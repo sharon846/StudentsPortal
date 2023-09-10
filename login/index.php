@@ -77,7 +77,7 @@ if (isset($_POST['user'], $_POST['password'])) {
 	    if (isset($_GET['referer']))
 	        $location = $_GET['referer'];
 	    else    
-	        $location = "../site/files/";
+	        $location = "../site/DEPT_NAME/";
 	    
 	    if ($msg != "")
 	    {

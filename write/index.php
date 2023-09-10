@@ -1,6 +1,7 @@
 <?php
 include '../resources/header.php';
 // Auth
+$headers = "From: admin@is-haifa.com \r\n"; // Sender Email
 
 if (isset($_POST["text"])) {
     
@@ -11,14 +12,18 @@ if (isset($_POST["text"])) {
     }
 
     file_put_contents(getcwd()."/../admin/updates", "someone wrote us##https://SITE_URL/write/uploads/viewer.php".PHP_EOL, FILE_APPEND);
-        
+    foreach ($admin_mail as $mail2)
+    {
+        mail($mail2, "SITE_NAME Message", "Someone wrote to SITE_NAME site!", $headers);
+    }
+
     $lines = array();
     array_push($lines, $mail.PHP_EOL);
     array_push($lines, $_POST['text'].PHP_EOL);
     
     file_put_contents("uploads/$mail.txt", $lines);
     
-    ?> <script> window.alert(<?php echo "'success! we will contact soon'"; ?>); window.location.href = "https://SITE_URL";</script> <?php exit();
+    ?> <script> window.alert(<?php echo "'success! we will contact soon'"; ?>); window.location.href = "https://SITE_DOMAIN";</script> <?php exit();
 }
 
 else {  
@@ -36,7 +41,7 @@ else {
 			</div>
 			<div class="mb-4 text-right">
 				<label for="text">תארו לנו את הבעיה:</label>
-				<textarea id="text" name="text" class="form-field">הטקסט שאנחנו נראה. ניתן להרחיב את התיבה.</textarea>
+				<textarea id="text" name="text" class="form-field" placeholder="הטקסט שאנחנו נראה. ניתן להרחיב את התיבה."></textarea>
 			</div>
 			<div class="flex flex-col">
 				<input id="login" type="submit" value="שליחה" class="button green-button mt-6" />

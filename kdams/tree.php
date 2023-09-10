@@ -15,12 +15,20 @@ try {
 
 while (count($current) > 0)
 {
-    $sql = "SELECT `link`,`name`,`kdams` FROM `Tkdams` WHERE `name` NOT IN ('".implode("','", $total_names)."') ORDER BY `name` ASC";
+    $sql = "SELECT `code`,`name`,`kdams` FROM `Tkdams` WHERE `name` NOT IN ('".implode("','", $total_names)."') ORDER BY `name` ASC";
         
     $result = $GLOBALS['conn']->query($sql);
     $arr = $result->fetchAll(); 
-        
+    $arr["code"] = 
     $current = array_filter($arr, function($tp) use($total_names) { return $tp["kdams"] == "" || count(array_diff(explode(',',$tp["kdams"]),$total_names)) == 0; });
+
+    $current = array_map(function($tp) {
+        return [
+            "code" => str_replace(".", "", $tp["code"]),
+            "name" => $tp["name"],
+            "kdams" => $tp["kdams"]
+            ];
+    }, $current);
 
     $total = array_merge($total, $current);
         
@@ -247,7 +255,7 @@ $layers = json_encode($layers);
                 $("div[class^='layer']").each(function(index){
                     var div = $(this);
                     $.each(data[index], function(key,value) {
-                        div.append('<span title="'+value.kdams+'" onmouseover="showArrows(this,true)" id="s'+value.link+'" class="course">'+value.name+'</span>'); 
+                        div.append('<span title="'+value.kdams+'" onmouseover="showArrows(this,true)" id="s'+value.code+'" class="course">'+value.name+'</span>'); 
                     });
                 });
                 
@@ -258,12 +266,12 @@ $layers = json_encode($layers);
                         $("span[class='course']").each(function(){
                             if (value.kdams != null && value.kdams.split(',').includes($(this).text()))
                             {
-                                var newLine = document.createElementNS('https://www.w3.org/2000/svg','line');
-                                newLine.setAttribute('class','arrow '+div.attr('class')+' s'+value.link);
+                                var newLine = document.createElementNS('http://www.w3.org/2000/svg','line');
+                                newLine.setAttribute('class','arrow '+div.attr('class')+' s'+value.code);
                                 newLine.setAttribute('x1',get_mid($(this))[0]);
                                 newLine.setAttribute('y1',get_mid($(this))[1]);
-                                newLine.setAttribute('x2',get_mid($("span#s"+value.link))[0]);
-                                newLine.setAttribute('y2',get_mid($("span#s"+value.link))[1]);
+                                newLine.setAttribute('x2',get_mid($("span#s"+value.code))[0]);
+                                newLine.setAttribute('y2',get_mid($("span#s"+value.code))[1]);
                                 newLine.setAttribute('stroke',get_rand_color());
                                 $("svg").append(newLine);
                             }

@@ -1,7 +1,7 @@
 <?php
 require_once '../site_manager/pdoconfig.php';
 
-$basic = array("שנה א", "שנה ב", "שנה ג");
+$basic = array("שנה א", "שנה ב");
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
@@ -24,10 +24,8 @@ if (isset($_POST["course"]))
     if (strpos($_POST["course"], 'שנה') !== false)
     {
         $currCourses = getYear(1);
-        if ($_POST["course"] == "שנה ב" || $_POST["course"] == "שנה ג")
+        if ($_POST["course"] == "שנה ב")
             $currCourses = array_merge($currCourses, getYear(2));
-        if ($_POST["course"] == "שנה ג")
-            $currCourses = array_merge($currCourses, getYear(3));
     }
     
     foreach ($currCourses as $course)
@@ -39,7 +37,7 @@ if (isset($_POST["course"]))
 
 function generateMatchCourses($chosen)
 {
-    $finalArr = array("a" => array("מפגש חוגי - 0 נקודות, קורס חובה, מרצה: אין. הערה: חובת רישום"), "b" => array("מפגש חוגי - 0 נקודות, קורס חובה, מרצה: אין. הערה: חובת רישום"), "c" => array());
+    $finalArr = array("a" => array(), "b" => array(), "c" => array());
     $pts = 0;
     
     $sql = "SELECT * FROM `Tkdams` WHERE `name` NOT IN ('".implode("','", $chosen)."')";
@@ -47,14 +45,19 @@ function generateMatchCourses($chosen)
     $next_courses = $result->fetchAll(); 
     
     $next_courses = array_filter($next_courses, function($tp) use($chosen) { return $tp["kdams"] == "" || count(array_diff(explode(',',$tp["kdams"]),$chosen)) == 0; });
-    
+
+    $courses = json_decode(file_get_contents("../data/duties.json"), true);
+    $courses = array_merge($courses["Year1"], $courses["Year2"]);
+
     foreach($next_courses as $course)
     {
-        $counter = 0;
         $ids = str_split($course["ids"]);
+        $duty = in_array($course['code'], $courses);
+        $duty = $duty ? "חובה" : "בחירה";
         foreach ($ids as $id){
-            array_push($finalArr[$id], getOutput($course["name"], $course["pts"], $course["year"] != "" ? "חובה" : "בחירה", explode(',', $course["lecture"])[$counter], isset($course["note"]) ? $course["note"] : "", $course["link"], $id));
-            $counter++;
+            $idd = ord($id) - 97;
+            $lect = explode(',', $course["lecturer"])[$idd];
+            array_push($finalArr[$id], getOutput($course["name"], $lect, $course["pts"], $duty, isset($course["note"]) ? $course["note"] : "", $id));
         }
     }
     
@@ -68,16 +71,12 @@ function generateMatchCourses($chosen)
     return array($finalArr, $pts);
 }
 
-function getOutput($name, $pts, $id, $lect, $note, $link, $sem)
+function getOutput($name, $lect, $pts, $duty, $note, $sem)
 {
     $semArr = array("a" => "001", "b" => "002", "c" => "003");
-    $str = $name;
-    if ($link != "")
-        $str = "<a class='result' href='https://studapps.haifa.ac.il/catalog/#/course/$link/".$semArr[$sem]."'>$name</a>";
-
-    $str = "$str - pts נקודות, קורס duty, מרצה: lect";
+    $str = "$name - pts נקודות, קורס duty, מרצה: lect";
     $str = str_replace("pts", $pts, $str);
-    $str = str_replace("duty", $id, $str);
+    $str = str_replace("duty", $duty, $str);
     $str = str_replace("lect", $lect == "" ? "אין" : $lect, $str);
     if ($note != "") { $str .= ". הערה: note"; $str = str_replace("note", $note, $str); }
     
@@ -102,8 +101,12 @@ function getKdams($passedCourse)
     
     $sql = "SELECT `kdams` FROM `Tkdams` WHERE `name`='$passedCourse'";
     $result = $GLOBALS['conn']->query($sql);
-    $lst = $result->fetch()[0]; 
+    $lst = $result->fetch();
+
+    if (!$lst)
+        return $list;
     
+    $lst = $lst[0]; 
     if ($lst == "")
         return $list;
     
@@ -152,9 +155,14 @@ function getWhoBlocking($passedCourse)
 
 function getYear($year)
 {
+    $courses = json_decode(file_get_contents("../data/duties.json"), true)["Year$year"];
+    
+    $courses = implode("','", $courses);
+    $courses = "('$courses')";
+    
     $list = array();
     
-    $sql = "SELECT `name` FROM `Tkdams` WHERE `year`='$year'";
+    $sql = "SELECT `name` FROM `Tkdams` WHERE `code` IN $courses;";
     $result = $GLOBALS['conn']->query($sql);
     $list = $result->fetchAll(); 
     $list = array_map(function($tp) { return $tp["name"]; }, $list);

@@ -6,12 +6,5 @@ $semester_end = array("2023-01-22", "2023-06-20");                      //a end,
 //constant dates, it auto fixes iteself, dont touch
 $exams_end = array("2023-05-01", "2023-10-01");
 
-$academic_year = date('Y');
-if (date('m') >= 10)
-    $academic_year += 1;
-
-foreach ($exams_end as &$date) {
-    $date = str_replace("2023", $academic_year, $date);
-}
 
 ?>

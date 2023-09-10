@@ -1,5 +1,5 @@
 <?php
 
-header("Location: https://srworkspace.com/site/files");
+header("Location: https://SITE_URL/site/DEPT_NAME");
 
 ?>

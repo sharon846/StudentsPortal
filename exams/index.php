@@ -1,7 +1,9 @@
 <?php
 
 $sem = isset($_GET['sem']) ? $_GET['sem'] : (isset($_POST['sem']) ? $_POST['sem'] : '$$');
+$sem = htmlspecialchars($sem, ENT_QUOTES);
 $input = isset($_POST['hidden-input']) ? $_POST['hidden-input'] : "" ;                        //from my choicefreak
+$input = htmlspecialchars($input, ENT_QUOTES);
 
 $temp = intval(date('m'));
 if ($sem == "$$"){
@@ -25,6 +27,13 @@ $data = substr($data, 0, $ind);
 
 $doc = new DOMDocument();
 @$doc->loadHTML($data);
+
+//get year of exams board
+$catalog_year = $doc->getElementById("aaaa.OutputExamsView.DefaultTextView")->nodeValue;
+$pattern = "/\b\d{4}\b/";
+
+preg_match_all($pattern, $catalog_year, $matches);
+$catalog_year = intval($matches[0][0])+1;
 
 //Image tag
 $rows = $doc->getElementById("aaaa.OutputExamsView.TableGui-contentTBody");
@@ -61,12 +70,31 @@ for ($j = 0; $j < $rows->childNodes->length-1; $j++) {
         $tt = array_splice($tt, 0, -1);
         
     $course = implode("", $tt);
-    array_push($list, $course);
+    $code = $doc->getElementById("aaaa.OutputExamsView.courseID_editor.$j")->nodeValue;
+    array_push($list, ["code" => $code, "course" => $course]);
 }
 
-$list = array_unique($list);
-$list = array_map(function($t) { return str_replace('"', "", $t); }, $list);
-//var_dump($list);
+$tempArray = [];
+    
+// Filter out duplicates while keeping the first occurrence
+$resultArray = array_filter($list, function ($item) use (&$tempArray) {
+    $key = $item['course'];
+    if (!isset($tempArray[$key]) && !str_starts_with($item['code'], '203.8')) {
+        $tempArray[$key] = true;
+        return true;
+    }
+    return false;
+});
+
+$courses_names = array_map(function ($item) {
+    return $item["course"];
+}, $resultArray);
+
+$resultArray = array_values($resultArray);
+$courses_names = array_values($courses_names);
+
+$list = base64_encode(json_encode($resultArray));
+$names = base64_encode(json_encode($courses_names));
 ?>
 
 <!DOCTYPE html>
@@ -172,8 +200,8 @@ body.dark a.result{
 </form>
 
 <script>
-    var courses = <?php echo '["' . implode('", "', $list) . '"]' ?>;
-    
+    var courses = JSON.parse(atob(<?php echo "'$list'" ?>));  
+    var names = JSON.parse(atob(<?php echo "'$names'" ?>)); 
     window.onload = function(){
         
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
@@ -182,7 +210,7 @@ body.dark a.result{
         $("div#mode").click(switchMode);
         
         $( "#lname" ).autocomplete({
-            source: courses
+            source: names
         });
 
         $("ul#ui-id-1").on('click', 'li', clickEvt);
@@ -215,13 +243,25 @@ body.dark a.result{
       handleItemSelected(val);
   }
   
+  function search(text){
+     res = "";
+     for (var i = 0; i < courses.length; i++){
+         if (courses[i].course === text) {
+            return courses[i].code;
+        }
+     }
+     
+    return "";
+  }
+  
+  
   function handleItemSelected(text)
   {
-    if (text.length > 0 && courses.includes(text))
+    if (text.length > 0 && names.includes(text))
     {
-        courses.remove(text);
-        document.getElementById("hidden-input").value += text+",";
-            
+        names.remove(text);
+        document.getElementById("hidden-input").value += search(text)+",";
+        
         var buttonx = document.createElement("button");
         buttonx.setAttribute("class", "button-selected");
         buttonx.innerText = text;
@@ -248,7 +288,7 @@ body.dark a.result{
 function buttondbclick(e)
 {
     document.getElementById(e.target.innerText).remove();
-    if (!courses.includes(e.target.innerText)) courses.push(e.target.innerText);
+    if (!names.includes(e.target.innerText)) names.push(e.target.innerText);
     document.getElementById("hidden-input").value = document.getElementById("hidden-input").value.replace(e.target.innerText+",", "");
 }
 

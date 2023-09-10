@@ -5,8 +5,8 @@
 - https://www.phpmyadmin.net
 -
 - Host: 127.0.0.1:3306
-- Generation Time: יולי 16, 2023 בזמן 08:54 PM
-- גרסת שרת: 10.6.12-MariaDB-cll-lve
+- Generation Time: ספטמבר 10, 2023 בזמן 04:25 PM
+- גרסת שרת: 10.6.14-MariaDB-cll-lve
 - PHP Version: 7.2.34
 -->
 
@@ -49,19 +49,18 @@
                   `proj` text DEFAULT NULL,
                   PRIMARY KEY (`id`),
                   UNIQUE KEY `name` (`name`,`lecture`,`year`,`semester`)
-                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+                ) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
             </pma:table>
             <pma:table name="Tkdams">
                 CREATE TABLE `Tkdams` (
-                  `link` text NOT NULL,
+                  `code` text NOT NULL,
                   `name` text NOT NULL,
-                  `lecture` text DEFAULT NULL,
                   `ids` text NOT NULL,
                   `pts` int(11) NOT NULL,
-                  `year` text NOT NULL,
                   `note` text NOT NULL,
                   `kdams` text DEFAULT NULL,
-                  UNIQUE KEY `link` (`link`) USING HASH
+                  `lecturer` text DEFAULT NULL,
+                  UNIQUE KEY `code` (`code`) USING HASH
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
             </pma:table>
             <pma:table name="Tlinks">
@@ -85,7 +84,7 @@
                   `rank` int(11) NOT NULL DEFAULT 0,
                   PRIMARY KEY (`id`),
                   UNIQUE KEY `unique_index` (`course`,`lecture`)
-                ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+                ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
             </pma:table>
             <pma:table name="Tteachers">
                 CREATE TABLE `Tteachers` (
@@ -122,32 +121,142 @@
                   `href_cap` text NOT NULL,
                   `lecture` text DEFAULT NULL,
                   UNIQUE KEY `id` (`id`)
-                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+                ) ENGINE=InnoDB AUTO_INCREMENT=2023302 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
             </pma:table>
         </pma:database>
     </pma:structure_schemas>
 
     <!--
-    - Database: 'u209260158_demo'
+    - Database: 'replace_with_dbname'
     -->
-    <database name="u209260158_demo">
+    <database name="replace_with_dbname">
         <!-- טבלה Tcomments -->
+        <table name="Tcomments">
+            <column name="idquestion">3</column>
+            <column name="ref">fa7c3fcb670a58aa3e90a391ea533c99</column>
+            <column name="name">User</column>
+            <column name="content">אחלה מרצה ואחלה קורס! 
+בסמסטסר שלנו הוא ביטל את המבחן כי הוא אחלה בן אדם</column>
+            <column name="time">2022-07-14 11:33:06</column>
+            <column name="rank">2</column>
+            <column name="seen">0</column>
+        </table>
+        <table name="Tcomments">
+            <column name="idquestion">3</column>
+            <column name="ref">cba1f2d695a5ca39ee6f343297a761a4</column>
+            <column name="name">אנונימי</column>
+            <column name="content">Well.. He taught me last year and probably got annoyed that we almost never showed to his class, because the gave harder exam than last year :(</column>
+            <column name="time">2023-07-19 08:35:15</column>
+            <column name="rank">0</column>
+            <column name="seen">0</column>
+        </table>
         <!-- טבלה Tgrades -->
+        <table name="Tgrades">
+            <column name="idsemester">1</column>
+            <column name="moed">a</column>
+            <column name="avg">65.862</column>
+            <column name="num">65</column>
+            <column name="grades">0,1,2,3,8,12,10,14,7,8</column>
+            <column name="proj2">NULL</column>
+        </table>
+        <table name="Tgrades">
+            <column name="idsemester">1</column>
+            <column name="moed">b</column>
+            <column name="avg">48.821</column>
+            <column name="num">28</column>
+            <column name="grades">6,1,0,2,3,3,5,5,2,1</column>
+            <column name="proj2">NULL</column>
+        </table>
+        <table name="Tgrades">
+            <column name="idsemester">2</column>
+            <column name="moed">a</column>
+            <column name="avg">57.07</column>
+            <column name="num">57</column>
+            <column name="grades">3,1,1,5,7,17,11,1,7,4</column>
+            <column name="proj2">NULL</column>
+        </table>
+        <table name="Tgrades">
+            <column name="idsemester">3</column>
+            <column name="moed">a</column>
+            <column name="avg">59.141</column>
+            <column name="num">92</column>
+            <column name="grades">0,1,6,14,7,23,19,13,6,3</column>
+            <column name="proj2">NULL</column>
+        </table>
+        <table name="Tgrades">
+            <column name="idsemester">3</column>
+            <column name="moed">b</column>
+            <column name="avg">56.55</column>
+            <column name="num">59</column>
+            <column name="grades">0,0,4,9,5,21,10,7,1,2</column>
+            <column name="proj2">NULL</column>
+        </table>
         <!-- טבלה TgradesSemesters -->
+        <table name="TgradesSemesters">
+            <column name="id">1</column>
+            <column name="name">קורס 1</column>
+            <column name="lecture">מרצה 1</column>
+            <column name="year">תשפג</column>
+            <column name="semester">A</column>
+            <column name="proj">NULL</column>
+        </table>
+        <table name="TgradesSemesters">
+            <column name="id">2</column>
+            <column name="name">קורס 2</column>
+            <column name="lecture">מרצה 2</column>
+            <column name="year">תשפג</column>
+            <column name="semester">A</column>
+            <column name="proj">סמינר</column>
+        </table>
+        <table name="TgradesSemesters">
+            <column name="id">3</column>
+            <column name="name">קורס 3</column>
+            <column name="lecture">מרצה 1</column>
+            <column name="year">תשפב</column>
+            <column name="semester">B</column>
+            <column name="proj">NULL</column>
+        </table>
         <!-- טבלה Tkdams -->
+        <table name="Tkdams">
+            <column name="code">203.1110</column>
+            <column name="name">קורס 1</column>
+            <column name="ids">ab</column>
+            <column name="pts">3</column>
+            <column name="note"></column>
+            <column name="kdams">NULL</column>
+            <column name="lecturer">מרצה 1,מרצה 2</column>
+        </table>
+        <table name="Tkdams">
+            <column name="code">203.2110</column>
+            <column name="name">קורס 2</column>
+            <column name="ids">b</column>
+            <column name="pts">3</column>
+            <column name="note">דרישה נוספת</column>
+            <column name="kdams">קורס 1</column>
+            <column name="lecturer">מרצה 3</column>
+        </table>
+        <table name="Tkdams">
+            <column name="code">203.3244</column>
+            <column name="name">קורס 3</column>
+            <column name="ids">a</column>
+            <column name="pts">3</column>
+            <column name="note"></column>
+            <column name="kdams">NULL</column>
+            <column name="lecturer">מרצה 2</column>
+        </table>
         <!-- טבלה Tlinks -->
         <table name="Tlinks">
             <column name="id">1</column>
             <column name="title_cap">תגובות לקורסים</column>
-            <column name="href_cap">https://SITE_URL/comments/</column>
-            <column name="img_cap">https://SITE_URL/img/ranker.png</column>
+            <column name="href_cap">https://SITE_DOMAIN/comments/</column>
+            <column name="img_cap">https://SITE_DOMAIN/img/ranker.png</column>
             <column name="more_data"></column>
             <column name="hidden">0</column>
         </table>
         <table name="Tlinks">
             <column name="id">2</column>
             <column name="title_cap">קישורים לקבוצות</column>
-            <column name="href_cap">https://SITE_URL/whatsapp/</column>
+            <column name="href_cap">https://SITE_DOMAIN/whatsapp/</column>
             <column name="img_cap">https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/640px-WhatsApp.svg.png</column>
             <column name="more_data"></column>
             <column name="hidden">0</column>
@@ -155,76 +264,100 @@
         <table name="Tlinks">
             <column name="id">3</column>
             <column name="title_cap">ציונים</column>
-            <column name="href_cap">https://SITE_URL/grades</column>
-            <column name="img_cap">https://SITE_URL/img/grade.png</column>
+            <column name="href_cap">https://SITE_DOMAIN/grades</column>
+            <column name="img_cap">https://SITE_DOMAIN/img/grade.png</column>
             <column name="more_data"></column>
             <column name="hidden">0</column>
         </table>
         <table name="Tlinks">
             <column name="id">4</column>
             <column name="title_cap">חומרים</column>
-            <column name="href_cap">https://SITE_URL/site/is</column>
-            <column name="img_cap">https://SITE_URL/img/drive.png</column>
-            <column name="more_data"></column>
-            <column name="hidden">0</column>
-        </table>
-        <table name="Tlinks">
-            <column name="id">7</column>
-            <column name="title_cap">מורים פרטיים בחוג</column>
-            <column name="href_cap">https://SITE_URL/teachers/</column>
-            <column name="img_cap">https://SITE_URL/img/tutor.png</column>
+            <column name="href_cap">https://SITE_DOMAIN/site/files</column>
+            <column name="img_cap">https://SITE_DOMAIN/img/drive.png</column>
             <column name="more_data"></column>
             <column name="hidden">0</column>
         </table>
         <table name="Tlinks">
             <column name="id">8</column>
             <column name="title_cap">העלאת חומרים</column>
-            <column name="href_cap">https://SITE_URL/site/uploads</column>
-            <column name="img_cap">https://SITE_URL/img/upload.png</column>
+            <column name="href_cap">https://SITE_DOMAIN/site/uploads</column>
+            <column name="img_cap">https://SITE_DOMAIN/img/upload.png</column>
+            <column name="more_data"></column>
+            <column name="hidden">0</column>
+        </table>
+        <table name="Tlinks">
+            <column name="id">9</column>
+            <column name="title_cap">עץ קדמים</column>
+            <column name="href_cap">https://SITE_DOMAIN/kdams/tree.php</column>
+            <column name="img_cap">https://SITE_DOMAIN/img/tree.png</column>
             <column name="more_data"></column>
             <column name="hidden">0</column>
         </table>
         <table name="Tlinks">
             <column name="id">10</column>
-            <column name="title_cap">הורדת חומרים</column>
-            <column name="href_cap">https://SITE_URL/site/uploads/guide.html</column>
-            <column name="img_cap">https://SITE_URL/img/download.png</column>
+            <column name="title_cap">בניית מערכת</column>
+            <column name="href_cap">https://SITE_DOMAIN/scheduling/</column>
+            <column name="img_cap">https://SITE_DOMAIN/img/scheduling.jpg</column>
             <column name="more_data"></column>
             <column name="hidden">0</column>
         </table>
         <table name="Tlinks">
             <column name="id">11</column>
-            <column name="title_cap">עץ קדמים</column>
-            <column name="href_cap">https://SITE_URL/kdams/tree.php</column>
-            <column name="img_cap">https://SITE_URL/img/tree.png</column>
+            <column name="title_cap">העלאת ציונים</column>
+            <column name="href_cap">https://SITE_DOMAIN/grades/uploads/</column>
+            <column name="img_cap">https://SITE_DOMAIN/img/grade.png</column>
             <column name="more_data"></column>
             <column name="hidden">0</column>
         </table>
         <table name="Tlinks">
             <column name="id">12</column>
-            <column name="title_cap">קדמים וקורסים</column>
-            <column name="href_cap">https://SITE_URL/kdams/</column>
-            <column name="img_cap">https://SITE_URL/img/kdams.png</column>
+            <column name="title_cap">הורדת חומרים</column>
+            <column name="href_cap">https://SITE_DOMAIN/site/uploads/guide.html</column>
+            <column name="img_cap">https://SITE_DOMAIN/img/download.png</column>
             <column name="more_data"></column>
             <column name="hidden">0</column>
         </table>
         <table name="Tlinks">
             <column name="id">13</column>
-            <column name="title_cap">כתבו לנו</column>
-            <column name="href_cap">https://SITE_URL/write/</column>
-            <column name="img_cap">https://SITE_URL/img/complain.png</column>
+            <column name="title_cap">קדמים וקורסים</column>
+            <column name="href_cap">https://SITE_DOMAIN/kdams/</column>
+            <column name="img_cap">https://SITE_DOMAIN/img/kdams.png</column>
             <column name="more_data"></column>
             <column name="hidden">0</column>
         </table>
         <table name="Tlinks">
             <column name="id">14</column>
+            <column name="title_cap">כתבו לנו</column>
+            <column name="href_cap">https://SITE_DOMAIN/write/</column>
+            <column name="img_cap">https://SITE_DOMAIN/img/complain.png</column>
+            <column name="more_data"></column>
+            <column name="hidden">0</column>
+        </table>
+        <table name="Tlinks">
+            <column name="id">15</column>
             <column name="title_cap">לוח מבחנים</column>
-            <column name="href_cap">https://SITE_URL/exams</column>
-            <column name="img_cap">https://SITE_URL/img/exams.jpg</column>
+            <column name="href_cap">https://SITE_DOMAIN/exams</column>
+            <column name="img_cap">https://SITE_DOMAIN/img/exams.jpg</column>
+            <column name="more_data"></column>
+            <column name="hidden">0</column>
+        </table>
+        <table name="Tlinks">
+            <column name="id">16</column>
+            <column name="title_cap">מורים פרטיים בחוג</column>
+            <column name="href_cap">https://SITE_DOMAIN/teachers/</column>
+            <column name="img_cap">https://SITE_DOMAIN/img/tutor.png</column>
             <column name="more_data"></column>
             <column name="hidden">0</column>
         </table>
         <!-- טבלה Tquestions -->
+        <table name="Tquestions">
+            <column name="id">3</column>
+            <column name="course">קורס 1</column>
+            <column name="lecture">מרצה 2</column>
+            <column name="tag">חובה</column>
+            <column name="time">2023-07-19 08:32:51</column>
+            <column name="rank">2</column>
+        </table>
         <!-- טבלה Tteachers -->
         <table name="Tteachers">
             <column name="id">5</column>
@@ -237,6 +370,52 @@
             <column name="hidden">0</column>
         </table>
         <!-- טבלה Tusers -->
+        <table name="Tusers">
+            <column name="email">user@gmail.com</column>
+            <column name="name">Example User</column>
+            <column name="degree">1</column>
+            <column name="year">2</column>
+            <column name="connected">NULL</column>
+            <column name="password">NULL</column>
+            <column name="msg">NULL</column>
+            <column name="last_dir">comments</column>
+            <column name="sendmail">1</column>
+        </table>
+        <table name="Tusers">
+            <column name="email">user2@gmail.com</column>
+            <column name="name">Example User2</column>
+            <column name="degree">1</column>
+            <column name="year">1</column>
+            <column name="connected">2023-07-20 22:54:54</column>
+            <column name="password">81dc9bdb52d04dc20036dbd8313ed055</column>
+            <column name="msg">NULL</column>
+            <column name="last_dir">StudentsPortal/comments</column>
+            <column name="sendmail">1</column>
+        </table>
         <!-- טבלה Twhatsapp -->
+        <table name="Twhatsapp">
+            <column name="id">2022300</column>
+            <column name="title_cap">קורס 3</column>
+            <column name="href_cap"></column>
+            <column name="lecture">מרצה 1</column>
+        </table>
+        <table name="Twhatsapp">
+            <column name="id">2023200</column>
+            <column name="title_cap">קורס 1</column>
+            <column name="href_cap"></column>
+            <column name="lecture">מרצה 1</column>
+        </table>
+        <table name="Twhatsapp">
+            <column name="id">2023300</column>
+            <column name="title_cap">קורס 1</column>
+            <column name="href_cap"></column>
+            <column name="lecture">מרצה 2</column>
+        </table>
+        <table name="Twhatsapp">
+            <column name="id">2023301</column>
+            <column name="title_cap">קורס 2</column>
+            <column name="href_cap"></column>
+            <column name="lecture">מרצה 3</column>
+        </table>
     </database>
 </pma_xml_export>

@@ -2,6 +2,20 @@
 
 require_once '../data/semester_dates.php';
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    foreach ($_POST as $key => $value) {
+        if (is_array($value)) {
+            // If the value is an array, you can recursively apply htmlspecialchars
+            $_POST[$key] = array_map(function($item) {
+                return is_array($item) ? $item : htmlspecialchars($item, ENT_QUOTES);
+            }, $value);
+        } else {
+            // If the value is a string, apply htmlspecialchars
+            $_POST[$key] = htmlspecialchars($value, ENT_QUOTES);
+        }
+    }
+}
+
 if (!isset($_POST['sem'],$_POST['hidden-input']))
     exit();
 
@@ -10,6 +24,7 @@ $sem_idx = ord($_POST['sem']) - 97;
 
 $list = explode(",", $_POST['hidden-input']);
 $list = array_filter($list);
+$list = array_unique($list);
 
 $semester_end = $semester_end[$sem_idx];
 $semester_next_start = $semester_start[$sem_idx+1];
@@ -80,26 +95,8 @@ for ($j = 0; $j < $rows->childNodes->length-1; $j++) {
 
     $moed = array_splice($tt, -2);
     $moed = ord($moed[1]) - 144;
-
-    $ind = count($tt);
-    $c = 0;
-    while ($c < 2){
-        if ($tt[--$ind] == '-') break;
-        if ($tt[$ind] == ' ') $c++;
-    }
     
-    $tt2 = array_splice($tt, 0, $ind);
-    
-    if (end($tt2) == '-')
-        $tt2 = array_splice($tt2, 0, -1);
-    
-    if (end($tt2) == ' ')
-        $tt2 = array_splice($tt2, 0, -1);
-
-    $only_name = implode("", $tt2);
-    $only_name = str_replace('"', "", $only_name);
-    
-    if (in_array($only_name, $list) || count($list) == 0) {
+    if ((count($list) == 0 || in_array($number, $list)) && array_key_exists($date, $arr)) {
         array_push($arr[$date], array($course, $moed));
     }
 }

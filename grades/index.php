@@ -120,11 +120,11 @@ div.charts{
 <?php
 
 
-$courses = simplexml_load_file("../data/courses.xml");
-$lectures = simplexml_load_file("../data/lectures.xml");
+$courses = json_decode(file_get_contents("../data/courses.json"), true)["Data"];
+$lectures = json_decode(file_get_contents("../data/lecturers.json"), true)["Data"];
 
 if (!isset($_POST['data'])){
-    $data = (string)$courses->Course[0];
+    $data = $courses[0];
 }
 else $data = $_POST['data'];
 

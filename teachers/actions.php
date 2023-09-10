@@ -3,6 +3,20 @@ require_once '../site_manager/pdoconfig.php';
 
 if (!isset($_POST['command'])) exit();
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    foreach ($_POST as $key => $value) {
+        if (is_array($value)) {
+            // If the value is an array, you can recursively apply htmlspecialchars
+            $_POST[$key] = array_map(function($item) {
+                return is_array($item) ? $item : htmlspecialchars($item, ENT_QUOTES);
+            }, $value);
+        } else {
+            // If the value is a string, apply htmlspecialchars
+            $_POST[$key] = htmlspecialchars($value, ENT_QUOTES);
+        }
+    }
+}
+
 if ($_POST['command'] == "add_vote"){
     
     try {

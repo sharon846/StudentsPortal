@@ -63,7 +63,7 @@ if (isset($_POST['password']) && $_POST['password'] != NULL && $_POST['password'
 	    $_SESSION["SITE_SESSION_NAME"]['deg'] = $degree;
 	    $_SESSION["SITE_SESSION_NAME"]['mail'] = $mail;
 	    
-	    $location = "../site/files/";
+	    $location = "../site/DEPT_NAME/";
 	    
 	    ?> <script> window.location.href = <?php echo "'$location'"; ?> </script> <?php exit();
     }

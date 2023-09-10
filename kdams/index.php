@@ -62,7 +62,8 @@ $chosen = array();
 
 if (isset($_POST["hidden-input"]))
 {
-    $chosen = explode(",", $_POST["hidden-input"]);
+    $chosen = htmlspecialchars($_POST["hidden-input"], ENT_QUOTES);
+    $chosen = explode(",", $chosen);
     $chosen = array_filter($chosen); 
     
     $temp = generateMatchCourses($chosen);
@@ -72,7 +73,10 @@ if (isset($_POST["hidden-input"]))
     if ($pts == NULL) $pts = 0;
 }
 
-$mode = isset($_GET['mode']) ? $_GET['mode'] : 1;
+$mode = isset($_GET['mode']) ? $_GET['mode'] : "1";
+$mode = htmlspecialchars($mode, ENT_QUOTES);
+if (!in_array($mode, array("0", "1", "2")))
+    $mode = 1;
 $mode_arr = array("קדמים לקורס", "קורסים השנה", "?מה הקורס חוסם");
 
 $catalog_year = intval(file_get_contents("../data/kdams_year"));
@@ -209,6 +213,7 @@ $catalog_year = intval(file_get_contents("../data/kdams_year"));
             success:function(result){
                 var arr = JSON.parse(result);
                 window.alert(arr);
+                location.reload();
            }
         });
     }
@@ -242,10 +247,10 @@ $catalog_year = intval(file_get_contents("../data/kdams_year"));
                 {
                     arr.forEach(elem => handleItemSelected(elem));
                     
-                    //if (val.startsWith("שנה")){
-                    //    courses.remove(val);
-                    //    courses.remove("שנה א");
-                    //}
+                    if (val.startsWith("שנה")){
+                        courses.remove(val);
+                        courses.remove("שנה א");
+                    }
                 }
            }
         });
