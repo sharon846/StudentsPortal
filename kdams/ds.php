@@ -51,13 +51,14 @@ function generateMatchCourses($chosen)
 
     foreach($next_courses as $course)
     {
-        $ids = str_split($course["ids"]);
+        $lecturers = explode(',', $course["lecturer"]);
         $duty = in_array($course['code'], $courses);
         $duty = $duty ? "חובה" : "בחירה";
-        foreach ($ids as $id){
-            $idd = ord($id) - 97;
-            $lect = explode(',', $course["lecturer"])[$idd];
-            array_push($finalArr[$id], getOutput($course["name"], $lect, $course["pts"], $duty, isset($course["note"]) ? $course["note"] : "", $id));
+        $id = 0;
+        foreach ($lecturers as $lecturer){
+            $idd = chr($id + 97);
+            array_push($finalArr[$idd], getOutput($course["name"], $lecturer, $course["pts"], $duty, isset($course["note"]) ? $course["note"] : ""));
+            $id += 1;
         }
     }
     
@@ -71,9 +72,8 @@ function generateMatchCourses($chosen)
     return array($finalArr, $pts);
 }
 
-function getOutput($name, $lect, $pts, $duty, $note, $sem)
+function getOutput($name, $lect, $pts, $duty, $note)
 {
-    $semArr = array("a" => "001", "b" => "002", "c" => "003");
     $str = "$name - pts נקודות, קורס duty, מרצה: lect";
     $str = str_replace("pts", $pts, $str);
     $str = str_replace("duty", $duty, $str);
