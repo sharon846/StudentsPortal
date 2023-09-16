@@ -45,7 +45,14 @@ StudentsPortal is highly documented on the [guide](https://github.com/sharon846/
 - 🔒: Inspecting and scrapping code protection
 - :bangbang: lots more..
 
-## Installation and Setup
+### :loudspeaker: Excluded Features
+Some features are excluded since they compatibile only with Haifa University.
+- 📱: Whatsapp gruops for courses (included automatic creation using (Whatsapp-web-js)[https://wwebjs.dev]).
+- 💯: Auto grades histogram recoginition from uploaded images
+- 🥇: Exams scheduling system, with simple maintaining
+- 📆: Scheduler, where student can plan his courses for each semester, with json import & export, exams synch and exporting to excel. Automatically updated from catalog.
+
+### Installation and Setup
 
 1. Download ZIP with latest version from master branch. Extract it.
 
@@ -73,7 +80,7 @@ StudentsPortal is highly documented on the [guide](https://github.com/sharon846/
    
 5.  Make sure to remove databases folder, guide.pdf, screenshot.png, README.md
 
-## Site manager
+### Site manager
 In the site manager directory which inspired by the amazing [tinyfilemanager](https://tinyfilemanager.github.io/) your have config.php. 
 Default username/password: **admin/admin123** and **editor/editor123**. The admin's password is synched with the one from step 3.
 
@@ -85,13 +92,13 @@ To enable/disable authentication set `$use_auth` to true or false.
 
 :information_source: The editor will be able to access the file manager, only to the site directory (where the materials drive is located). Admin has access to the entire website, including the admin's panel.
 
-## Drive
+### Drive
 The main part of each student's site is the drive / materials section. Next to each new folder (by [site manager](#site-manager)), a directory browser file is auto created. You may modify it by modiying site_manager/index file (NOT index.php).
 
-## Pdf Analyzer
+### Pdf Analyzer
 When new students register to the site, they should upload pdf document that proves they are students at your department. Nice tool tries to auto-detect specific text in each document (and also degree and year). You can modify and extend the login/valid_pdf.php script.
 
-## Login
+### Login
 There are sections in the site which are limied to only students. For now, the sections are:
 * Drive
 * Grades panel
@@ -129,6 +136,21 @@ log_data($representive_dir, $_SESSION['SITE_SESSION_NAME']["mail"]);
 ```
 
 ### Change Log
+
+## Vesrsion 1.8.0:
+- added auto grades recognition (with automation updating)
+- added excel exporting in scheduler (without congruences)
+- added autoloading catalog to both scheduler and kdams management. 
+- fixed security errors
+
+## Vesrion 1.7.3:
+- upgrading the courses and lecturers editor to json, with global lecture / course change.
+- preventing scheduler to autodelete after trail time.
+
+## Version 1.7.2:
+- deprecated validation before uploading
+- removed lectureres from kdams panel manager and whatsapp creation.
+- encrypted perosnal details on comments site.
 
 ## Version 1.7.1:
 - Added validation before uploading.
