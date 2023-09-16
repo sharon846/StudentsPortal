@@ -6,7 +6,7 @@
 
 > A site for the students in department at the university (of haifa). Includes - grades, materials, reviews, courses planner, file manager, admin panel and lots more
 
-## Demo
+### Demo
 
 [Student Portal](https://srworkspace.com/StudentsPortal/)
 
@@ -14,13 +14,13 @@
 
 [Admin's Managment Panel](https://srworkspace.com/StudentsPortal/admin)
 
-## Documentation
+### Documentation
 
 StudentsPortal is highly documented on the [guide](https://github.com/sharon846/StudentsPortal/guide.pdf) and on Version 1.1.0 Down [here](#version-110)
 
 [![StudentsPortal](screenshot.png)](screenshot.png)
 
-## Requirements
+### Requirements
 
 - PHP 7.0.0 or higher.
 - Fileinfo, iconv, zip, tar, mysql, pdo and mbstring extensions are strongly recommended.
